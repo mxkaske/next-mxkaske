@@ -5,9 +5,9 @@ interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
 }
 const Container = ({ children, className, ...props }: ContainerProps) => {
   return (
-    <main className={`container mx-auto ${className || ""}`} {...props}>
+    <div className={`container mx-auto p-4 ${className || ""}`} {...props}>
       {children}
-    </main>
+    </div>
   );
 };
 
