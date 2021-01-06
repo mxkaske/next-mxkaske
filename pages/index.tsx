@@ -17,8 +17,8 @@ export default function Home() {
         <p>Hello World!</p>
         <Button>Hello World!</Button>
         <div className="flex flex-wrap -mx-4">
-          {[...thumbnails, ...thumbnails].map((thumbnail) => (
-            <Thumbnail {...thumbnail} />
+          {[...thumbnails, ...thumbnails].map((thumbnail, idx) => (
+            <Thumbnail key={idx} {...thumbnail} />
           ))}
         </div>
       </Container>
