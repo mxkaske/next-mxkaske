@@ -1,5 +1,6 @@
 import Head from "next/head";
-import { Button, Container, Footer, NavBar } from "../components";
+import { Button, Container, Footer, NavBar, Thumbnail } from "../components";
+import { thumbnails } from "../config";
 
 export default function Home() {
   return (
@@ -15,6 +16,11 @@ export default function Home() {
         <h3>Hello World!</h3>
         <p>Hello World!</p>
         <Button>Hello World!</Button>
+        <div className="flex flex-wrap -mx-4">
+          {[...thumbnails, ...thumbnails].map((thumbnail) => (
+            <Thumbnail {...thumbnail} />
+          ))}
+        </div>
       </Container>
       <Footer />
     </div>

@@ -10,7 +10,11 @@ module.exports = {
       neutral: colors.gray,
       white: colors.white,
     },
-    extend: {},
+    extend: {
+      width: {
+        "(1/2-8)": "calc(50% - 2rem)",
+      },
+    },
   },
   variants: {
     extend: {},
