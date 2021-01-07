@@ -24,7 +24,7 @@ const Thumbnail = ({
   return (
     <div
       // flex flex-col flex-1 lg:flex-row
-      className={`w-full lg:w-(1/2-8) m-4 ${className || ""}`}
+      className={`w-full md:w-(1/2-8) m-4 ${className || ""}`}
       {...props}
     >
       <div className="flex flex-col rounded-3xl border border-primary-300 overflow-hidden">

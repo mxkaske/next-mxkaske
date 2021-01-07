@@ -23,8 +23,8 @@ const TechStack = () => {
       <h3>Backend Development</h3>
       <TagCollection tags={techStack.backend} className="mb-2 text-xs" />
       <p>
-        Of course <Tag label="typescript" className="text-xs" /> should not
-        miss. <br />
+        Of course <Tag label="typescript" className="text-xs" /> and
+        <Tag label="ES6" className="text-xs" /> should not miss. <br />
         My personal focus in 2021 will be more Backend Development without
         negliciating the other domains.
       </p>

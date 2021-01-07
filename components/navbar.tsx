@@ -39,7 +39,7 @@ const NavBar = () => {
       }}
     >
       <Container className="flex justify-between items-center">
-        <h3 className="text-white">mxkaske</h3>
+        <h3 className="text-white mb-0">mxkaske</h3>
         <div className="flex">
           <Button className="text-2xl text-white mr-4">
             <FiTwitter />

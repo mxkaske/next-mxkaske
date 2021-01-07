@@ -8,9 +8,9 @@ const Footer = () => {
     <footer className="bg-primary-200">
       <Container className="flex flex-col sm:flex-row space-between">
         <div className="flex-1">
-          <Button className="block pb-2">LinkedIn</Button>
-          <Button className="block pb-2">Twitter</Button>
-          <Button className="block pb-2">GitHub</Button>
+          <Button className="block mb-2">LinkedIn</Button>
+          <Button className="block mb-2">Twitter</Button>
+          <Button className="block mb-2">GitHub</Button>
           <Button className="block">Hashnode</Button>
         </div>
         <div className="flex flex-col items-end justify-end text-xs">
