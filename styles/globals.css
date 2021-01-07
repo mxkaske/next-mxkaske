@@ -4,18 +4,27 @@
 
 @layer base {
   h1 {
-    @apply text-3xl font-mono text-neutral-800;
+    @apply text-3xl font-mono text-black mb-4 font-bold;
   }
   h2 {
-    @apply text-2xl font-mono text-neutral-800;
+    @apply text-2xl font-mono text-black mb-3 font-semibold;
   }
   h3 {
-    @apply text-xl font-mono text-neutral-800;
+    @apply text-xl font-mono text-black mb-2 font-medium;
   }
   p {
-    @apply font-mono text-neutral-800;
+    @apply font-mono text-black mb-1;
   }
   button {
-    @apply font-mono text-primary-600;
+    @apply font-mono text-primary-600 hover:text-primary-700;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply py-2 px-4 bg-primary-600 text-white font-semibold rounded-full shadow-md hover:bg-primary-700 hover:text-white;
+  }
+  .btn-secondary {
+    @apply py-2 px-4 bg-secondary-600 text-primary-600 font-semibold rounded-full shadow-md hover:bg-secondary-700 hover:text-primary-600;
   }
 }
