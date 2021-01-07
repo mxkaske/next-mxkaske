@@ -10,13 +10,18 @@ const NavBar = () => {
   const controls = useAnimation();
 
   useEffect(() => {
-    return () => {
+    controls.start("visible");
+  }, []);
+
+  useEffect(
+    () =>
       displayHeader.onChange((e) => {
+        console.log(e);
         if (e) controls.start("visible");
         else controls.start("hidden");
-      });
-    };
-  }, []);
+      }),
+    [displayHeader]
+  );
 
   const container: Variants = {
     visible: { y: 0 },

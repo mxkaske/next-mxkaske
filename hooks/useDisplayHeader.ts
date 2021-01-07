@@ -2,15 +2,18 @@ import { useMotionValue, useViewportScroll } from "framer-motion";
 import { useEffect } from "react";
 import useViewportScrollDirection from "./useViewportScrollDirection";
 
+const ERROR_BOUNDARY = 0.01;
+
 const useDisplayHeader = () => {
   const { scrollY, scrollYProgress } = useViewportScroll();
   const scrollDirection = useViewportScrollDirection();
   const displayHeader = useMotionValue<boolean>(true);
 
-  useEffect(() => {
-    return () => {
+  useEffect(
+    () =>
       scrollY.onChange((e) => {
-        if (scrollYProgress.get() >= 1) {
+        console.log(scrollYProgress.get());
+        if (scrollYProgress.get() >= 1 - ERROR_BOUNDARY) {
           displayHeader.set(true);
           // navbar height 60 - delay
         } else if (e > 60 && scrollDirection.get() === "down") {
@@ -18,9 +21,9 @@ const useDisplayHeader = () => {
         } else if (scrollDirection.get() === "up") {
           displayHeader.set(true);
         }
-      });
-    };
-  }, []);
+      }),
+    [scrollDirection, scrollY, scrollYProgress]
+  );
 
   return displayHeader;
 };

@@ -6,8 +6,8 @@ const useViewportScrollDirection = () => {
   const currentScrollY = useMotionValue(0);
   const scrollDirection = useMotionValue<"up" | "down" | undefined>(undefined);
 
-  useEffect(() => {
-    const detect = () =>
+  useEffect(
+    () =>
       scrollY.onChange((e) => {
         if (e > currentScrollY.get()) {
           scrollDirection.set("down");
@@ -15,9 +15,9 @@ const useViewportScrollDirection = () => {
           scrollDirection.set("up");
         }
         currentScrollY.set(e);
-      });
-    return () => detect();
-  }, []);
+      }),
+    [scrollY]
+  );
 
   return scrollDirection;
 };
