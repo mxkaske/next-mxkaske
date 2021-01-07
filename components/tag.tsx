@@ -5,12 +5,13 @@ export interface TagProps extends HTMLAttributes<HTMLSpanElement> {
   color?: string;
 }
 
-const Tag = ({ label, color, className, ...props }: TagProps) => {
+const Tag = ({ label, color, className, onClick, ...props }: TagProps) => {
   return (
     <span
-      className={`bg-secondary-300 text-primary-600 text-xs rounded-full py-1 px-2 inline-block ${
-        className || ""
-      }`}
+      className={`bg-secondary-300 text-primary-600 rounded-full py-1 px-2 inline-block ${
+        onClick && "cursor-pointer hover:shadow-sm"
+      } ${className || ""}`}
+      onClick={onClick}
       {...props}
     >
       {label}
@@ -18,4 +19,19 @@ const Tag = ({ label, color, className, ...props }: TagProps) => {
   );
 };
 
+interface TagCollectionProps extends HTMLAttributes<HTMLParagraphElement> {
+  tags: TagProps[];
+}
+
+const TagCollection = ({ tags, ...props }: TagCollectionProps) => {
+  return (
+    <p {...props}>
+      {tags.map((tag) => (
+        <Tag {...tag} className={"mr-1 mb-1"} />
+      ))}
+    </p>
+  );
+};
+
 export default Tag;
+export { TagCollection };
