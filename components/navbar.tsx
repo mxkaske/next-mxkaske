@@ -30,7 +30,7 @@ const NavBar = () => {
 
   return (
     <motion.header
-      className="w-full bg-primary-600 fixed top-0"
+      className="w-full bg-primary-600 fixed top-0 z-10"
       variants={container}
       animate={controls}
       initial="hidden"
@@ -45,20 +45,25 @@ const NavBar = () => {
           </h3>
         </Link>
         <div className="flex">
-          <a
-            href="https://twitter.com/mxkaske"
-            target="_blank"
-            className="text-2xl text-white mr-4 hover:text-secondary-300"
+          <button
+            className="text-white mr-4"
+            onClick={() => window.open("https://twitter.com/mxkaske", "_blank")}
+            aria-label="twitter"
           >
             <FiTwitter />
-          </a>
-          <a
-            href="https://github.com/maximiliankaske/next-mxkaske"
-            target="_blank"
-            className="text-2xl text-white hover:text-secondary-300"
+          </button>
+          <button
+            onClick={() =>
+              window.open(
+                "https://github.com/maximiliankaske/next-mxkaske",
+                "_blank"
+              )
+            }
+            className="text-white"
+            aria-label="github"
           >
             <FiGithub />
-          </a>
+          </button>
         </div>
       </Container>
     </motion.header>

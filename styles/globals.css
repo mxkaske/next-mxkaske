@@ -19,7 +19,7 @@
     @apply font-mono text-black mb-1;
   }
   button {
-    @apply font-mono text-primary-600 hover:text-primary-700;
+    @apply font-mono text-2xl text-primary-600 hover:text-secondary-300;
   }
   a {
     @apply font-mono text-primary-600 underline hover:text-primary-600 hover:no-underline cursor-pointer;
@@ -28,7 +28,7 @@
 
 @layer components {
   .btn-primary {
-    @apply py-2 px-4 bg-primary-600 text-white font-semibold rounded-full shadow-md hover:bg-primary-700 hover:text-white;
+    @apply py-2 px-4 bg-primary-600 text-white font-semibold rounded-full shadow-md hover:bg-primary-700;
   }
   .btn-secondary {
     @apply py-2 px-4 bg-secondary-300 text-primary-600 font-semibold rounded-full shadow-md hover:bg-secondary-400 hover:text-primary-600;

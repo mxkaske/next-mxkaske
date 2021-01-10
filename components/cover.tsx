@@ -41,9 +41,9 @@ const Cover = () => {
             <h1>
               Hi, I'm Max <Emoji symbol="👋" label="waving hand" />
             </h1>
-            <h3>
+            <p className="text-xl">
               I'm a <Tag label="JavaScript" /> Mobile and Frontend Developer.
-            </h3>
+            </p>
           </div>
         </div>
       </Container>

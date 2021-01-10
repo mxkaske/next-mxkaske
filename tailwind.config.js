@@ -10,7 +10,7 @@ module.exports = {
       neutral: colors.gray,
       white: colors.white,
       black: colors.gray[700],
-      danger: colors.red,
+      danger: colors.pink,
     },
     container: {
       center: true,

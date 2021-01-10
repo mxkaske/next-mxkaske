@@ -3,7 +3,6 @@ import Tag, { TagProps } from "./tag";
 
 export interface ThumbnailProps extends HTMLAttributes<HTMLDivElement> {
   title?: string;
-  subtitle?: string;
   description?: string;
   annotation?: string;
   img?: {
@@ -20,7 +19,6 @@ export interface ThumbnailProps extends HTMLAttributes<HTMLDivElement> {
 
 const Thumbnail = ({
   title,
-  subtitle,
   description,
   annotation,
   img,
@@ -38,20 +36,15 @@ const Thumbnail = ({
     >
       <div className="flex-1">
         <h2>{title}</h2>
-        <h4>{subtitle}</h4>
         <p>{description}</p>
-        <p className="text-danger-400">{annotation}</p>
+        <p className="text-danger-700">{annotation}</p>
         <p className="my-2">
           {tags.map((tag, index) => (
-            <Tag
-              key={index}
-              className={`${index !== tags.length && "mr-2"}`}
-              {...tag}
-            />
+            <Tag key={index} className={"mr-2 mb-1"} {...tag} />
           ))}
         </p>
       </div>
-      <a href={link.href} target="_blank">
+      <a href={link.href} target="_blank" rel="noreferrer">
         {link.label}
       </a>
     </div>

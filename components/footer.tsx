@@ -23,7 +23,7 @@ const sm: { label: string; href: string }[] = [
 
 const Footer = () => {
   return (
-    <footer className="bg-primary-200">
+    <footer className="bg-primary-100">
       <Container className="flex flex-col sm:flex-row space-between">
         <div className="flex-1">
           {sm.map(({ href, label }, index) => (
@@ -32,6 +32,7 @@ const Footer = () => {
               href={href}
               target="_blank"
               className="block mb-2 last:mb-0"
+              rel="noreferrer"
             >
               {label}
             </a>
