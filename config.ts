@@ -3,55 +3,52 @@ import faker from "faker";
 
 export const thumbnails: ThumbnailProps[] = [
   {
-    title: "Hello World!",
-    description: faker.lorem.paragraphs(2),
-    img: {
-      source: faker.image.nature(),
-      height: 400,
-      width: 400,
-    },
+    title: "Leila PRO",
+    description:
+      "Leila creates a horizontal access to guidelines that is suitable for everyday use. It is backed up and linked with scores, pathways, glossaries, epidemiological data and other reliable knowledge. Interdisciplinary and optimised for the condensed everyday work in the health sector. Knowledge in the palm of your hand. Accessible as App or WebApp.",
     tags: [
       {
-        label: "hello",
+        label: "react-native",
       },
       {
-        label: "world",
+        label: "react-native-web",
       },
     ],
+    link: {
+      label: "to leila.de",
+      href: "http://leila.de",
+    },
   },
   {
-    title: "Hello World!",
-    description: faker.lorem.paragraph(2),
-    img: {
-      source: faker.image.business(),
-      height: 400,
-      width: 400,
-    },
+    title: "ASH Quiz",
+    description:
+      "Familiar instructions for action in relation to medical activities, such as handling infusions and vascular access, were taken up and incorporated into an exciting quiz.",
     tags: [
       {
-        label: "hello",
-      },
-      {
-        label: "world",
+        label: "react-native",
       },
     ],
+    link: {
+      label: "to the App Store",
+      href:
+        "https://apps.apple.com/de/app/aktion-saubere-hände-quiz/id1509515197",
+    },
   },
   {
-    title: "Hello World!",
-    description: faker.lorem.paragraph(2),
-    img: {
-      source: faker.image.business(),
-      height: 400,
-      width: 400,
-    },
+    title: "Contact / Diary",
+    description:
+      "The Contact / Diary will make it easier for you to keep on track as to who you ́ve met with when and where.",
+    annotation:
+      "Has never been released due to App Store Covid-19 App restrictions.",
     tags: [
       {
-        label: "hello",
-      },
-      {
-        label: "world",
+        label: "react-native",
       },
     ],
+    link: {
+      label: "to the GitLab repository",
+      href: "https://gitlab.com/mchapen/contact-diary",
+    },
   },
 ];
 
@@ -92,8 +89,12 @@ export const techStack: TechStackProps = {
       onClick: () => window.open("https://reactjs.org/", "_blank"),
     },
     {
-      label: "react-query",
-      onClick: () => window.open("https://react-query.tanstack.com/", "_blank"),
+      label: "react-native-web",
+      onClick: () =>
+        window.open(
+          "http://necolas.github.io/react-native-web/docs/?path=/docs/overview-getting-started--page",
+          "_blank"
+        ),
     },
     {
       label: "nextjs",
