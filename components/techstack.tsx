@@ -5,8 +5,8 @@ import Emoji from "./emoji";
 
 const TechStack = () => {
   return (
-    <div>
-      <h2>
+    <div className="mt-2">
+      <h2 className="text-center">
         Tech Stack <Emoji symbol="📚" label="books" />
       </h2>
       <p>
@@ -22,11 +22,9 @@ const TechStack = () => {
       <TagCollection tags={techStack.web} className="mb-2 text-xs" />
       <h3>Backend Development</h3>
       <TagCollection tags={techStack.backend} className="mb-2 text-xs" />
-      <p>
-        Of course <Tag label="typescript" className="text-xs" /> and
-        <Tag label="ES6" className="text-xs" /> should not miss. <br />
-        My personal focus in 2021 will be more Backend Development without
-        negliciating the other domains.
+      <p className="pt-2">
+        I'm working with <Tag label="TypeScript" className="text-xs" /> and{" "}
+        <Tag label="ES6" className="text-xs" />.
       </p>
     </div>
   );
