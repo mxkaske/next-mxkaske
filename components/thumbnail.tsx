@@ -1,5 +1,5 @@
 import React, { HTMLAttributes } from "react";
-import Tag, { TagProps } from "./tag";
+import Tag, { TagCollection, TagProps } from "./tag";
 
 export interface ThumbnailProps extends HTMLAttributes<HTMLDivElement> {
   title?: string;
@@ -38,11 +38,7 @@ const Thumbnail = ({
         <h2>{title}</h2>
         <p>{description}</p>
         <p className="text-danger-700">{annotation}</p>
-        <p className="my-2">
-          {tags.map((tag, index) => (
-            <Tag key={index} className={"mr-2 mb-1"} {...tag} />
-          ))}
-        </p>
+        <TagCollection tags={tags} className="my-2" />
       </div>
       <a href={link.href} target="_blank" rel="noreferrer">
         {link.label}

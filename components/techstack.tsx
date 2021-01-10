@@ -17,14 +17,13 @@ const TechStack = () => {
         The belowed tags are libraries/frameworks where I feel confident with!
       </p>
       <h3>Mobile Development</h3>
-      <TagCollection tags={techStack.mobile} className="mb-2 text-xs" />
+      <TagCollection tags={techStack.mobile} className="mb-4 text-xs" />
       <h3>Web Development</h3>
-      <TagCollection tags={techStack.web} className="mb-2 text-xs" />
+      <TagCollection tags={techStack.web} className="mb-4 text-xs" />
       <h3>Backend Development</h3>
-      <TagCollection tags={techStack.backend} className="mb-2 text-xs" />
-      <p className="pt-2">
-        I'm working with <Tag label="TypeScript" className="text-xs" /> and{" "}
-        <Tag label="ES6" className="text-xs" />.
+      <TagCollection tags={techStack.backend} className="mb-4 text-xs" />
+      <p>
+        I'm working with <Tag label="TypeScript" /> and <Tag label="ES6" />.
       </p>
     </div>
   );

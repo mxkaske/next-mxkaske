@@ -15,8 +15,8 @@ const Cover = () => {
     <div className="pt-12 bg-primary-100">
       <Container className="h-full flex md:flex-column justify-between">
         <div className="flex flex-col flex-1">
-          <div className="flex flex-col md:flex-row flex-1 justify-between">
-            <div className="flex flex-col flex-1 justify-center my-4 max-w-lg">
+          <div className="flex flex-col md:flex-row flex-1 justify-between my-4">
+            <div className="flex flex-col flex-1 justify-center max-w-lg">
               {motto.map((text, index) => (
                 <div key={index} className="mb-2">
                   <h3
@@ -28,7 +28,7 @@ const Cover = () => {
                 </div>
               ))}
             </div>
-            <div className="self-end p-4">
+            <div className="self-end">
               <Image
                 src={"/max.svg"}
                 height={400}

@@ -39,15 +39,14 @@ const Footer = () => {
           ))}
         </div>
         <div className="flex flex-col items-end justify-end text-xs">
-          <p className="pb-1">
+          <p>
             designed by
             <Tag label="mxkaske" className="ml-1" />
           </p>
-          <p className="pb-1">
-            build with
-            <Tag label="nextjs" className="ml-1" />
-            <Tag label="tailwindcss" className="block ml-1" />
-            <Tag label="framer" className="block ml-1" />
+          <p>
+            build with <Tag label="nextjs" />
+            <Tag label="tailwindcss" />
+            <Tag label="framer" />
           </p>
           <p>
             deployed on
