@@ -31,7 +31,7 @@ const Cover = () => {
             <div className="self-end">
               <Image
                 src={"/max.svg"}
-                height={400}
+                height={350}
                 width={400}
                 alt="max profile"
               />
