@@ -16,8 +16,15 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Create Next App</title>
+        <title>mxkaske</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="description" content="my portfolio" />
+        <meta property="og:image" content="/max.png" />
+        <meta property="og:title" content="mxkaske" />
+        <meta property="og:description" content="my porfolio" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="http://mxkaske.dev" />
+        <meta property="og:site_name" content="mxkaske" />
       </Head>
       <NavBar />
       <Cover />
