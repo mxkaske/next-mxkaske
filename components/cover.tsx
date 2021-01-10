@@ -18,7 +18,7 @@ const Cover = () => {
           <div className="flex flex-col md:flex-row flex-1 justify-between">
             <div className="flex flex-col flex-1 justify-center my-4 max-w-lg">
               {motto.map((text, index) => (
-                <div className="mb-2">
+                <div key={index} className="mb-2">
                   <h3
                     key={index}
                     className="py-1 px-1 bg-primary-600 text-white inline"
