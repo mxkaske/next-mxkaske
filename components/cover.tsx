@@ -3,40 +3,44 @@ import Container from "./container";
 import Emoji from "./emoji";
 import Tag from "./tag";
 
+const motto = [
+  "If you run, you may stumble some day",
+  "If you stay, others will surpass you",
+  "Find a reasonable speed to move forward",
+];
+
 const Cover = () => {
   return (
-    <div className="pt-12 bg-primary-200 h-160 max-h-screen">
-      <Container className="h-full flex justify-between">
-        <div className="flex flex-col">
-          <div className="flex flex-col flex-1 justify-center max-w-lg">
-            <div>
-              <h3 className="px-1 bg-primary-600 text-white inline-block">
-                If you run, you may stumble some day.
-              </h3>
+    <div className="pt-12 bg-primary-100">
+      <Container className="h-full flex md:flex-column justify-between">
+        <div className="flex flex-col flex-1">
+          <div className="flex flex-col md:flex-row flex-1 justify-between">
+            <div className="flex flex-col flex-1 justify-center my-4 max-w-lg">
+              {motto.map((text, index) => (
+                <div className="mb-2">
+                  <h3
+                    key={index}
+                    className="py-1 px-1 bg-primary-600 text-white inline"
+                  >
+                    {text}
+                  </h3>
+                </div>
+              ))}
             </div>
-            <div>
-              <h3 className="px-1 bg-primary-600 text-white inline-block">
-                If you stay, others will surpass you.
-              </h3>
-            </div>
-            <div>
-              <h3 className="px-1 bg-primary-600 text-white inline-block">
-                Find a reasonable speed to move forward!
-              </h3>
-            </div>
+            <img
+              src={"/max.svg"}
+              style={{ height: 400, width: 400 }}
+              className="self-end p-4"
+            />
           </div>
           <div>
             <h1>
               Hi, I'm Max <Emoji symbol="👋" label="waving hand" />
             </h1>
             <h3>
-              I'm a <Tag label="JavaScript" /> Mobile and Frontend Developer
-              with the focus on the React Ecosystem.
+              I'm a <Tag label="JavaScript" /> Mobile and Frontend Developer.
             </h3>
           </div>
-        </div>
-        <div>
-          <img src="/max.svg" style={{ height: 500, width: 500 }} />
         </div>
       </Container>
     </div>
