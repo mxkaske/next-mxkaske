@@ -2,6 +2,7 @@ import React from "react";
 import Container from "./container";
 import Emoji from "./emoji";
 import Tag from "./tag";
+import Image from "next/image";
 
 const motto = [
   "If you run, you may stumble some day",
@@ -27,11 +28,14 @@ const Cover = () => {
                 </div>
               ))}
             </div>
-            <img
-              src={"/max.svg"}
-              style={{ height: 400, width: 400 }}
-              className="self-end p-4"
-            />
+            <div className="self-end p-4">
+              <Image
+                src={"/max.svg"}
+                height={400}
+                width={400}
+                alt="max profile"
+              />
+            </div>
           </div>
           <div>
             <h1>
