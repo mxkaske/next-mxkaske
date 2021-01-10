@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import Link from "next/link";
 import { FiTwitter, FiGithub } from "react-icons/fi";
 import { motion, useAnimation, Variants } from "framer-motion";
 import Button from "./button";
@@ -39,14 +40,26 @@ const NavBar = () => {
       }}
     >
       <Container className="flex justify-between items-center">
-        <h3 className="text-white mb-0">mxkaske</h3>
+        <Link href="/">
+          <h3 className="text-white mb-0 cursor-pointer hover:text-secondary-300">
+            mxkaske
+          </h3>
+        </Link>
         <div className="flex">
-          <Button className="text-2xl text-white mr-4">
+          <a
+            href="https://twitter.com/mxkaske"
+            target="_blank"
+            className="text-2xl text-white mr-4 hover:text-secondary-300"
+          >
             <FiTwitter />
-          </Button>
-          <Button className="text-2xl text-white">
+          </a>
+          <a
+            href="https://github.com/maximiliankaske/next-mxkaske"
+            target="_blank"
+            className="text-2xl text-white hover:text-secondary-300"
+          >
             <FiGithub />
-          </Button>
+          </a>
         </div>
       </Container>
     </motion.header>
