@@ -57,7 +57,8 @@ const Footer = () => {
           </div>
         </div>
         <p className="text-center my-2">
-          {`</>`} with <Emoji label="red heart" symbol="❤️" /> | 2021 ©
+          <span className="text-sm">{`</>`}</span> with{" "}
+          <Emoji label="red heart" symbol="❤️" /> | 2021 ©
         </p>
       </Container>
     </footer>
