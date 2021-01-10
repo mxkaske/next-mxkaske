@@ -17,7 +17,6 @@ const NavBar = () => {
   useEffect(
     () =>
       displayHeader.onChange((e) => {
-        console.log(e);
         if (e) controls.start("visible");
         else controls.start("hidden");
       }),

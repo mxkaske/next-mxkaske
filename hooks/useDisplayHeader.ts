@@ -12,7 +12,6 @@ const useDisplayHeader = () => {
   useEffect(
     () =>
       scrollY.onChange((e) => {
-        console.log(scrollYProgress.get());
         if (scrollYProgress.get() >= 1 - ERROR_BOUNDARY) {
           displayHeader.set(true);
           // navbar height 60 - delay
