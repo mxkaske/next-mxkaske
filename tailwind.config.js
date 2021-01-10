@@ -10,6 +10,17 @@ module.exports = {
       neutral: colors.gray,
       white: colors.white,
       black: colors.gray[700],
+      danger: colors.red,
+    },
+    container: {
+      center: true,
+      screens: {
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1024px",
+        "2xl": "1024px",
+      },
     },
     extend: {
       height: {
@@ -24,7 +35,9 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      margin: ["last"],
+    },
   },
   plugins: [],
 };

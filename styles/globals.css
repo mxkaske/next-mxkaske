@@ -12,11 +12,17 @@
   h3 {
     @apply text-xl font-mono text-black mb-2 font-medium;
   }
+  h4 {
+    @apply text-lg font-mono text-black mb-1 font-medium;
+  }
   p {
     @apply font-mono text-black mb-1;
   }
   button {
     @apply font-mono text-primary-600 hover:text-primary-700;
+  }
+  a {
+    @apply font-mono text-primary-600 underline hover:text-primary-600 hover:no-underline cursor-pointer;
   }
 }
 
@@ -25,6 +31,6 @@
     @apply py-2 px-4 bg-primary-600 text-white font-semibold rounded-full shadow-md hover:bg-primary-700 hover:text-white;
   }
   .btn-secondary {
-    @apply py-2 px-4 bg-secondary-600 text-primary-600 font-semibold rounded-full shadow-md hover:bg-secondary-700 hover:text-primary-600;
+    @apply py-2 px-4 bg-secondary-300 text-primary-600 font-semibold rounded-full shadow-md hover:bg-secondary-400 hover:text-primary-600;
   }
 }
