@@ -12,7 +12,7 @@ const motto = [
 
 const Cover = () => {
   return (
-    <div className="pt-12 bg-primary-100">
+    <div className="pt-12 bg-primary-100 dark:bg-neutral-600">
       <Container className="h-full flex md:flex-column justify-between">
         <div className="flex flex-col flex-1">
           <div className="flex flex-col md:flex-row flex-1 justify-between my-4">

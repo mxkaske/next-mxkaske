@@ -37,7 +37,7 @@ const Thumbnail = ({
       <div className="flex-1">
         <h2>{title}</h2>
         <p>{description}</p>
-        <p className="text-danger-700">{annotation}</p>
+        <p className="text-danger-700 dark:text-danger-300">{annotation}</p>
         <TagCollection tags={tags} className="my-2" />
       </div>
       <a href={link.href} target="_blank" rel="noreferrer">

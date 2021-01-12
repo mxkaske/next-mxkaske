@@ -24,7 +24,7 @@ const sm: { label: string; href: string }[] = [
 
 const Footer = () => {
   return (
-    <footer className="bg-primary-100">
+    <footer className="bg-primary-100 dark:bg-neutral-600">
       <Container>
         <div className="flex flex-col sm:flex-row space-between mb-4">
           <div className="flex-1">

@@ -1,14 +1,15 @@
 import React, { useEffect } from "react";
 import Link from "next/link";
-import { FiTwitter, FiGithub } from "react-icons/fi";
+import { FiTwitter, FiGithub, FiSun, FiMoon } from "react-icons/fi";
 import { motion, useAnimation, Variants } from "framer-motion";
 import Button from "./button";
 import Container from "./container";
-import { useDisplayHeader } from "../hooks";
+import { useDarkMode, useDisplayHeader } from "../hooks";
 
 const NavBar = () => {
   const displayHeader = useDisplayHeader();
   const controls = useAnimation();
+  const { darkMode, setDarkMode } = useDarkMode();
 
   useEffect(() => {
     controls.start("visible");
@@ -59,10 +60,17 @@ const NavBar = () => {
                 "_blank"
               )
             }
-            className="text-white"
+            className="text-white mr-4"
             aria-label="github"
           >
             <FiGithub />
+          </button>
+          <button
+            onClick={() => setDarkMode((prev) => !prev)}
+            className="text-white"
+            aria-label="github"
+          >
+            {darkMode ? <FiSun /> : <FiMoon />}
           </button>
         </div>
       </Container>
