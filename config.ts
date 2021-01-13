@@ -29,7 +29,7 @@ export const thumbnails: ThumbnailProps[] = [
       },
     ],
     link: {
-      label: "to the App Store",
+      label: "to App Store",
       href:
         "https://apps.apple.com/de/app/aktion-saubere-hände-quiz/id1509515197",
     },
@@ -46,8 +46,9 @@ export const thumbnails: ThumbnailProps[] = [
       },
     ],
     link: {
-      label: "to the GitLab repository",
-      href: "https://gitlab.com/mchapen/contact-diary",
+      label: "to Google Play",
+      href:
+        "https://play.google.com/store/apps/details?id=com.lindgruengmbh.contact_diary",
     },
   },
 ];
