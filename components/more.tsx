@@ -9,6 +9,10 @@ const more: { label: string; href: string }[] = [
     label: "Pneumobörse",
     href: "https://zukunft.pneumologie.de/",
   },
+  {
+    label: "Coronavis",
+    href: "https://coronavis.de",
+  },
 ];
 
 const More = () => {
