@@ -14,7 +14,7 @@ import { thumbnails } from "../config";
 
 export default function Home() {
   return (
-    <div className="dark:bg-black">
+    <div className="dark:bg-black transition-colors duration-300">
       <Head>
         <title>mxkaske</title>
         <link rel="icon" href="/favicon.ico" />
