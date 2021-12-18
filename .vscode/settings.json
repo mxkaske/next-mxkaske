@@ -1,9 +1,0 @@
-{
-  "colorize.languages": [
-    "typescript",
-    "typescriptreact"
-  ],
-  "colorize.colorized_colors": ["HEXA"],
-  "editor.fontLigatures": true,
-  "editor.fontFamily": "Fira Code",
-}
