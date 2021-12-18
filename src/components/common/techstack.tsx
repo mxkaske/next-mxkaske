@@ -1,7 +1,7 @@
 import React from "react";
-import Tag, { TagCollection } from "./tag";
-import { techStack } from "../config";
-import Emoji from "./emoji";
+import Tag, { TagCollection } from "../ui/tag";
+import { techStack } from "../../../config";
+import Emoji from "../ui/emoji";
 
 const TechStack = () => {
   return (
@@ -11,7 +11,7 @@ const TechStack = () => {
       </h2>
       <div className="flex flex-wrap -mx-4">
         <div className="flex flex-col w-full md:w-(1/2-8) m-4 rounded-xl p-4">
-          <div className="flex-1 flex flex-col justify-center">
+          <div className="flex flex-col justify-center flex-1">
             <p>
               There will never be the best way to create a project. I'm always
               open minded for new frameworks and libraries.

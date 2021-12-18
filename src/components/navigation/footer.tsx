@@ -1,7 +1,7 @@
 import React from "react";
-import Container from "./container";
-import Emoji from "./emoji";
-import Tag from "./tag";
+import Container from "../common/container";
+import Emoji from "../ui/emoji";
+import Tag from "../ui/tag";
 
 const sm: { label: string; href: string }[] = [
   {
@@ -26,7 +26,7 @@ const Footer = () => {
   return (
     <footer className="bg-primary-100 dark:bg-neutral-600">
       <Container>
-        <div className="flex flex-col sm:flex-row space-between mb-4">
+        <div className="flex flex-col mb-4 sm:flex-row space-between">
           <div className="flex-1">
             {sm.map(({ href, label }, index) => (
               <a
@@ -56,7 +56,7 @@ const Footer = () => {
             </p>
           </div>
         </div>
-        <p className="text-center my-2">
+        <p className="my-2 text-center">
           <span className="text-sm">{`</>`}</span> with{" "}
           <Emoji label="red heart" symbol="❤️" /> | 2021 ©
         </p>

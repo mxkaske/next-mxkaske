@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import Link from "next/link";
 import { FiTwitter, FiGithub, FiSun, FiMoon } from "react-icons/fi";
 import { motion, useAnimation, Variants } from "framer-motion";
-import Container from "./container";
-import { useDisplayHeader } from "../hooks";
+import Container from "../common/container";
+import useDisplayHeader from "@/hooks/useDisplayHeader";
 import { useTheme } from "next-themes";
 
 const NavBar = () => {
@@ -31,7 +31,7 @@ const NavBar = () => {
 
   return (
     <motion.header
-      className="w-full bg-primary-600 fixed top-0 z-10"
+      className="fixed top-0 z-10 w-full bg-primary-600"
       variants={container}
       animate={controls}
       initial="hidden"
@@ -39,15 +39,15 @@ const NavBar = () => {
         type: "tween",
       }}
     >
-      <Container className="flex justify-between items-center">
+      <Container className="flex items-center justify-between">
         <Link href="/">
-          <h3 className="text-white mb-0 cursor-pointer hover:text-secondary-300">
+          <h3 className="mb-0 text-white cursor-pointer hover:text-secondary-300">
             mxkaske
           </h3>
         </Link>
         <div className="flex">
           <button
-            className="text-white mr-4"
+            className="mr-4 text-white"
             onClick={() => window.open("https://twitter.com/mxkaske", "_blank")}
             aria-label="twitter"
           >
@@ -60,7 +60,7 @@ const NavBar = () => {
                 "_blank"
               )
             }
-            className="text-white mr-4"
+            className="mr-4 text-white"
             aria-label="github"
           >
             <FiGithub />

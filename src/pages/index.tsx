@@ -1,20 +1,17 @@
 import Head from "next/head";
-import {
-  Button,
-  Container,
-  Cover,
-  Footer,
-  NavBar,
-  TechStack,
-  Thumbnail,
-  More,
-} from "../components";
-import Emoji from "../components/emoji";
-import { thumbnails } from "../config";
+import Container from "@/components/common/container";
+import Emoji from "@/components/ui/emoji";
+import { thumbnails } from "../../config";
+import Thumbnail from "@/components/common/thumbnail";
+import More from "@/components/common/more";
+import Cover from "@/components/common/cover";
+import NavBar from "@/components/navigation/navbar";
+import TechStack from "@/components/common/techstack";
+import Footer from "@/components/navigation/footer";
 
 export default function Home() {
   return (
-    <div className="dark:bg-black transition-colors duration-300">
+    <div className="transition-colors duration-300 dark:bg-black">
       <Head>
         <title>mxkaske</title>
         <link rel="icon" href="/favicon.ico" />

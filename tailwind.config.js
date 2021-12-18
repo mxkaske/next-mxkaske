@@ -1,7 +1,7 @@
 const colors = require("tailwindcss/colors");
 
 module.exports = {
-  purge: ["./pages/**/*.tsx", "./components/**/*.tsx"],
+  purge: ["./src/pages/**/*.tsx", "./src/components/**/*.tsx"],
   darkMode: "class", // 'media' or 'class'
   theme: {
     colors: {
@@ -9,7 +9,7 @@ module.exports = {
       secondary: colors.yellow,
       neutral: colors.gray,
       white: colors.white,
-      black: colors.gray[700],
+      black: colors.black,
       danger: colors.pink,
     },
     container: {

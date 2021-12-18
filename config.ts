@@ -1,5 +1,5 @@
-import { TagProps, ThumbnailProps } from "./components";
-import faker from "faker";
+import { TagProps } from "@/components/ui/tag";
+import { ThumbnailProps } from "@/components/common/thumbnail";
 
 export const thumbnails: ThumbnailProps[] = [
   {
@@ -30,8 +30,7 @@ export const thumbnails: ThumbnailProps[] = [
     ],
     link: {
       label: "to App Store",
-      href:
-        "https://apps.apple.com/de/app/aktion-saubere-hände-quiz/id1509515197",
+      href: "https://apps.apple.com/de/app/aktion-saubere-hände-quiz/id1509515197",
     },
   },
   {
@@ -47,8 +46,7 @@ export const thumbnails: ThumbnailProps[] = [
     ],
     link: {
       label: "to Google Play",
-      href:
-        "https://play.google.com/store/apps/details?id=com.lindgruengmbh.contact_diary",
+      href: "https://play.google.com/store/apps/details?id=com.lindgruengmbh.contact_diary",
     },
   },
 ];

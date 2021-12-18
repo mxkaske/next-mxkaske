@@ -1,5 +1,5 @@
 import React, { HTMLAttributes } from "react";
-import Tag, { TagCollection, TagProps } from "./tag";
+import Tag, { TagCollection, TagProps } from "../ui/tag";
 
 export interface ThumbnailProps extends HTMLAttributes<HTMLDivElement> {
   title?: string;

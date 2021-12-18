@@ -1,7 +1,7 @@
 import React from "react";
 import Container from "./container";
-import Emoji from "./emoji";
-import Tag from "./tag";
+import Emoji from "../ui/emoji";
+import Tag from "../ui/tag";
 import Image from "next/image";
 
 const motto = [
@@ -13,15 +13,15 @@ const motto = [
 const Cover = () => {
   return (
     <div className="pt-12 bg-primary-100 dark:bg-neutral-600">
-      <Container className="h-full flex md:flex-column justify-between">
+      <Container className="flex justify-between h-full md:flex-column">
         <div className="flex flex-col flex-1">
-          <div className="flex flex-col md:flex-row flex-1 justify-between my-4">
-            <div className="flex flex-col flex-1 justify-center max-w-lg">
+          <div className="flex flex-col justify-between flex-1 my-4 md:flex-row">
+            <div className="flex flex-col justify-center flex-1 max-w-lg">
               {motto.map((text, index) => (
                 <div key={index} className="mb-2">
                   <h3
                     key={index}
-                    className="py-1 px-1 bg-primary-600 text-white inline"
+                    className="inline px-1 py-1 text-white bg-primary-600"
                   >
                     {text}
                   </h3>
