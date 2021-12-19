@@ -8,7 +8,7 @@ export interface TagProps extends HTMLAttributes<HTMLSpanElement> {
 const Tag = ({ label, color, className, onClick, ...props }: TagProps) => {
   return (
     <span
-      className={`bg-secondary-300 text-primary-600 rounded-full py-1 px-2 mr-1 mb-1 inline-block ${
+      className={`bg-pink-300 text-indigo-600 rounded-full py-1 px-2 mr-1 mb-1 inline-block ${
         onClick && "cursor-pointer hover:shadow-md"
       } ${className || ""}`}
       onClick={onClick}

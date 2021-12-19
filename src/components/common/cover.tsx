@@ -12,7 +12,7 @@ const motto = [
 
 const Cover = () => {
   return (
-    <div className="pt-12 bg-primary-100 dark:bg-neutral-600">
+    <div className="pt-12 bg-indigo-100 dark:bg-gray-600">
       <Container className="flex justify-between h-full md:flex-column">
         <div className="flex flex-col flex-1">
           <div className="flex flex-col justify-between flex-1 my-4 md:flex-row">
@@ -21,7 +21,7 @@ const Cover = () => {
                 <div key={index} className="mb-2">
                   <h3
                     key={index}
-                    className="inline px-1 py-1 text-white bg-primary-600"
+                    className="inline px-1 py-1 text-white bg-indigo-600"
                   >
                     {text}
                   </h3>

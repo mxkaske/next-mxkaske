@@ -31,7 +31,7 @@ const NavBar = () => {
 
   return (
     <motion.header
-      className="fixed top-0 z-10 w-full bg-primary-600"
+      className="fixed top-0 z-10 w-full bg-indigo-600"
       variants={container}
       animate={controls}
       initial="hidden"
@@ -41,7 +41,7 @@ const NavBar = () => {
     >
       <Container className="flex items-center justify-between">
         <Link href="/">
-          <h3 className="mb-0 text-white cursor-pointer hover:text-secondary-300">
+          <h3 className="mb-0 text-white cursor-pointer hover:text-pink-300">
             mxkaske
           </h3>
         </Link>

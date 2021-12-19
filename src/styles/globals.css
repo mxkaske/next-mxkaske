@@ -2,35 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+/* TODO: REMOVE */
+/* @layer base {
   h1 {
-    @apply text-3xl font-mono text-black mb-4 font-bold dark:text-white;
+    @apply mb-4 font-mono text-3xl font-bold text-black dark:text-white;
   }
   h2 {
-    @apply text-2xl font-mono text-black mb-3 font-semibold dark:text-white;
+    @apply mb-3 font-mono text-2xl font-semibold text-black dark:text-white;
   }
   h3 {
-    @apply text-xl font-mono text-black mb-2 font-medium dark:text-white;
+    @apply mb-2 font-mono text-xl font-medium text-black dark:text-white;
   }
   h4 {
-    @apply text-lg font-mono text-black mb-1 font-medium dark:text-white;
+    @apply mb-1 font-mono text-lg font-medium text-black dark:text-white;
   }
   p {
-    @apply font-mono text-black mb-1 dark:text-white;
+    @apply mb-1 font-mono text-black dark:text-white;
   }
   button {
-    @apply font-mono text-2xl text-primary-600 hover:text-secondary-300;
+    @apply font-mono text-2xl text-indigo-600 hover:text-pink-300;
   }
   a {
-    @apply font-mono text-primary-600 underline hover:text-primary-600 hover:no-underline cursor-pointer dark:text-secondary-300 dark:hover:text-secondary-400;
+    @apply font-mono underline cursor-pointer text-indigo-600 hover:text-indigo-600 hover:no-underline dark:text-pink-300 dark:hover:text-pink-400;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply py-2 px-4 bg-primary-600 text-white font-semibold rounded-full shadow-md hover:bg-primary-700;
+    @apply px-4 py-2 font-semibold text-white rounded-full shadow-md bg-indigo-600 hover:bg-indigo-700;
   }
   .btn-secondary {
-    @apply py-2 px-4 bg-secondary-300 text-primary-600 font-semibold rounded-full shadow-md hover:bg-secondary-400 hover:text-primary-600;
+    @apply px-4 py-2 font-semibold rounded-full shadow-md bg-pink-300 text-indigo-600 hover:bg-pink-400 hover:text-indigo-600;
   }
-}
+} */
