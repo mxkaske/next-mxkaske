@@ -15,7 +15,7 @@ const Link: FC<Props> = ({ href, target, className, children, ...props }) => {
         target={target}
         href={href}
         className={cn(
-          "text-gray-800 hover:text-black dark:text-white dark:hover:text-gray-300",
+          "text-gray-700 hover:text-black dark:text-white dark:hover:text-gray-300",
           externalLink && "inline-flex items-center",
           className
         )}

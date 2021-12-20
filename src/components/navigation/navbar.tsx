@@ -1,80 +1,69 @@
-import React, { useEffect } from "react";
-import Link from "next/link";
-import { FiTwitter, FiGithub, FiSun, FiMoon } from "react-icons/fi";
-import { motion, useAnimation, Variants } from "framer-motion";
+import React from "react";
+import Link from "@/components/ui/link";
+import { FiSun, FiMoon } from "react-icons/fi";
 import Container from "../common/container";
-import useDisplayHeader from "@/hooks/useDisplayHeader";
 import { useTheme } from "next-themes";
+import { useRouter } from "next/router";
 
 const NavBar = () => {
-  const displayHeader = useDisplayHeader();
-  const controls = useAnimation();
   const { theme, setTheme } = useTheme();
-
-  useEffect(() => {
-    controls.start("visible");
-  }, []);
-
-  useEffect(
-    () =>
-      displayHeader.onChange((e) => {
-        if (e) controls.start("visible");
-        else controls.start("hidden");
-      }),
-    [displayHeader]
-  );
-
-  const container: Variants = {
-    visible: { y: 0 },
-    hidden: { y: -60 },
-  };
+  const router = useRouter();
+  const breadcrumbs = router.asPath.substring(1).split("/");
 
   return (
-    <motion.header
-      className="fixed top-0 z-10 w-full bg-indigo-600"
-      variants={container}
-      animate={controls}
-      initial="hidden"
-      transition={{
-        type: "tween",
-      }}
-    >
-      <Container className="flex items-center justify-between">
-        <Link href="/">
-          <h3 className="mb-0 text-white cursor-pointer hover:text-pink-300">
-            mxkaske
-          </h3>
-        </Link>
-        <div className="flex">
-          <button
-            className="mr-4 text-white"
-            onClick={() => window.open("https://twitter.com/mxkaske", "_blank")}
-            aria-label="twitter"
-          >
-            <FiTwitter />
-          </button>
-          <button
-            onClick={() =>
-              window.open(
-                "https://github.com/maximiliankaske/next-mxkaske",
-                "_blank"
-              )
-            }
-            className="mr-4 text-white"
-            aria-label="github"
-          >
-            <FiGithub />
-          </button>
-          <button
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="text-white"
-            aria-label="github"
-          >
-            {theme === "dark" ? <FiSun /> : <FiMoon />}
-          </button>
-        </div>
-      </Container>
-    </motion.header>
+    <header className="w-full h-14">
+      <div className="fixed w-full backdrop-blur-xl dark:backdrop-blur-3xl">
+        <Container className="flex items-center justify-between space-x-3">
+          <div className="flex flex-1">
+            <div>
+              <Link href="/" className="font-medium">
+                <span className="text-gray-500 dark:text-gray-400">mx</span>
+                kaske
+              </Link>
+            </div>
+            <div className="flex">
+              {breadcrumbs.map((breadcrumb, index) => (
+                <div key={breadcrumb} className="flex items-center">
+                  <svg
+                    className="flex-shrink-0 w-5 h-5 text-gray-300"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    aria-hidden="true"
+                  >
+                    <path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z" />
+                  </svg>
+                  <Link
+                    href={breadcrumbs.reduce(
+                      (prev, curr) =>
+                        prev.split("/").length <= index + 1
+                          ? `${prev}/${curr}`
+                          : `${prev}`,
+                      ""
+                    )}
+                    className="font-light line-clamp-1"
+                  >
+                    {breadcrumb}
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="flex items-center flex-shrink-0">
+            <button
+              className="text-gray-800 hover:text-black dark:text-white dark:hover:text-gray-300"
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            >
+              {theme === "dark" ? (
+                <FiSun className="w-5 h-5" />
+              ) : (
+                <FiMoon className="w-5 h-5" />
+              )}
+            </button>
+          </div>
+        </Container>
+      </div>
+    </header>
   );
 };
 

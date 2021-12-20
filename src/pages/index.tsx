@@ -1,47 +1,46 @@
-import Head from "next/head";
-import Container from "@/components/common/container";
-import Emoji from "@/components/ui/emoji";
-import { thumbnails } from "../../config";
-import Thumbnail from "@/components/common/thumbnail";
-import More from "@/components/common/more";
-import Cover from "@/components/common/cover";
 import NavBar from "@/components/navigation/navbar";
-import TechStack from "@/components/common/techstack";
-import Footer from "@/components/navigation/footer";
+import Container from "@/components/common/container";
+import Stack from "@/components/home/stack";
+import Heading from "@/components/ui/heading";
+import stackConfig from "@/config/home";
+import { allPosts } from ".contentlayer/data";
+import { InferGetStaticPropsType } from "next";
 
-export default function Home() {
+export default function Home({
+  posts,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <div className="transition-colors duration-300 dark:bg-black">
-      <Head>
-        <title>mxkaske</title>
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="description" content="my portfolio" />
-        <meta property="og:image" content="/max.png" />
-        <meta property="og:title" content="mxkaske" />
-        <meta property="og:description" content="my porfolio" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="http://mxkaske.dev" />
-        <meta property="og:site_name" content="mxkaske" />
-      </Head>
+    <div className="flex flex-col min-h-screen">
       <NavBar />
-      <Cover />
-      <Container className="divide-y divide-primary-600">
-        <div className="py-4">
-          <h2 className="text-center">
-            Project Highlights <Emoji symbol="🚀" label="rocket" />
-          </h2>
-          <div className="flex flex-wrap -mx-4">
-            {thumbnails.map((thumbnail, idx) => (
-              <Thumbnail key={idx} {...thumbnail} />
-            ))}
-            <More />
-          </div>
+      <Container className="flex-1">
+        <div className="max-w-3xl py-6">
+          <Heading>
+            I'm a Software Developer interested in developer pattern, user
+            experience, design systems.
+          </Heading>
+          <Heading>
+            Building. Thinking about projects, team communication.
+          </Heading>
         </div>
-        <div className="py-4">
-          <TechStack />
+        <div className="grid gap-8 py-16 sm:grid-cols-2 md:grid-cols-3">
+          <Stack
+            title="Writing"
+            items={posts.map((post) => ({
+              title: post.title,
+              description: post.excerpt,
+              href: `/blog/${post.slug}`,
+            }))}
+          />
+          {Object.keys(stackConfig).map((key) => (
+            <Stack key={key} {...stackConfig[key]} />
+          ))}
         </div>
       </Container>
-      <Footer />
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const posts = allPosts.sort((a, b) => (a.date > b.date ? 1 : -1)).slice(0, 3);
+  return { props: { posts } };
 }
