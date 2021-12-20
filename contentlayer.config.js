@@ -15,6 +15,11 @@ export const Post = defineDocumentType(() => ({
       description: "The date of the post",
       required: true,
     },
+    excerpt: {
+      type: "string",
+      description: "The excerpt of the post",
+      required: true,
+    },
   },
   computedFields: {
     slug: {
