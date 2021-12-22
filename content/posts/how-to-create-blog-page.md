@@ -1,6 +1,6 @@
 ---
 title: "Create a blog post page with ease"
-date: "2020-01-01"
+date: "2021-12-24"
 excerpt: "Develop a post page in 5 min with ease"
 ---
 
