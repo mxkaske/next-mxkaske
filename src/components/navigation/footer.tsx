@@ -15,31 +15,33 @@ const Footer = () => {
     `/api/github/commit/${COMMIT_SHA}`
   );
 
-  if (!commit.data) {
-    return null;
-  }
-
-  const formattedDistance = formatDistance(
-    new Date(commit.data.author.date),
-    new Date()
-  );
-
   return (
     <footer>
-      <Container className="text-sm font-light">
-        <div className="flex flex-col md:space-x-1 md:flex-row">
-          <Text className="italic whitespace-nowrap">
-            <span className="font-medium">Last Commit Message </span>(
-            {formattedDistance} ago):
-          </Text>
-          <Link
-            href={commit.data.html_url}
-            target="_blank"
-            rel="noopener"
-            className="mb-1"
-          >
-            <code>`{commit.data.message}`</code>
-          </Link>
+      <Container className="text-xs italic font-light text-gray-600 dark:text-gray-400">
+        <div className="flex flex-col justify-between space-y-1 sm:flex-row sm:space-x-1 sm:space-y-0">
+          <div className="flex flex-col md:space-x-1 md:flex-row">
+            {commit?.data ? (
+              <>
+                <Text className="whitespace-nowrap">
+                  <span className="font-medium">Last Commit Message </span>(
+                  {formatDistance(
+                    new Date(commit.data.author.date),
+                    new Date()
+                  )}{" "}
+                  ago):
+                </Text>
+                <Link
+                  href={commit.data.html_url}
+                  target="_blank"
+                  rel="noopener"
+                  className="mb-1"
+                >
+                  <code>`{commit.data.message}`</code>
+                </Link>{" "}
+              </>
+            ) : null}
+          </div>
+          <Text>Berlin, 2021</Text>
         </div>
       </Container>
     </footer>
