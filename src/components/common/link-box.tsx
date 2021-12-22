@@ -1,10 +1,11 @@
 import React, { FC } from "react";
 import { FiArrowUpRight } from "react-icons/fi";
-import Link, { LinkProps } from "../ui/link";
+import Link, { LinkProps } from "next/link";
 import Text from "../ui/text";
 
 interface Props extends LinkProps {
   title: string;
+  href: string;
 }
 
 const LinkBox: FC<Props> = ({ href, title, children }) => {
