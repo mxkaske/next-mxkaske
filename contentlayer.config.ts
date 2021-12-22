@@ -1,5 +1,6 @@
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
-import highlight from "rehype-highlight";
+import prism from "rehype-prism-plus";
+import readingTime from "reading-time";
 
 export const Post = defineDocumentType(() => ({
   name: "Post",
@@ -26,15 +27,15 @@ export const Post = defineDocumentType(() => ({
       type: "string",
       resolve: (_) => _._raw.sourceFileName.replace(/\.[^.$]+$/, ""),
     },
-    // readingTime: {
-    //   type: "json",
-    //   resolve: (_) => readingTime(_.body.raw, { wordsPerMinute: 300 }),
-    // },
+    readingTime: {
+      type: "string",
+      resolve: (_) => readingTime(_.body.raw).text,
+    },
   },
 }));
 
 export default makeSource({
   contentDirPath: "content",
   documentTypes: [Post],
-  markdown: { rehypePlugins: [highlight] },
+  markdown: { rehypePlugins: [prism] },
 });
