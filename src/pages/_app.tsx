@@ -1,6 +1,8 @@
 import "@/styles/globals.css";
 import { ThemeProvider } from "next-themes";
 import Head from "next/head";
+import { SWRConfig } from "swr";
+import swrConfig from "swr.config";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -17,9 +19,11 @@ function MyApp({ Component, pageProps }) {
         <meta property="og:url" content="http://mxkaske.dev" />
         <meta property="og:site_name" content="mxkaske" />
       </Head>
-      <ThemeProvider attribute="class">
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <SWRConfig value={swrConfig}>
+        <ThemeProvider attribute="class">
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </SWRConfig>
     </>
   );
 }
