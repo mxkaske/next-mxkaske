@@ -3,11 +3,17 @@ import { default as NextLink, LinkProps as NextLinkProps } from "next/link";
 import cn from "classnames";
 import { FiArrowUpRight } from "react-icons/fi";
 
-interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
+export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string;
 }
 
-const Link: FC<Props> = ({ href, target, className, children, ...props }) => {
+const Link: FC<LinkProps> = ({
+  href,
+  target,
+  className,
+  children,
+  ...props
+}) => {
   const externalLink = target === "_blank";
   return (
     <NextLink href={href}>
