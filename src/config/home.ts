@@ -46,23 +46,10 @@ const stackConfig: Record<string, Stack> = {
     title: "Open Sourcing",
     items: [
       {
-        href: "https://github.com",
+        href: "https://github.com/maximiliankaske/next-mxkaske",
         title: "mxkaske.dev",
         description:
           "My personal experimentation for new design and implementation patterns",
-      },
-    ],
-  },
-  stack: {
-    title: "Stacking",
-    items: [
-      {
-        href: "https://nextjs.org",
-        title: "NextJS",
-      },
-      {
-        href: "https://google.com",
-        title: "Firebase",
       },
     ],
   },
@@ -76,6 +63,10 @@ const stackConfig: Record<string, Stack> = {
       {
         href: "https://github.com/maximiliankaske",
         title: "Github",
+      },
+      {
+        href: "https://www.linkedin.com/in/maximilian-kaske-262227202/",
+        title: "LinkedIn",
       },
     ],
   },

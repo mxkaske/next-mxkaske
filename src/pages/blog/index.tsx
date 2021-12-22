@@ -1,30 +1,23 @@
 import { allPosts } from ".contentlayer/data";
 import { InferGetStaticPropsType } from "next";
-import Link from "next/link";
 import React from "react";
-import { format } from "date-fns";
 import Text from "@/components/ui/text";
 import Layout from "@/components/common/layout";
+import Details from "@/components/blog/details";
+import LinkBox from "@/components/common/link-box";
 
 const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <Layout className="lg:max-w-4xl">
-      <ul role="list" className="space-y-6">
+    <Layout>
+      <ul role="list" className="py-16 space-y-6">
         {posts.map((post) => (
           <li key={post.slug}>
-            <Link href={`/blog/${post.slug}`}>
-              <a className="block p-3 -m-3 rounded-md group hover:bg-gray-50 dark:hover:bg-neutral-800">
-                <div className="grid sm:grid-cols-3">
-                  <Text className="sm:col-span-2">{post.title}</Text>
-                  <Text className="order-last mb-1 text-sm italic text-left text-gray-600 align-baseline sm:order-none sm:text-right sm:col-span-1 dark:text-gray-400">
-                    <time>{format(new Date(post.date), "do MMMM yyyy")}</time>
-                  </Text>
-                  <Text className="text-gray-600 col-span-full dark:text-gray-400">
-                    {post.excerpt}
-                  </Text>
-                </div>
-              </a>
-            </Link>
+            <LinkBox href={`/blog/${post.slug}`} title={post.title}>
+              <Text className="text-gray-600 dark:text-gray-400">
+                {post.excerpt}
+              </Text>
+              <Details post={post} />
+            </LinkBox>
           </li>
         ))}
       </ul>
