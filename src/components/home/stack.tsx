@@ -1,6 +1,5 @@
-import Link from "next/link";
 import React from "react";
-import { FiArrowUpRight } from "react-icons/fi";
+import LinkBox from "../common/link-box";
 import Heading from "../ui/heading";
 import Text from "../ui/text";
 
@@ -22,32 +21,17 @@ const Stack = ({ title, items }: Props) => {
         {title}
       </Heading>
       <ul role="list" className="space-y-3">
-        {items.map((item) => {
-          const externalLink = !item.href.startsWith("/");
-          return (
-            <li key={item.href}>
-              <Link href={item.href}>
-                <a
-                  href={item.href}
-                  target={externalLink ? "_blank" : undefined}
-                  className="block p-3 -m-3 rounded-md group hover:bg-gray-50 dark:hover:bg-neutral-800"
-                >
-                  <Text className="flex items-center group-hover:underline">
-                    {item.title}{" "}
-                    {externalLink ? (
-                      <FiArrowUpRight className="w-4 h-4 ml-1" />
-                    ) : null}
-                  </Text>
-                  {item.description ? (
-                    <Text className="mb-0 text-gray-600 dark:text-gray-400">
-                      {item.description}
-                    </Text>
-                  ) : null}
-                </a>
-              </Link>
-            </li>
-          );
-        })}
+        {items.map((item) => (
+          <li key={item.href}>
+            <LinkBox href={item.href} title={item.title}>
+              {item.description ? (
+                <Text className="mb-0 text-gray-600 dark:text-gray-400">
+                  {item.description}
+                </Text>
+              ) : null}
+            </LinkBox>
+          </li>
+        ))}
       </ul>
     </div>
   );
