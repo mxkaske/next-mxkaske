@@ -37,6 +37,8 @@ export default function Home({
 }
 
 export async function getStaticProps() {
-  const posts = allPosts.sort((a, b) => (a.date > b.date ? 1 : -1)).slice(0, 3);
+  const posts = allPosts
+    .sort((a, b) => (new Date(a.date) < new Date(b.date) ? 1 : -1))
+    .slice(0, 3);
   return { props: { posts } };
 }
