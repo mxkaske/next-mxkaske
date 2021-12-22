@@ -5,19 +5,23 @@ type Stack = {
   items: Item[];
 };
 
+// next possibe stack: thinking (or prototyping, ideas corner)
+// adding ideas to the game
+
 const stackConfig: Record<string, Stack> = {
-  // DISCUSS: if using 'writing' here, we could define the order
-  // writing: {
-  //   title: "Writing",
-  //   items: [],
-  // },
   building: {
     title: "Building",
     items: [
       {
+        href: "https://precycle.today",
+        title: "Precycle",
+        description: "Co-Founder, building a plastic credit system.", // TODO: change
+      },
+      {
         href: "https://leila.de",
         title: "Leila",
-        description: "First employer. First real world application.", // TODO: change
+        description:
+          "Knowledge for everyday clinical practice - a Guideline App.",
       },
       {
         href: "https://coronavis.de",
@@ -32,7 +36,7 @@ const stackConfig: Record<string, Stack> = {
       {
         href: "https://twitter.com/peduarte",
         title: "pedro",
-        description: "Aswome for UI/UX improvements",
+        description: "Aswome for UI/UX improvements.",
       },
       {
         href: "https://twitter.com/leerob",
@@ -43,13 +47,13 @@ const stackConfig: Record<string, Stack> = {
     ],
   },
   openSourcing: {
-    title: "Open Sourcing",
+    title: "Open Source",
     items: [
       {
         href: "https://github.com/maximiliankaske/next-mxkaske",
         title: "mxkaske.dev",
         description:
-          "My personal experimentation for new design and implementation patterns",
+          "My playground for new design and implementation patterns.",
       },
     ],
   },
