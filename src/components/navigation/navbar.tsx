@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "@/components/ui/link";
 import { FiSun, FiMoon } from "react-icons/fi";
 import Container from "../common/container";
@@ -6,9 +6,15 @@ import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
 
 const NavBar = () => {
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
   const router = useRouter();
   const breadcrumbs = router.asPath.substring(1).split("/");
+
+  // After mounting, we have access to the theme
+  useEffect(() => setMounted(true), []);
+
+  const isDarkMode = mounted && resolvedTheme === "dark";
 
   return (
     <header className="w-full h-14">
@@ -52,9 +58,9 @@ const NavBar = () => {
           <div className="flex items-center flex-shrink-0">
             <button
               className="text-gray-800 hover:text-black dark:text-white dark:hover:text-gray-300"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              onClick={() => setTheme(isDarkMode ? "light" : "dark")}
             >
-              {theme === "dark" ? (
+              {isDarkMode ? (
                 <FiSun className="w-5 h-5" />
               ) : (
                 <FiMoon className="w-5 h-5" />
