@@ -6,6 +6,7 @@ import Text from "../ui/text";
 import { formatDistance } from "date-fns";
 import { COMMIT_SHA } from "swr.config";
 import Link from "../ui/link";
+import ThemeSwitch from "../common/theme-switch";
 
 // IDEA: access commit file information based on router
 // and display latest commit date
@@ -16,9 +17,13 @@ const Footer = () => {
   );
 
   return (
-    <footer>
-      <Container className="text-xs italic font-light text-gray-600 dark:text-gray-400">
-        <div className="flex flex-col justify-between space-y-1 sm:flex-row sm:space-x-1 sm:space-y-0">
+    <footer className="border-t border-gray-300 dark:border-gray-700">
+      <Container className="text-gray-600 dark:text-gray-400">
+        <div className="flex items-center space-x-2">
+          <Text className="font-light">Switch Theme:</Text>
+          <ThemeSwitch />
+        </div>
+        <div className="flex flex-col justify-between space-y-1 text-xs italic font-light sm:flex-row sm:space-x-1 sm:space-y-0">
           <div className="flex flex-col md:space-x-1 md:flex-row">
             {commit?.data ? (
               <>
