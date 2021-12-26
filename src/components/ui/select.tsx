@@ -1,9 +1,9 @@
 import React, { FC, SelectHTMLAttributes } from "react";
 import cn from "classnames";
 
-interface Props extends SelectHTMLAttributes<HTMLSelectElement> {}
+export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {}
 
-const Select: FC<Props> = ({ children, className, ...props }) => {
+const Select: FC<SelectProps> = ({ children, className, ...props }) => {
   return (
     <select
       className={cn(
