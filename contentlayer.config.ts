@@ -2,9 +2,12 @@ import { defineDocumentType, makeSource } from "contentlayer/source-files";
 import prism from "rehype-prism-plus";
 import readingTime from "reading-time";
 
+// LATER: add Project (/building/*md)
+// where I describe the things build
+
 export const Post = defineDocumentType(() => ({
   name: "Post",
-  filePathPattern: "posts/*.md",
+  filePathPattern: "writing/*.md",
   fields: {
     title: {
       type: "string",
@@ -21,6 +24,11 @@ export const Post = defineDocumentType(() => ({
       description: "The excerpt of the post",
       required: true,
     },
+    // highlight: {
+    //   type: "boolean",
+    //   description: "Publish the post on home page",
+    //   required: false,
+    // },
   },
   computedFields: {
     slug: {
