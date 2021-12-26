@@ -26,7 +26,9 @@ const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
 };
 
 export const getStaticProps = async () => {
-  const posts = allPosts.map((post) => post);
+  const posts = allPosts
+    .sort((a, b) => (new Date(a.date) < new Date(b.date) ? 1 : -1))
+    .map((post) => post);
   return { props: { posts } };
 };
 
