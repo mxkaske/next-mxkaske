@@ -25,7 +25,7 @@ export default function Home({
           items={posts.map((post) => ({
             title: post.title,
             description: post.excerpt,
-            href: `/blog/${post.slug}`,
+            href: `/writing/${post.slug}`,
           }))}
         />
         {Object.keys(stackConfig).map((key) => (
