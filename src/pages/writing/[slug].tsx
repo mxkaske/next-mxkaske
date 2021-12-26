@@ -13,7 +13,7 @@ export default function Post({
       <NextSeo title={post.title} description={post.excerpt} />
       <Details post={post} />
       <div
-        className="py-16 prose dark:prose-invert prose-a:decoration-gray-500 hover:prose-a:decoration-black dark:hover:prose-a:decoration-white prose-img:rounded-md prose-blockquote:rounded prose-em:text-gray-900 dark:prose-em:text-white prose-em:font-light"
+        className="pt-6 pb-16 prose dark:prose-invert prose-a:decoration-gray-500 hover:prose-a:decoration-black dark:hover:prose-a:decoration-white prose-img:rounded-md prose-blockquote:rounded prose-em:text-gray-900 dark:prose-em:text-white prose-em:font-light"
         dangerouslySetInnerHTML={{ __html: post.body.html }}
       />
     </Layout>

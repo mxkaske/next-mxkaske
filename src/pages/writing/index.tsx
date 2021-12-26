@@ -9,7 +9,7 @@ import LinkBox from "@/components/common/link-box";
 const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <Layout>
-      <ul role="list" className="py-16 space-y-6">
+      <ul role="list" className="pt-6 pb-16 space-y-6">
         {posts.map((post) => (
           <li key={post.slug}>
             <LinkBox href={`/writing/${post.slug}`} title={post.title}>
