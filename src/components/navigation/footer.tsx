@@ -3,7 +3,7 @@ import Container from "../common/container";
 import Text from "../ui/text";
 import ThemeSwitch from "../common/theme-switch";
 import Link from "../ui/link";
-import SlashIcon from "../ icon/Slash";
+import SlashIcon from "../icon/slash";
 
 // THINK: of a good way to display the paths with the SlashIcon
 

@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import React from "react";
 import Link from "@/components/ui/link";
-import SlashIcon from "../ icon/Slash";
+import SlashIcon from "../icon/slash";
 
 const Breadcrumbs = () => {
   const router = useRouter();
