@@ -30,22 +30,16 @@ const stackConfig: Record<string, Stack> = {
       },
     ],
   },
-  following: {
-    title: "Following",
-    items: [
-      {
-        href: "https://twitter.com/peduarte",
-        title: "pedro",
-        description: "Aswome for UI/UX improvements.",
-      },
-      {
-        href: "https://twitter.com/leerob",
-        title: "Leerob",
-        description:
-          "Awsome guy, learning from his open source website is dope.",
-      },
-    ],
-  },
+  // following: {
+  //   title: "Following",
+  //   items: [
+  //     {
+  //       href: "https://twitter.com/leerob",
+  //       title: "Leerob",
+  //       description: "Awsome guy. Learning from his open source website.",
+  //     },
+  //   ],
+  // },
   openSourcing: {
     title: "Open Source",
     items: [
