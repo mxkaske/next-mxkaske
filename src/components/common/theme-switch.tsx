@@ -15,7 +15,7 @@ const ThemeSwitch = () => {
       <Select
         onChange={(e) => setTheme(e.target.value)}
         defaultValue={theme}
-        className="focus:ring-0"
+        className="text-sm focus:ring-2"
       >
         <option value="dark">Dark</option>
         <option value="light">Light</option>
