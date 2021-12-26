@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import React from "react";
 import Link from "@/components/ui/link";
+import SlashIcon from "../ icon/Slash";
 
 const Breadcrumbs = () => {
   const router = useRouter();
@@ -10,15 +11,7 @@ const Breadcrumbs = () => {
     <div className="flex">
       {breadcrumbs.map((breadcrumb, index) => (
         <div key={breadcrumb} className="flex items-center">
-          <svg
-            className="flex-shrink-0 w-5 h-5 text-gray-300"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            aria-hidden="true"
-          >
-            <path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z" />
-          </svg>
+          <SlashIcon className="flex-shrink-0 w-5 h-5 text-gray-300" />
           <Link
             href={breadcrumbs.reduce(
               (prev, curr) =>
