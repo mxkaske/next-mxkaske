@@ -1,7 +1,7 @@
 ---
 title: "What is faker?"
 date: "2020-12-20"
-excerpt: "Stop searching for data"
+excerpt: "The best way to mock data in Node.js."
 ---
 
 ## Stop searching for fake data while prototyping of testing

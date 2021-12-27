@@ -46,8 +46,7 @@ const stackConfig: Record<string, Stack> = {
       {
         href: "https://github.com/maximiliankaske/next-mxkaske",
         title: "mxkaske.dev",
-        description:
-          "My playground for new design and implementation patterns.",
+        description: "My playground for new design and code patterns.",
       },
     ],
   },

@@ -12,10 +12,10 @@ export default function Home({
     <Layout>
       <div className="max-w-3xl py-6">
         <Heading>
-          I'm a Software Developer interested in developer pattern, user
-          experience and design systems.
+          I'm a design-minded Software Developer interested in code pattern,
+          user experience and design systems.
         </Heading>
-        <Heading>Building. Thinking about the feature.</Heading>
+        <Heading>Building. Thinking about the next feature.</Heading>
       </div>
       <div className="grid gap-8 py-16 sm:grid-cols-2 md:grid-cols-3">
         <Stack
