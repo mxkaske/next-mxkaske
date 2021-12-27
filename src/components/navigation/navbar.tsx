@@ -1,80 +1,37 @@
-import React, { useEffect } from "react";
-import Link from "next/link";
-import { FiTwitter, FiGithub, FiSun, FiMoon } from "react-icons/fi";
-import { motion, useAnimation, Variants } from "framer-motion";
+import React, { useEffect, useState } from "react";
+import Link from "@/components/ui/link";
 import Container from "../common/container";
-import useDisplayHeader from "@/hooks/useDisplayHeader";
 import { useTheme } from "next-themes";
+import Select from "../ui/select";
+import Breadcrumbs from "./breadcrumbs";
+import { FiXCircle } from "react-icons/fi";
 
 const NavBar = () => {
-  const displayHeader = useDisplayHeader();
-  const controls = useAnimation();
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme, theme, systemTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    controls.start("visible");
-  }, []);
+  // After mounting, we have access to the theme
+  useEffect(() => setMounted(true), []);
 
-  useEffect(
-    () =>
-      displayHeader.onChange((e) => {
-        if (e) controls.start("visible");
-        else controls.start("hidden");
-      }),
-    [displayHeader]
-  );
-
-  const container: Variants = {
-    visible: { y: 0 },
-    hidden: { y: -60 },
-  };
+  console.log(theme, systemTheme, resolvedTheme);
 
   return (
-    <motion.header
-      className="fixed top-0 z-10 w-full bg-primary-600"
-      variants={container}
-      animate={controls}
-      initial="hidden"
-      transition={{
-        type: "tween",
-      }}
-    >
-      <Container className="flex items-center justify-between">
-        <Link href="/">
-          <h3 className="mb-0 text-white cursor-pointer hover:text-secondary-300">
-            mxkaske
-          </h3>
-        </Link>
-        <div className="flex">
-          <button
-            className="mr-4 text-white"
-            onClick={() => window.open("https://twitter.com/mxkaske", "_blank")}
-            aria-label="twitter"
-          >
-            <FiTwitter />
-          </button>
-          <button
-            onClick={() =>
-              window.open(
-                "https://github.com/maximiliankaske/next-mxkaske",
-                "_blank"
-              )
-            }
-            className="mr-4 text-white"
-            aria-label="github"
-          >
-            <FiGithub />
-          </button>
-          <button
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="text-white"
-            aria-label="github"
-          >
-            {theme === "dark" ? <FiSun /> : <FiMoon />}
-          </button>
-        </div>
-      </Container>
-    </motion.header>
+    <header className="w-full h-14">
+      <div className="fixed w-full backdrop-blur-xl dark:backdrop-blur-md">
+        <Container className="flex items-center justify-between space-x-3">
+          <div className="flex flex-1">
+            <div>
+              <Link href="/" className="font-medium">
+                <span className="text-gray-500 dark:text-gray-400">mx</span>
+                kaske
+              </Link>
+            </div>
+            <Breadcrumbs />
+          </div>
+          <div className="flex items-center flex-shrink-0">{/* content */}</div>
+        </Container>
+      </div>
+    </header>
   );
 };
 

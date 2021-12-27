@@ -1,65 +1,35 @@
 import React from "react";
 import Container from "../common/container";
-import Emoji from "../ui/emoji";
-import Tag from "../ui/tag";
+import Text from "../ui/text";
+import ThemeSwitch from "../common/theme-switch";
+import Link from "../ui/link";
+import SlashIcon from "../icon/slash";
 
-const sm: { label: string; href: string }[] = [
-  {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/maximilian-kaske-262227202/",
-  },
-  {
-    label: "Twitter",
-    href: "https://twitter.com/mxkaske",
-  },
-  {
-    label: "GitHub",
-    href: "https://github.com/maximiliankaske",
-  },
-  {
-    label: "Hashnode",
-    href: "https://mxkaske.hashnode.dev",
-  },
+// THINK: of a good way to display the paths with the SlashIcon
+
+const paths = [
+  { label: "Home", href: "/" },
+  { label: "Writing", href: "/writing" },
 ];
 
 const Footer = () => {
   return (
-    <footer className="bg-primary-100 dark:bg-neutral-600">
-      <Container>
-        <div className="flex flex-col mb-4 sm:flex-row space-between">
-          <div className="flex-1">
-            {sm.map(({ href, label }, index) => (
-              <a
-                key={index}
-                href={href}
-                target="_blank"
-                className="block mb-2 last:mb-0"
-                rel="noreferrer"
-              >
+    <footer className="border-t border-gray-300 dark:border-gray-700">
+      <Container className="space-y-2 text-gray-600 dark:text-gray-400">
+        <div className="flex flex-col md:items-center md:justify-between md:flex-row">
+          <div className="space-x-3">
+            {paths.map(({ label, href }) => (
+              <Link href={href} className="font-light">
                 {label}
-              </a>
+              </Link>
             ))}
           </div>
-          <div className="flex flex-col items-end justify-end text-xs">
-            <p>
-              designed by
-              <Tag label="mxkaske" className="ml-1" />
-            </p>
-            <p>
-              build with <Tag label="nextjs" />
-              <Tag label="tailwindcss" />
-              <Tag label="framer" />
-            </p>
-            <p>
-              deployed on
-              <Tag label="vercel" className="ml-1" />
-            </p>
+          <div className="flex items-center space-x-2">
+            <Text className="font-light">Switch Theme:</Text>
+            <ThemeSwitch />
           </div>
         </div>
-        <p className="my-2 text-center">
-          <span className="text-sm">{`</>`}</span> with{" "}
-          <Emoji label="red heart" symbol="❤️" /> | 2021 ©
-        </p>
+        <Text className="text-xs italic text-center">Berlin, 2021</Text>
       </Container>
     </footer>
   );

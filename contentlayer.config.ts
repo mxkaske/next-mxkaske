@@ -1,9 +1,13 @@
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
-import highlight from "rehype-highlight";
+import prism from "rehype-prism-plus";
+import readingTime from "reading-time";
+
+// LATER: add Project (/building/*md)
+// where I describe the things build
 
 export const Post = defineDocumentType(() => ({
   name: "Post",
-  filePathPattern: "posts/*.md",
+  filePathPattern: "writing/*.md",
   fields: {
     title: {
       type: "string",
@@ -15,21 +19,31 @@ export const Post = defineDocumentType(() => ({
       description: "The date of the post",
       required: true,
     },
+    excerpt: {
+      type: "string",
+      description: "The excerpt of the post",
+      required: true,
+    },
+    // highlight: {
+    //   type: "boolean",
+    //   description: "Publish the post on home page",
+    //   required: false,
+    // },
   },
   computedFields: {
     slug: {
       type: "string",
       resolve: (_) => _._raw.sourceFileName.replace(/\.[^.$]+$/, ""),
     },
-    // readingTime: {
-    //   type: "json",
-    //   resolve: (_) => readingTime(_.body.raw, { wordsPerMinute: 300 }),
-    // },
+    readingTime: {
+      type: "string",
+      resolve: (_) => readingTime(_.body.raw).text,
+    },
   },
 }));
 
 export default makeSource({
   contentDirPath: "content",
   documentTypes: [Post],
-  markdown: { rehypePlugins: [highlight] },
+  markdown: { rehypePlugins: [prism] },
 });
