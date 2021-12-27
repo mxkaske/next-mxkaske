@@ -1,6 +1,5 @@
-TODO:
+# mxkaske.dev
 
-[ ] Add next-seo
-[ ] Only use basic tailwind configs
-[ ] Create Blog + `.md` reader
-[ ] Update Site with ped.ro based UI + radix primitives
+The code repository that powers [my personal website](https://mxkaske.dev).
+
+Built using [Next](https://nextjs.org) and deployed with [Vercel](https://vercel.com/home).
