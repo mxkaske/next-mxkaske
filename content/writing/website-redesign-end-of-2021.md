@@ -12,10 +12,12 @@ If you wonder how it looked like (dark vs. light):
 
 ![website-redesign-old.png](/assets/blog/website-redesign-old.png)
 
+And if you have not enough, check [v1.mxkaske.dev](https://v1.mxkaske.dev) to browse through.
+
 Two points you may have noticed:
 
 - The chosen colors palette has bad gradations
-- The text components are too monotone (this might come from the chosen monospace font...) and misses some hierarchy on the page
+- The text components are too monotone (this might come from the chosen monospace font...) and miss some hierarchy on the page
 
 Back then, I was mostly working on Mobile Applications. It was the first website build with [Nextjs](https://nextjs.org). A personal website is a playground where you experiment with new tools. Using it with the utility classes from [tailwindcss](https://tailwindcss.com/) was one of the biggest take aways I had and that are unthinkable when building in the web.
 
