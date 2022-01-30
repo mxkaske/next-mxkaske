@@ -48,6 +48,11 @@ const stackConfig: Record<string, Stack> = {
         title: "mxkaske.dev",
         description: "My playground for new design and code patterns.",
       },
+      {
+        href: "https://qwk.st",
+        title: "qwk.st",
+        description: "The quickest linktr.ee alternative. Claim your username.",
+      },
     ],
   },
   community: {
