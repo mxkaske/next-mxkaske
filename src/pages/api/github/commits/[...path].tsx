@@ -9,7 +9,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     switch (req.method) {
       case "GET":
         const commitsResponse = await fetch(
-          `https://api.github.com/repos/maximiliankaske/next-mxkaske/commits?sha=main&path=${path}`,
+          `https://api.github.com/repos/mxkaske/next-mxkaske/commits?sha=main&path=${path}`,
           {
             method: "GET",
             headers: new Headers({ "Content-Type": "application/json" }),

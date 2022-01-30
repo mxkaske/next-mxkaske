@@ -27,7 +27,7 @@ It doesn't mean that you don't have to know _CSS_ but it creates this **consiste
 
 ---
 
-A lot of my learnings over this year, fully working on web development, are represented in the new _UI/UX_ and the _code_ (see [GitHub](https://github.com/maximiliankaske/next-mxkaske)).
+A lot of my learnings over this year, fully working on web development, are represented in the new _UI/UX_ and the _code_ (see [GitHub](https://github.com/mxkaske/next-mxkaske)).
 
 If you are a developer interested in UI, have a look at the book [Refactoring UI](https://www.refactoringui.com) written by the makers from tailwindcss. I really recommend it.
 

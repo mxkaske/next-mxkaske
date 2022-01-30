@@ -463,7 +463,7 @@ For more deep insides, check out [@shopify/restyle](https://github.com/Shopify/r
 
 Software Mansion has a great [Webinar](https://swmansion.com/academy/webinars/haris-mahmood-styles-and-theming-in-react-native/) about Styling & Theming (introducing Restyle) with Haris Mamood, Senior React Native Engineer from Shopify.
 
-The `expo-restyle-example` repository is on [GitHub](https://github.com/maximiliankaske/expo-restyle-example). Don't hesitate to clone and play with it.
+The `expo-restyle-example` repository is on [GitHub](https://github.com/mxkaske/expo-restyle-example). Don't hesitate to clone and play with it.
 
 [Follow](https://twitter.com/mxkaske) me on Twitter to get updated about my latest posts.
 

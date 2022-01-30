@@ -7,7 +7,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     switch (req.method) {
       case "GET":
         const response = await octokit.rest.git.getCommit({
-          owner: "maximiliankaske",
+          owner: "mxkaske",
           repo: "next-mxkaske",
           commit_sha: sha,
         });

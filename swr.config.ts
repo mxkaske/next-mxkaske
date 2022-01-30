@@ -14,7 +14,7 @@ const swrConfig: SWRConfiguration = {
         author: {
           date: new Date(),
         },
-        html_url: "https://github.com/maximiliankaske/next-website",
+        html_url: "https://github.com/mxkaske/next-website",
       },
     },
   },
