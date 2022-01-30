@@ -49,7 +49,7 @@ const stackConfig: Record<string, Stack> = {
         description: "My playground for new design and code patterns.",
       },
       {
-        href: "https://qwk.st",
+        href: "https://github.com/mxkaske/qwk.st",
         title: "qwk.st",
         description: "The quickest linktr.ee alternative. Claim your username.",
       },
