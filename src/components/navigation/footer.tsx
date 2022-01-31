@@ -19,7 +19,7 @@ const Footer = () => {
         <div className="flex flex-col md:items-center md:justify-between md:flex-row">
           <div className="space-x-3">
             {paths.map(({ label, href }) => (
-              <Link href={href} className="font-light">
+              <Link key={href} href={href} className="font-light">
                 {label}
               </Link>
             ))}
