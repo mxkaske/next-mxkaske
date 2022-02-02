@@ -10,7 +10,7 @@ excerpt: "A simple example."
 
 ## Example
 
-Your page has a contact form with a `subject` select field. Based on the subject of the content, you'd like to redirect users from your marketing page to the contact from and prefill the `subject` with the users demand section. At the same time you'd like your user to select another subject and store it as information. You could create a new state for that and assign the value after the router `isReady` like:
+Your page has a contact form with a `subject` select field. Based on the subject of the content, you'd like to redirect users from your marketing page to the contact form and prefill the `subject=marketing` select box. At the same time you'd like your user to select another subject and store it as controlled value. You could create a new state for that and assign the value after the router `isReady` like:
 
 ```ts
 // import ...
