@@ -8,7 +8,7 @@ excerpt: "A simple example."
 
 > 🚨 This method will rerender your Component every time the `?subject=name` property will change but the data fetching methods like `getServerSideProps` or `getStaticProps` won't run again.
 
-## Example
+### Example
 
 Your page has a contact form with a `subject` select field. Based on the subject of the content, you'd like to redirect users from your marketing page to the contact form and prefill the `subject=marketing` select box. At the same time you'd like your user to select another subject and store it as controlled value. You could create a new state for that and assign the value after the router `isReady` like:
 
@@ -67,7 +67,9 @@ const Form = () => {
 
 We use `replace` instead of `push` so that the user can go back to the previous page without having to click through all the different selected states.
 
-Be aware that you will trigger a rerender also in each higher Component that is using the `useRouter()` hook. This sometimes is heavy to render and will slow down your website. But for simple use cases like below, it is totally valid!
+Be aware that you will trigger a rerender also in each higher Component that is using the `useRouter()` hook. This sometimes is heavy to render and will slow down your website. But for simple use cases like below, it is totally valid! See:
 
 - [/examples/shadow-route](https://mxkaske.dev/examples/shadow-route) (empty state)
 - [/examples/shadow-route?subject=marketing](https://mxkaske.dev/examples/shadow-route?subject=marketing)
+
+Read more about shadow routes in the [nextjs docs](https://nextjs.org/docs/routing/shallow-routing).
