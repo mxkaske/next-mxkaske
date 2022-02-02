@@ -6,7 +6,7 @@ excerpt: "A simple example."
 
 ## Using the pathname query as state management
 
-> 🚨 This method will rerender the full page every time the `?car=name` property will change but the data fetching methods like `getServerSideProps` or `getStaticProps` won't run again.
+> 🚨 This method will rerender your Component every time the `?subject=name` property will change but the data fetching methods like `getServerSideProps` or `getStaticProps` won't run again.
 
 ## Example
 
@@ -51,7 +51,7 @@ const Form = () => {
       <select
         value={router.query.subject}
         onChange={(e) =>
-          router.push(`?subject=${e.target.value}`, undefined, {
+          router.replace(`?subject=${e.target.value}`, undefined, {
             shallow: true,
           })
         }
@@ -65,9 +65,9 @@ const Form = () => {
 
 ```
 
-You won't loose any additional state you are using elsewhere on your page if you are using the `shallow` routing property, as this is not a . But you will trigger a rerender in each `const router = useRouter()` Component. If used in the top level Component, and the Sub-Components are heavy to render, this will slow your website drastically.
+We use `replace` instead of `push` so that the user can go back to the previous page without having to click through all the different selected states.
 
-Check out the examples pages:
+Be aware that you will trigger a rerender also in each higher Component that is using the `useRouter()` hook. This sometimes is heavy to render and will slow down your website. But for simple use cases like below, it is totally valid!
 
-- [/examples/shadow-route](https://mxkaske.dev/examples/shadow-route)
-- [/examples/shadow-route?car=bmw](https://mxkaske.dev/examples/shadow-route?car=bmw)
+- [/examples/shadow-route](https://mxkaske.dev/examples/shadow-route) (empty state)
+- [/examples/shadow-route?subject=marketing](https://mxkaske.dev/examples/shadow-route?subject=marketing)

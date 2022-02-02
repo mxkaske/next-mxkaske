@@ -13,8 +13,6 @@ const NavBar = () => {
   // After mounting, we have access to the theme
   useEffect(() => setMounted(true), []);
 
-  console.log(theme, systemTheme, resolvedTheme);
-
   return (
     <header className="w-full h-14">
       <div className="fixed w-full backdrop-blur-xl dark:backdrop-blur-md">

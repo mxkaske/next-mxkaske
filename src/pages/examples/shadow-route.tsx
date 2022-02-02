@@ -1,15 +1,16 @@
 import Layout from "@/components/common/layout";
-import Button from "@/components/ui/button";
 import Heading from "@/components/ui/heading";
 import Link from "@/components/ui/link";
 import Select from "@/components/ui/select";
 import Text from "@/components/ui/text";
+import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React from "react";
 
-const ShadowRoute = () => {
+const ShadowRoute = ({}: InferGetServerSidePropsType<
+  typeof getServerSideProps
+>) => {
   const router = useRouter();
-  const [counter, setCounter] = useState(0);
   return (
     <Layout className="space-y-4">
       <div>
@@ -17,32 +18,31 @@ const ShadowRoute = () => {
           Shadow route with pathname query as state management
         </Heading>
         <Text className="text-gray-600 dark:text-gray-400">
-          The car state is stored in the `router.query.car` state while the
-          counter is stored in the `useState`.
+          The subject state is stored in the `router.query.subject` state. If
+          `undefined`, it will show the "Select a subject" option.
         </Text>
       </div>
       <div>
         <Select
-          value={router.query.car || "empty"}
+          value={router.query.subject || "empty"}
           onChange={(e) =>
-            router.push(`?car=${e.target.value}`, undefined, {
-              shallow: true,
-            })
+            router.replace(
+              `/examples/shadow-route?subject=${e.target.value}`,
+              undefined,
+              {
+                shallow: true,
+              }
+            )
           }
         >
           <option value="empty" disabled>
-            Select a car
+            Select a subject
           </option>
-          <option value="audi">Audi</option>
-          <option value="bmw">BMW</option>
-          <option value="mercedes">Mercedes</option>
+          <option value="marketing">Marketing</option>
+          <option value="sales">Sales</option>
+          <option value="product">Product</option>
+          <option value="Legal">Legal</option>
         </Select>
-        <Button
-          className="block mt-3"
-          onClick={() => setCounter((prev) => prev + 1)}
-        >
-          Count: {counter}
-        </Button>
       </div>
       <Link
         target="_blank"
@@ -52,6 +52,13 @@ const ShadowRoute = () => {
       </Link>
     </Layout>
   );
+};
+
+export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
+  console.log("getServerSideProps");
+  return {
+    props: {},
+  };
 };
 
 export default ShadowRoute;

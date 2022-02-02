@@ -7,12 +7,15 @@ import cn from "classnames";
 // localhost:3000/examples/shadow-route?name=hello
 // .asPath ~ /examples/shadow-route?name=hello
 // .pathname ~ /examples/[slug]
-// .query ~ { name: "hello" }
+// .query ~ { name: "hello", slug: "how-to-..." }
 
 const Breadcrumbs = () => {
   const router = useRouter();
   const breadcrumbs = router.asPath.split("?")[0].substring(1).split("/");
-  const queryEntries = Object.entries(router.query);
+  // slug of a page will be included inside router.query...
+  const queryEntries = Object.entries(router.query).filter(
+    ([_, value]) => !breadcrumbs.includes(value as string)
+  );
 
   return (
     <div className="flex">
@@ -34,7 +37,7 @@ const Breadcrumbs = () => {
                   className={cn(
                     isLast &&
                       // 8.89px*16.45px is the canva of the slash icon - hypothenuse is ~19px
-                      "before:h-px before:w-[19px] before:bg-gray-700 dark:before:bg-gray-300 before:absolute before:-bottom-[3px] before:-translate-x-1/2 before:left-1/2"
+                      "before:h-px before:w-[19px] before:bg-gray-700 dark:before:bg-gray-300 before:absolute before:-bottom-0 before:-translate-x-1/2 before:left-1/2"
                   )}
                 >
                   {breadcrumb}
