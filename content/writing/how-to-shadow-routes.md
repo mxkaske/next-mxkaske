@@ -67,7 +67,7 @@ const Form = () => {
 
 We use `replace` instead of `push` so that the user can go back to the previous page without having to click through all the different selected states.
 
-Be aware that you will trigger a rerender also in each higher Component that is using the `useRouter()` hook. This sometimes is heavy to render and will slow down your website. But for simple use cases like below, it is totally valid! See:
+Be aware that you will trigger a rerender also in each higher Components that are using the `useRouter()` hook. This sometimes is heavy to render and will slow down your website. But for simple use cases like below, it is totally valid! See:
 
 - [/examples/shadow-route](https://mxkaske.dev/examples/shadow-route) (empty state)
 - [/examples/shadow-route?subject=marketing](https://mxkaske.dev/examples/shadow-route?subject=marketing)
