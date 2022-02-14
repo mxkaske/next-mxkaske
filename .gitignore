@@ -36,3 +36,5 @@ dist
 
 # Contentlayer
 .contentlayer
+
+.vercel
