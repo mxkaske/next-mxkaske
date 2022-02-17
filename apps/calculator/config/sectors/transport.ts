@@ -34,6 +34,10 @@ export const transport = {
         },
       },
     },
+    test: {
+      title: "Test",
+      type: "input",
+    },
   },
   value: {
     min: 0,

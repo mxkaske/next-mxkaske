@@ -3,7 +3,7 @@ type QuestionBase = {
   description?: string;
 };
 
-type QuestionSelect = QuestionBase & {
+export type QuestionSelect = QuestionBase & {
   type: "select";
   options: Record<
     string,
@@ -14,7 +14,7 @@ type QuestionSelect = QuestionBase & {
   >;
 };
 
-type QuestionInput = QuestionBase & {
+export type QuestionInput = QuestionBase & {
   type: "input";
 };
 
