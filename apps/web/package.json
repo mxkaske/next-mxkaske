@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "INIT_CWD=$PWD next build",
+    "build": "next build",
     "start": "next start",
     "tsc": "tsc",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf .next"
