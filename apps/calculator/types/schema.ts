@@ -3,15 +3,15 @@ type QuestionBase = {
   description?: string;
 };
 
+export type QuestionSelectOption = {
+  label: string;
+  value: number;
+};
+
 export type QuestionSelect = QuestionBase & {
   type: "select";
-  options: Record<
-    string,
-    {
-      label: string;
-      value: number;
-    }
-  >;
+  // use the key string as value for refering the actual value
+  options: Record<string, QuestionSelectOption>;
 };
 
 export type QuestionInput = QuestionBase & {

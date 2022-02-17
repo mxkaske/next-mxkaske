@@ -5,9 +5,10 @@ import { useLocalStorage } from "usehooks-ts";
 import { model } from "../config/model";
 import { QuestionInput, QuestionSelect } from "../types/schema";
 
+const { question } = model.sector.transport;
+
 const Home: NextPage = () => {
   const [mounted, setMounted] = useState(false);
-  const { question } = model.sector.transport;
   const [form, setForm] = useLocalStorage<Record<string, string>>("form", {}); // type
 
   useEffect(() => {
