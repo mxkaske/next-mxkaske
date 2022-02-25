@@ -22,17 +22,10 @@ export const transport = {
     },
     "car-usage": {
       title: "Car usage",
-      type: "select",
-      options: {
-        personal: {
-          label: "Personal",
-          value: 2,
-        },
-        family: {
-          label: "Family",
-          value: 1,
-        },
-      },
+      type: "range",
+      min: 0,
+      max: 100,
+      steps: 5,
     },
     test: {
       title: "Test",

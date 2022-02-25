@@ -14,11 +14,18 @@ export type QuestionSelect = QuestionBase & {
   options: Record<string, QuestionSelectOption>;
 };
 
+export type QuestionRange = QuestionBase & {
+  type: "range";
+  min: number;
+  max: number;
+  steps?: number;
+};
+
 export type QuestionInput = QuestionBase & {
   type: "input";
 };
 
-export type Question = QuestionSelect | QuestionInput;
+export type Question = QuestionSelect | QuestionInput | QuestionRange;
 
 export type Values = {
   min: number;
