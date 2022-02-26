@@ -2,7 +2,7 @@ module.exports = {
   content: [
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
-    "../../packages/ui/src**/*.{ts,tsx}", // detect ui changes
+    "../../packages/ui/src/**/*.{ts,tsx}", // detect ui changes
   ],
   darkMode: "class", // 'media' or 'class'
   theme: {
