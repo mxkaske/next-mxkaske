@@ -7,3 +7,4 @@ export { default as Select } from "./select";
 export { default as Text } from "./text";
 export { default as Loading } from "./loading";
 export { default as Range } from "./range";
+export { default as Label } from "./label";
