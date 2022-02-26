@@ -48,6 +48,8 @@ const QuestionCard = ({ id, value }: Props) => {
           <Input
             name={id}
             id={id}
+            // TODO: use granular access to input type "text" | "number" inside QuestionInput
+            type={"number"}
             defaultValue={defaultValue}
             onChange={(e) => setForm({ ...form, [id]: e.target.value })}
           />
