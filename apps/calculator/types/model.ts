@@ -1,12 +1,12 @@
 import { Question, Sector, Values } from "./schema";
 
 export type SectorProps = {
-  question: Record<string, Question>;
+  questions: Record<string, Question>;
   value: Values;
 };
 
 export type Footprint = {
-  sector: {
+  sectors: {
     [Property in Sector]?: SectorProps;
   };
   // products: {
@@ -14,4 +14,10 @@ export type Footprint = {
   //     questions: Question[];
   //   };
   // };
+};
+
+export type UserFootprint = {
+  sectors: {
+    [Property in Sector]?: Record<string, number | string>;
+  };
 };

@@ -1,7 +1,7 @@
-import { Footprint } from "../../types/model";
+import { SectorProps } from "../../types/model";
 
-export const transport = {
-  question: {
+export const transport: SectorProps = {
+  questions: {
     "primary-transportation": {
       title: "Primary transportation",
       type: "select",

@@ -1,21 +1,16 @@
 import React from "react";
 import { Input, Label, Range, Select } from "ui";
-import { useLocalStorage } from "usehooks-ts";
-import {
-  Question,
-  QuestionInput,
-  QuestionRange,
-  QuestionSelect,
-} from "../types/schema";
+import useActiveSector from "../hooks/useActiveSector";
+import { Question, QuestionSelect } from "../types/schema";
 
 interface Props {
-  id: string;
+  id: string; // key is protected
   value: Question;
 }
 
 const QuestionCard = ({ id, value }: Props) => {
-  const [form, setForm] = useLocalStorage<Record<string, string>>("form", {}); // type
-  const defaultValue = form[id];
+  const [sector, setSector] = useActiveSector();
+  const defaultValue = sector?.[id];
   const { type } = value;
   switch (type) {
     case "select": {
@@ -27,7 +22,7 @@ const QuestionCard = ({ id, value }: Props) => {
             name={id}
             id={id}
             defaultValue={defaultValue}
-            onChange={(e) => setForm({ ...form, [id]: e.target.value })}
+            onChange={(e) => setSector({ ...sector, [id]: e.target.value })}
           >
             {Object.entries(q.options).map(([k, o]) => {
               return (
@@ -41,7 +36,6 @@ const QuestionCard = ({ id, value }: Props) => {
       );
     }
     case "input": {
-      // const q = value as QuestionInput;
       return (
         <div className="flex flex-col">
           <Label htmlFor={id}>{id}</Label>
@@ -51,13 +45,12 @@ const QuestionCard = ({ id, value }: Props) => {
             // TODO: use granular access to input type "text" | "number" inside QuestionInput
             type={"number"}
             defaultValue={defaultValue}
-            onChange={(e) => setForm({ ...form, [id]: e.target.value })}
+            onChange={(e) => setSector({ [id]: e.target.value })}
           />
         </div>
       );
     }
     case "range": {
-      // const q = value as QuestionRange;
       return (
         <div>
           <Label htmlFor={id}>{id}</Label>
@@ -65,7 +58,7 @@ const QuestionCard = ({ id, value }: Props) => {
             name={id}
             id={id}
             defaultValue={defaultValue}
-            onChange={(e) => setForm({ ...form, [id]: e.target.value })}
+            onChange={(e) => setSector({ [id]: e.target.value })}
           />
         </div>
       );

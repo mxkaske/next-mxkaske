@@ -35,7 +35,12 @@ export type Values = {
   units: string; // or more specific e.g. "kg/person"
 };
 
-export type Sector = "transport" | "packaging" | "construction" | "clothing";
+export type Sector =
+  | "transport"
+  | "food"
+  | "packaging"
+  | "construction"
+  | "clothing";
 
 export type Product =
   | "consumer-bottles"
