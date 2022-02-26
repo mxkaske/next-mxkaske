@@ -11,7 +11,8 @@
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "clean": "turbo run clean && rm -rf node_modules && rm -rf .turbo"
+    "clean": "turbo run clean && rm -rf node_modules && rm -rf .turbo",
+    "storybook": "turbo run storybook --scope=apps/ui"
   },
   "devDependencies": {
     "prettier": "^2.5.1",
