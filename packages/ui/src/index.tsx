@@ -1,7 +1,8 @@
 import * as React from "react";
-export { default as Button } from "./button";
-export { default as Heading } from "./heading";
-export { default as Input } from "./input";
-export { default as Link } from "./link";
-export { default as Select } from "./select";
-export { default as Text } from "./text";
+import "../dist/output.css";
+export { default as Button } from "./button/button";
+export { default as Heading } from "./heading/heading";
+export { default as Input } from "./input/input";
+export { default as Link } from "./link/link";
+export { default as Select } from "./select/select";
+export { default as Text } from "./text/text";

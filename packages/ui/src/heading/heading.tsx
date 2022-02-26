@@ -1,11 +1,11 @@
 import * as React from "react";
 import cn from "classnames";
 
-interface Props extends React.HTMLAttributes<HTMLHeadingElement> {
+export interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
   as?: "h1" | "h2" | "h3" | "h4";
 }
 
-const Heading: React.FC<Props> = ({
+const Heading: React.FC<HeadingProps> = ({
   as: element = "h2",
   children,
   className,
