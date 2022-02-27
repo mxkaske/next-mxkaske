@@ -5,6 +5,7 @@ import SectorNav from "../components/SectorNav";
 import QuestionCard from "../components/QuestionCard";
 import { model } from "../config/model";
 import { Sector } from "../types/schema";
+import ActionBar from "../components/ActionBar";
 
 const Sector = ({
   sector,
@@ -21,7 +22,7 @@ const Sector = ({
   }
 
   return (
-    <div className="max-w-lg py-3 px-2 mx-auto min-h-screen flex flex-col">
+    <div className="max-w-lg py-3 px-2 mx-auto min-h-screen flex flex-col space-y-3">
       <SectorNav activeSector={sector} />
       <div className="flex-1 flex items-center justify-center min-h-max">
         <div className="flex-1 space-y-3">
@@ -30,6 +31,7 @@ const Sector = ({
           })}
         </div>
       </div>
+      <ActionBar />
     </div>
   );
 };

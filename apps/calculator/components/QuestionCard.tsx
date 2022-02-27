@@ -9,7 +9,7 @@ interface Props {
 }
 
 const QuestionCard = ({ id, value }: Props) => {
-  const [sector, setSector] = useActiveSector();
+  const { sector, setSector } = useActiveSector();
   const defaultValue = sector?.[id];
   const { type } = value;
   switch (type) {

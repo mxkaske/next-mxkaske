@@ -5,7 +5,7 @@ import useFootprint from "./useFootprint";
 
 const useActiveSector = () => {
   const router = useRouter();
-  const [footprint, setFootprint] = useFootprint();
+  const { footprint, setFootprint } = useFootprint();
 
   const { sector: key } = router.query as { sector: Sector };
 
@@ -27,7 +27,7 @@ const useActiveSector = () => {
     [setFootprint, footprint, key]
   );
 
-  return [sector, setSector] as const;
+  return { sector, setSector };
 };
 
 export default useActiveSector;
