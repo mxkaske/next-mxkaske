@@ -4,7 +4,7 @@
 
 /* TODO: move to range component in "packages/ui" */
 input[type="range"]::-webkit-slider-thumb {
-  @apply cursor-pointer bg-gray-700 dark:bg-gray-200 w-6 h-6 rounded-full appearance-none;
+  @apply cursor-pointer bg-gray-700 hover:bg-gray-900 border dark:bg-gray-200 dark:hover:bg-white w-6 h-6 rounded-full appearance-none;
 }
 
 input[type="range"]::-moz-range-thumb {
