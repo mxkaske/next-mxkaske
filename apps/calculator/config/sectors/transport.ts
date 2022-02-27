@@ -8,6 +8,7 @@ export const transport: SectorProps = {
       options: {
         car: {
           label: "Car",
+          // description
           value: 10,
         },
         motorbike: {
