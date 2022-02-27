@@ -64,7 +64,8 @@ const QuestionCard = ({ id, value }: Props) => {
       );
     }
     default:
-      return null;
+      const _exhaustiveCheck: never = value;
+      return _exhaustiveCheck;
   }
 };
 
