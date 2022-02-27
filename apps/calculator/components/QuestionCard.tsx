@@ -1,7 +1,7 @@
 import React from "react";
 import { Input, Label, Range, Select } from "ui";
 import useActiveSector from "../hooks/useActiveSector";
-import { Question, QuestionSelect } from "../types/schema";
+import { Question } from "../types/schema";
 
 interface Props {
   id: string; // key is protected
@@ -11,10 +11,10 @@ interface Props {
 const QuestionCard = ({ id, value }: Props) => {
   const { sector, setSector } = useActiveSector();
   const defaultValue = sector?.[id];
-  const { type } = value;
-  switch (type) {
+  switch (value.type) {
     case "select": {
-      const q = value as QuestionSelect;
+      // README: value is from type QuestionInput thanks to "Discriminated Unions"
+      // https://www.typescriptlang.org/docs/handbook/2/narrowing.html#discriminated-unions
       return (
         <div className="flex flex-col">
           <Label htmlFor={id}>{id}</Label>
@@ -24,7 +24,7 @@ const QuestionCard = ({ id, value }: Props) => {
             defaultValue={defaultValue}
             onChange={(e) => setSector({ ...sector, [id]: e.target.value })}
           >
-            {Object.entries(q.options).map(([k, o]) => {
+            {Object.entries(value.options).map(([k, o]) => {
               return (
                 <option key={k} id={k} value={k}>
                   {o.label}
@@ -64,8 +64,7 @@ const QuestionCard = ({ id, value }: Props) => {
       );
     }
     default:
-      const _exhaustiveCheck: never = type;
-      return _exhaustiveCheck;
+      return null;
   }
 };
 
