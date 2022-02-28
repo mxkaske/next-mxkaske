@@ -35,6 +35,9 @@ const QuestionCard = ({ id, value }: Props) => {
         </div>
       );
     }
+    case "radio": {
+      return <div></div>;
+    }
     case "input": {
       return (
         <div className="flex flex-col">

@@ -12,6 +12,7 @@ export const food: SectorProps = {
     },
     "plastic-dishes": {
       title: "How often do you use single use plastic dishes?",
+      type: "select",
       ...frequency({ daily: 10, weekly: 20, monthly: 30 }),
     },
   },

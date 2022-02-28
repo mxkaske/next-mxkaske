@@ -3,16 +3,26 @@ type QuestionBase = {
   description?: string;
 };
 
-export type QuestionSelectOption = {
-  label: string;
-  value: number;
+export type QuestionSelectOptions = {
+  // use the key string as value for refering the actual value
+  options: Record<
+    string,
+    {
+      label: string;
+      value: number;
+    }
+  >;
 };
 
-export type QuestionSelect = QuestionBase & {
-  type: "select";
-  // use the key string as value for refering the actual value
-  options: Record<string, QuestionSelectOption>;
-};
+export type QuestionSelect = QuestionBase &
+  QuestionSelectOptions & {
+    type: "select";
+  };
+
+export type QuestionRadio = QuestionBase &
+  QuestionSelectOptions & {
+    type: "radio";
+  };
 
 export type QuestionRange = QuestionBase & {
   type: "range";
@@ -25,7 +35,11 @@ export type QuestionInput = QuestionBase & {
   type: "input";
 };
 
-export type Question = QuestionSelect | QuestionInput | QuestionRange;
+export type Question =
+  | QuestionSelect
+  | QuestionRadio
+  | QuestionInput
+  | QuestionRange;
 
 export type Values = {
   min: number;

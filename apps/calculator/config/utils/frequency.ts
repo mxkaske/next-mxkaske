@@ -1,4 +1,4 @@
-import { QuestionSelect } from "../../types/schema";
+import { QuestionSelectOptions } from "../../types/schema";
 
 type Frequency = {
   daily: number;
@@ -12,8 +12,7 @@ export const frequency = ({
   weekly,
   monthly,
   never,
-}: Frequency): Omit<QuestionSelect, "title"> => ({
-  type: "select",
+}: Frequency): QuestionSelectOptions => ({
   options: {
     never: {
       label: "Never",
