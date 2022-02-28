@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import React from "react";
 import { Button, Heading, Text } from "ui";
-import useFootprint from "../hooks/useFootprint";
+import useFootprint from "../../hooks/useFootprint";
 
 const ActionBar = () => {
   const { sum, reset } = useFootprint();

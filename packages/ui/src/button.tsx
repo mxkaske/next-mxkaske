@@ -1,6 +1,6 @@
 import * as React from "react";
 
-interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   label?: string;
   children?: React.ReactNode;
   variant: "default" | "primary" | "secondary";

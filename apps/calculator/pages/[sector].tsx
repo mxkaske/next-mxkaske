@@ -1,11 +1,11 @@
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import React, { useEffect, useState } from "react";
 import { Loading } from "ui";
-import SectorNav from "../components/SectorNav";
-import QuestionCard from "../components/QuestionCard";
+import SectorNav from "../components/common/SectorNav";
+import FormElement from "../components/common/FormElement";
 import { data } from "../config/data";
 import { Sector } from "../types/schema";
-import ActionBar from "../components/ActionBar";
+import ActionBar from "../components/common/ActionBar";
 
 const Sector = ({
   sector,
@@ -27,7 +27,7 @@ const Sector = ({
       <div className="flex-1 flex items-center justify-center min-h-max">
         <div className="flex-1 space-y-3">
           {Object.entries(questions).map(([key, value]) => {
-            return <QuestionCard key={key} id={key} value={value} />;
+            return <FormElement key={key} id={key} value={value} />;
           })}
         </div>
       </div>

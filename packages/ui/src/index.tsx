@@ -8,3 +8,13 @@ export { default as Text } from "./text";
 export { default as Loading } from "./loading";
 export { default as Range } from "./range";
 export { default as Label } from "./label";
+export { default as Radio } from "./radio";
+
+export type { ButtonProps } from "./button";
+export type { HeadingProps } from "./heading";
+export type { InputProps } from "./input";
+export type { SelectProps } from "./select";
+export type { TextProps } from "./text";
+export type { RangeProps } from "./range";
+export type { LabelProps } from "./label";
+export type { RadioProps } from "./radio";

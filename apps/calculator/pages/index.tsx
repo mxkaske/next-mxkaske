@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import SectorNav from "../components/SectorNav";
+import SectorNav from "../components/common/SectorNav";
 
 const Home: NextPage = () => {
   return (

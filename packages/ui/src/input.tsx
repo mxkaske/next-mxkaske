@@ -1,6 +1,7 @@
 import * as React from "react";
 
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
   variant: "default" | "primary" | "secondary";
 }
 const Input = ({ variant, className, ...props }: InputProps) => {

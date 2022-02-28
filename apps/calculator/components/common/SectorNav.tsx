@@ -1,7 +1,7 @@
 import React from "react";
 import NextLink from "next/link";
-import { data } from "../config/data";
-import { Sector } from "../types/schema";
+import { data } from "../../config/data";
+import { Sector } from "../../types/schema";
 
 interface Props {
   activeSector?: Sector;
