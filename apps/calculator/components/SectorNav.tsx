@@ -1,6 +1,6 @@
 import React from "react";
 import NextLink from "next/link";
-import { model } from "../config/model";
+import { data } from "../config/data";
 import { Sector } from "../types/schema";
 
 interface Props {
@@ -11,7 +11,7 @@ const SectorNav = ({ activeSector }: Props) => {
   return (
     <nav>
       <ul className="flex space-x-2">
-        {Object.keys(model.sectors).map((key) => {
+        {Object.keys(data.sectors).map((key) => {
           const isActive = key === activeSector;
           return (
             <li key={key}>

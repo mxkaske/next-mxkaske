@@ -1,24 +1,18 @@
 import { SectorProps } from "../../types/model";
+import { frequency } from "../utils/frequency";
 
 export const food: SectorProps = {
   questions: {
     "out-of-house": {
       title: "How often do you purchase a meal out of the house?",
-      type: "select",
-      options: {
-        little: {
-          label: "0-3",
-          value: 10,
-        },
-        more: {
-          label: "4-7",
-          value: 5,
-        },
-        much: {
-          label: ">8",
-          value: 1,
-        },
-      },
+      type: "range",
+      min: 0,
+      max: 100,
+      steps: 5,
+    },
+    "plastic-dishes": {
+      title: "How often do you use single use plastic dishes?",
+      ...frequency({ daily: 10, weekly: 20, monthly: 30 }),
     },
   },
   value: {

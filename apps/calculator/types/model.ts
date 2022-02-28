@@ -5,7 +5,7 @@ export type SectorProps = {
   value: Values;
 };
 
-export type Footprint = {
+export type DataModel = {
   sectors: {
     [Property in Sector]?: SectorProps;
   };

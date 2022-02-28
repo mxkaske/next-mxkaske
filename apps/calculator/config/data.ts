@@ -1,8 +1,8 @@
-import { Footprint } from "../types/model";
+import { DataModel } from "../types/model";
 import { transport } from "./sectors/transport";
 import { food } from "./sectors/food";
 
-export const model: Footprint = {
+export const data: DataModel = {
   sectors: {
     transport,
     food,

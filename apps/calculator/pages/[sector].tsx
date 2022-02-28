@@ -3,14 +3,14 @@ import React, { useEffect, useState } from "react";
 import { Loading } from "ui";
 import SectorNav from "../components/SectorNav";
 import QuestionCard from "../components/QuestionCard";
-import { model } from "../config/model";
+import { data } from "../config/data";
 import { Sector } from "../types/schema";
 import ActionBar from "../components/ActionBar";
 
 const Sector = ({
   sector,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  const { questions } = model.sectors[sector];
+  const { questions } = data.sectors[sector];
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -41,7 +41,7 @@ export const getServerSideProps = async (
   ctx: GetServerSidePropsContext<{ sector: Sector }>
 ) => {
   return {
-    notFound: !model.sectors[ctx.params?.sector],
+    notFound: !data.sectors[ctx.params?.sector],
     props: { sector: ctx.params?.sector },
   };
 };

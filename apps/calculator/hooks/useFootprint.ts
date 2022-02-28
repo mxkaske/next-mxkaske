@@ -1,7 +1,7 @@
 import { useLocalStorage } from "usehooks-ts";
 import { UserFootprint } from "../types/model";
 import { Sector } from "../types/schema";
-import { model } from "../config/model";
+import { data } from "../config/data";
 import { useCallback } from "react";
 import { isSelect } from "../utils";
 
@@ -21,7 +21,7 @@ const useFootprint = () => {
   let _sum = 0;
   Object.entries(footprint.sectors).forEach(([sectorKey, sector]) => {
     Object.entries(sector).forEach(([key, value]) => {
-      const _question = model.sectors[sectorKey as Sector].questions[key];
+      const _question = data.sectors[sectorKey as Sector].questions[key];
       // README: question is QuestionSelect will return a narrowed type
       // https://www.typescriptlang.org/docs/handbook/2/narrowing.html#using-type-predicates
       if (isSelect(_question)) {
