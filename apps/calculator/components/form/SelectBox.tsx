@@ -1,15 +1,15 @@
 import { Select, Label, SelectProps } from "ui";
 import { QuestionSelectOptions } from "../../types/schema";
 
-const SelectBox = ({
-  id,
-  options,
-  ...props
-}: SelectProps & QuestionSelectOptions) => {
+interface Props extends SelectProps, QuestionSelectOptions {
+  label: string;
+}
+
+const SelectBox = ({ id, label, options, ...props }: Props) => {
   return (
     <div className="flex flex-col">
-      <Label htmlFor={id}>{id}</Label>
-      <Select id={id} {...props}>
+      <Label htmlFor={id}>{label}</Label>
+      <Select name={id} id={id} {...props}>
         {Object.entries(options).map(([k, o]) => {
           return (
             <option key={k} id={k} value={k}>

@@ -1,8 +1,12 @@
+import React from "react";
 import { Question, Sector, Values } from "./schema";
 
 export type SectorProps = {
+  title: string;
+  // TODO: check if this is for unopinionated SVG icons
+  icon: (props: React.SVGAttributes<SVGElement>) => JSX.Element;
   questions: Record<string, Question>;
-  value: Values;
+  values: Values;
 };
 
 export type DataModel = {

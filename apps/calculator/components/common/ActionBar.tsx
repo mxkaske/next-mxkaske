@@ -4,7 +4,7 @@ import { Button, Heading, Text } from "ui";
 import useFootprint from "../../hooks/useFootprint";
 
 const ActionBar = () => {
-  const { sum, reset } = useFootprint();
+  const { calculate, reset } = useFootprint();
   const router = useRouter();
 
   const handleClick = () => {
@@ -14,10 +14,10 @@ const ActionBar = () => {
   };
 
   return (
-    <div className="flex justify-between">
+    <div className="flex justify-between border-t dark:border-t-gray-700 pt-3">
       <div>
         <Heading as="h4">Total:</Heading>
-        <Text>{sum}</Text>
+        <Text>{calculate()}</Text>
       </div>
       <div>
         <Button onClick={handleClick}>Reset</Button>

@@ -1,15 +1,14 @@
 import { Label, RadioProps, Radio } from "ui";
 import { QuestionSelectOptions } from "../../types/schema";
 
-const RadioBox = ({
-  id,
-  options,
-  defaultValue,
-  ...props
-}: RadioProps & QuestionSelectOptions) => {
+interface Props extends RadioProps, QuestionSelectOptions {
+  label: string;
+}
+
+const RadioBox = ({ id, label, options, defaultValue, ...props }: Props) => {
   return (
     <div className="flex flex-col">
-      <Label>{id}</Label>
+      <Label id={id}>{label}</Label>
       <div className="flex flex-wrap space-x-3">
         {Object.entries(options).map(([k, o]) => (
           <div key={k} className="space-x-2">

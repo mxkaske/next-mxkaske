@@ -9,15 +9,15 @@ interface Props {
 
 const SectorNav = ({ activeSector }: Props) => {
   return (
-    <nav>
-      <ul className="flex space-x-2">
-        {Object.keys(data.sectors).map((key) => {
+    <nav className="border-b dark:border-b-gray-700">
+      <ul className="flex overflow-x-auto space-x-2 pb-3">
+        {Object.entries(data.sectors).map(([key, value]) => {
           const isActive = key === activeSector;
           return (
-            <li key={key}>
+            <li key={key} className="flex-shrink-0">
               <NextLink href={`/${key}`}>
                 <a className={isActive ? "text-black" : "text-gray-500"}>
-                  {key}
+                  {value.title}
                 </a>
               </NextLink>
             </li>

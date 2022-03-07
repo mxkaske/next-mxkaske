@@ -1,22 +1,25 @@
 import { SectorProps } from "../../types/model";
 import { frequency } from "../utils/frequency";
+import { FiCoffee } from "react-icons/fi";
 
 export const food: SectorProps = {
+  title: "Food & Baverage",
+  icon: FiCoffee,
   questions: {
     "out-of-house": {
-      title: "How often do you purchase a meal out of the house?",
+      label: "How often do you purchase a meal out of the house?",
       type: "range",
       min: 0,
       max: 100,
       steps: 5,
     },
     "plastic-dishes": {
-      title: "How often do you use single use plastic dishes?",
+      label: "How often do you use single use plastic dishes?",
       type: "radio",
       ...frequency({ daily: 10, weekly: 20, monthly: 30 }),
     },
   },
-  value: {
+  values: {
     min: 0,
     max: 100,
     median: 50,

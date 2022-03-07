@@ -1,9 +1,13 @@
 import { Label, Range, RangeProps } from "ui";
 
-const RangeBox = ({ id, ...props }: RangeProps) => {
+interface Props extends RangeProps {
+  label: string;
+}
+
+const RangeBox = ({ id, label, ...props }: Props) => {
   return (
     <div>
-      <Label htmlFor={id}>{id}</Label>
+      <Label htmlFor={id}>{label}</Label>
       <Range name={id} id={id} {...props} />
     </div>
   );

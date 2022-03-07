@@ -7,4 +7,5 @@ export const data: DataModel = {
     transport,
     food,
   },
+  // values: Values to determine min, max, average,.. of overall consumption
 } as const;

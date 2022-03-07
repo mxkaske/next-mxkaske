@@ -1,9 +1,13 @@
 import { Input, InputProps, Label } from "ui";
 
-const InputBox = ({ id, ...props }: InputProps) => {
+interface Props extends InputProps {
+  label: string;
+}
+
+const InputBox = ({ id, label, ...props }: Props) => {
   return (
     <div className="flex flex-col">
-      <Label htmlFor={id}>{id}</Label>
+      <Label htmlFor={id}>{label}</Label>
       <Input
         name={id}
         id={id}

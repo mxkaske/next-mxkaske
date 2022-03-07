@@ -6,6 +6,9 @@ import {
   QuestionRadio,
 } from "../types/schema";
 
+// README: is[Select] will return a narrowed type
+// https://www.typescriptlang.org/docs/handbook/2/narrowing.html#using-type-predicates
+
 export const isInput = (question: Question): question is QuestionInput => {
   return question.type === "input";
 };

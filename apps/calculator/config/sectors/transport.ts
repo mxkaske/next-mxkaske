@@ -1,9 +1,12 @@
 import { SectorProps } from "../../types/model";
+import { FiTruck } from "react-icons/fi";
 
 export const transport: SectorProps = {
+  title: "Transport",
+  icon: FiTruck,
   questions: {
     "primary-transportation": {
-      title: "Primary transportation",
+      label: "Primary transportation",
       type: "select",
       options: {
         car: {
@@ -22,18 +25,18 @@ export const transport: SectorProps = {
       },
     },
     "car-usage": {
-      title: "Car usage",
+      label: "Car usage",
       type: "range",
       min: 0,
       max: 100,
       steps: 5,
     },
     test: {
-      title: "Test",
+      label: "Test",
       type: "input",
     },
   },
-  value: {
+  values: {
     min: 0,
     max: 100,
     median: 50,

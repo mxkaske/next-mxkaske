@@ -1,11 +1,13 @@
+// TODO: how set defaultValue of question to average?
+
 type QuestionBase = {
-  title: string;
+  label: string;
   description?: string;
 };
 
 export type QuestionSelectOptions = {
-  // use the key string as value for refering the actual value
   options: Record<
+    // use the key string as value for refering the actual value
     string,
     {
       label: string;

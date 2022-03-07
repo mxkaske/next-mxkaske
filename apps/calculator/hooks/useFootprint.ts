@@ -17,22 +17,34 @@ const useFootprint = () => {
     });
   }, [setFootprint]);
 
-  // TODO: calculate here the users footprint
-  let _sum = 0;
-  Object.entries(footprint.sectors).forEach(([sectorKey, sector]) => {
-    Object.entries(sector).forEach(([key, value]) => {
-      const _question = data.sectors[sectorKey as Sector].questions[key];
-      // README: question is QuestionSelect will return a narrowed type
-      // https://www.typescriptlang.org/docs/handbook/2/narrowing.html#using-type-predicates
-      if (isSelect(_question)) {
-        _sum += _question.options[value].value;
-      } else {
-        _sum += Number(value);
-      }
-    });
-  });
+  const sum = (key: Sector) => {
+    // check if localStorage has key
+    if (!footprint.sectors?.[key]) {
+      return 0;
+    }
+    return Object.entries(footprint.sectors[key]).reduce(
+      (prev, [questionKey, value]) => {
+        const _question = data.sectors[key].questions[questionKey];
+        return isSelect(_question)
+          ? prev + _question.options[value].value
+          : Number(value);
+      },
+      0
+    );
+  };
 
-  return { footprint, setFootprint, sum: _sum, reset };
+  // TODO: calculate either all or only for a sector
+  // make it memoizable
+  const calculate = (key?: Sector) => {
+    if (key) {
+      return sum(key);
+    }
+    return Object.keys(footprint.sectors).reduce((prev, curr) => {
+      return prev + sum(curr as Sector);
+    }, 0);
+  };
+
+  return { footprint, setFootprint, reset, calculate };
 };
 
 export default useFootprint;
