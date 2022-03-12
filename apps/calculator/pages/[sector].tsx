@@ -1,11 +1,13 @@
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import React, { useEffect, useState } from "react";
 import { Loading } from "ui";
-import SectorNav from "../components/common/SectorNav";
+import SectorNav from "../components/navigation/SectorNav";
 import FormElement from "../components/common/FormElement";
 import { data } from "../config/data";
 import { Sector } from "../types/schema";
 import ActionBar from "../components/common/ActionBar";
+import Layout from "../components/common/Layout";
+import ArrowNav from "../components/navigation/ArrowNav";
 
 const Sector = ({
   sector,
@@ -22,7 +24,7 @@ const Sector = ({
   }
 
   return (
-    <div className="max-w-lg py-3 px-2 mx-auto min-h-screen flex flex-col space-y-3">
+    <Layout>
       <SectorNav activeSector={sector} />
       <div className="flex-1 flex items-center justify-center min-h-max">
         <div className="flex-1 space-y-3">
@@ -31,8 +33,9 @@ const Sector = ({
           })}
         </div>
       </div>
+      <ArrowNav activeSector={sector} />
       <ActionBar />
-    </div>
+    </Layout>
   );
 };
 

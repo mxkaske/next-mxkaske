@@ -1,11 +1,13 @@
 import type { NextPage } from "next";
-import SectorNav from "../components/common/SectorNav";
+import Layout from "../components/common/Layout";
+import SectorNav from "../components/navigation/SectorNav";
 
 const Home: NextPage = () => {
   return (
-    <div className="flex items-center justify-center min-h-screen">
+    <Layout>
       <SectorNav />
-    </div>
+      <div className="flex-1" />
+    </Layout>
   );
 };
 
