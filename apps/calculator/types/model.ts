@@ -22,6 +22,7 @@ export type DataModel = {
 
 export type UserFootprint = {
   sectors: {
-    [Property in Sector]?: Record<string, number | string>;
+    // number for range/input - string for select/radio - string[] for checkbox
+    [Property in Sector]?: Record<string, number | string | string[]>;
   };
 };

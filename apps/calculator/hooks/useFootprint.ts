@@ -3,7 +3,7 @@ import { UserFootprint } from "../types/model";
 import { Sector } from "../types/schema";
 import { data } from "../config/data";
 import { useCallback } from "react";
-import { isRadio, isSelect } from "../utils";
+import { isCheckbox, isRadio, isSelect } from "../utils";
 
 const useFootprint = () => {
   const [footprint, setFootprint] = useLocalStorage<UserFootprint>(
@@ -26,13 +26,28 @@ const useFootprint = () => {
     return Object.entries(footprint.sectors[key]).reduce(
       (prev, [questionKey, value]) => {
         const _question = data.sectors[key].questions[questionKey];
-        if (isSelect(_question) || isRadio(_question)) {
+        if (
+          (isSelect(_question) || isRadio(_question)) &&
+          !Array.isArray(value)
+        ) {
           if (_question.calculate) {
             return (
               prev + _question.calculate(data, _question.options[value].value)
             );
           }
           return prev + _question.options[value].value;
+        }
+        if (isCheckbox(_question) && Array.isArray(value)) {
+          const checked = Object.keys(_question.options).filter((key) =>
+            value.includes(key)
+          );
+          return (
+            prev +
+            checked.reduce(
+              (prev, curr) => prev + _question.options[curr].value,
+              0
+            )
+          );
         }
         if (_question.calculate) {
           return prev + _question.calculate(data, Number(value));

@@ -30,37 +30,40 @@ export type QuestionSelectOptions = Record<
 export type QuestionSelect = QuestionBase & {
   type: "select";
   options: QuestionSelectOptions;
-  defaultValue: string;
+  defaultValue?: string;
 };
 
 export type QuestionRadio = QuestionBase & {
   type: "radio";
   options: QuestionSelectOptions;
-  defaultValue: string;
+  defaultValue?: string;
 };
 
 export type QuestionRange = QuestionBase & {
   type: "range";
-  defaultValue: number;
+  defaultValue?: number;
   min: number;
   max: number;
   steps?: number;
 };
 
-type WithDefaultValue<T extends { defaultValue: any }> = T;
-
-type A = WithDefaultValue<QuestionRange | QuestionInput>;
+export type QuestionCheckbox = QuestionBase & {
+  type: "checkbox";
+  defaultValue?: readonly string[];
+  options: QuestionSelectOptions;
+};
 
 export type QuestionInput = QuestionBase & {
   type: "input";
-  defaultValue: number;
+  defaultValue?: number;
 };
 
 export type Question =
   | QuestionSelect
   | QuestionRadio
   | QuestionInput
-  | QuestionRange;
+  | QuestionRange
+  | QuestionCheckbox;
 
 export type Values = {
   min: number;

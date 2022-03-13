@@ -4,6 +4,7 @@ import {
   QuestionRange,
   QuestionSelect,
   QuestionRadio,
+  QuestionCheckbox,
 } from "../types/schema";
 
 // README: is[Select] will return a narrowed type
@@ -23,4 +24,10 @@ export const isRadio = (question: Question): question is QuestionRadio => {
 
 export const isRange = (question: Question): question is QuestionRange => {
   return question.type === "range";
+};
+
+export const isCheckbox = (
+  question: Question
+): question is QuestionCheckbox => {
+  return question.type === "checkbox";
 };

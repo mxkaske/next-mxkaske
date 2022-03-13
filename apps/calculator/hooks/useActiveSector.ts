@@ -12,7 +12,7 @@ const useActiveSector = () => {
   const sector = footprint.sectors[key];
 
   const setSector = useCallback(
-    (value: Record<string, number | string>) => {
+    (value: Record<string, number | string | string[]>) => {
       setFootprint({
         ...footprint,
         sectors: {

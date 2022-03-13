@@ -13,6 +13,25 @@ export const technology: SectorProps = {
         return 5 * value;
       },
     },
+    "test-checkbox": {
+      label: "Test Checkbox",
+      type: "checkbox",
+      defaultValue: ["one"],
+      options: {
+        one: {
+          label: "One",
+          value: 1,
+        },
+        two: {
+          label: "Two",
+          value: 2,
+        },
+        three: {
+          label: "Three",
+          value: 3,
+        },
+      },
+    },
   },
   values: {
     min: 0,

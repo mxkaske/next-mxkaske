@@ -10,6 +10,7 @@ export { default as Range } from "./range";
 export { default as Label } from "./label";
 export { default as Radio } from "./radio";
 export { default as Badge } from "./badge";
+export { default as Checkbox } from "./checkbox";
 
 export type { ButtonProps } from "./button";
 export type { HeadingProps } from "./heading";
@@ -20,3 +21,4 @@ export type { RangeProps } from "./range";
 export type { LabelProps } from "./label";
 export type { RadioProps } from "./radio";
 export type { BadgeProps } from "./badge";
+export type { CheckboxProps } from "./checkbox";

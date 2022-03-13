@@ -1,6 +1,7 @@
 import React from "react";
 import useActiveSector from "../../hooks/useActiveSector";
 import { Question } from "../../types/schema";
+import CheckboxBox from "../form/CheckboxBox";
 import InputBox from "../form/InputBox";
 import RadioBox from "../form/RadioBox";
 import RangeBox from "../form/RangeBox";
@@ -24,7 +25,7 @@ const FormElement = ({ id, value }: Props) => {
           id={id}
           label={value.label}
           defaultValue={defaultValue || value.defaultValue}
-          onChange={(e) => setSector({ ...sector, [id]: e.target.value })}
+          onChange={(e) => setSector({ [id]: e.target.value })}
           options={value.options}
         />
       );
@@ -57,6 +58,32 @@ const FormElement = ({ id, value }: Props) => {
           label={value.label}
           defaultValue={defaultValue || value.defaultValue}
           onChange={(e) => setSector({ [id]: e.target.value })}
+        />
+      );
+    }
+    case "checkbox": {
+      return (
+        <CheckboxBox
+          id={id}
+          label={value.label}
+          options={value.options}
+          defaultValue={defaultValue || value.defaultValue}
+          onChange={(e) => {
+            const items = sector?.[id];
+            if (!e.target.checked && Array.isArray(items)) {
+              setSector({
+                [id]: items.filter((i) => {
+                  return i !== e.target.value;
+                }),
+              });
+            } else if (Array.isArray(items)) {
+              setSector({
+                [id]: [...items, e.target.value],
+              });
+            } else {
+              setSector({ [id]: [e.target.value] });
+            }
+          }}
         />
       );
     }
