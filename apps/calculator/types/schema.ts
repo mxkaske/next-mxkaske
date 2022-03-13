@@ -1,8 +1,11 @@
-// TODO: how set defaultValue of question to average?
+import { DataModel, UserFootprint } from "./model";
 
 type QuestionBase = {
   label: string;
   description?: string;
+  // sometimes, you'd like to calculate the plastic amount based on user's input
+  // e.g. number of bottles * amount of plastic per bottle = total plastic
+  calculate?: (data: DataModel, value: number) => number;
 };
 
 export type QuestionSelectOptions = Record<
@@ -72,6 +75,7 @@ export type Sector =
   | "food"
   | "packaging"
   | "construction"
+  | "technology"
   | "clothing";
 
 export type Product =

@@ -17,7 +17,6 @@ const useFootprint = () => {
     });
   }, [setFootprint]);
 
-  // FIXME: calculation is not correct!
   const sum = (key: Sector) => {
     // check if localStorage has key
     if (!footprint.sectors?.[key]) {
@@ -27,9 +26,18 @@ const useFootprint = () => {
     return Object.entries(footprint.sectors[key]).reduce(
       (prev, [questionKey, value]) => {
         const _question = data.sectors[key].questions[questionKey];
-        return isSelect(_question) || isRadio(_question)
-          ? prev + _question.options[value].value
-          : Number(value);
+        if (isSelect(_question) || isRadio(_question)) {
+          if (_question.calculate) {
+            return (
+              prev + _question.calculate(data, _question.options[value].value)
+            );
+          }
+          return prev + _question.options[value].value;
+        }
+        if (_question.calculate) {
+          return prev + _question.calculate(data, Number(value));
+        }
+        return prev + Number(value);
       },
       0
     );
