@@ -12,7 +12,7 @@ export const frequency = ({
   weekly,
   monthly,
   never,
-}: Frequency): QuestionSelectOptions => ({
+}: Frequency): { options: QuestionSelectOptions } => ({
   options: {
     never: {
       label: "Never",

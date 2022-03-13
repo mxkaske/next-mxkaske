@@ -23,7 +23,7 @@ const FormElement = ({ id, value }: Props) => {
         <SelectBox
           id={id}
           label={value.label}
-          defaultValue={defaultValue}
+          defaultValue={defaultValue || value.defaultValue}
           onChange={(e) => setSector({ ...sector, [id]: e.target.value })}
           options={value.options}
         />
@@ -34,7 +34,7 @@ const FormElement = ({ id, value }: Props) => {
         <RadioBox
           id={id}
           label={value.label}
-          defaultValue={defaultValue}
+          defaultValue={defaultValue || value.defaultValue}
           onChange={(e) => setSector({ [id]: e.target.value })}
           options={value.options}
         />
@@ -45,7 +45,7 @@ const FormElement = ({ id, value }: Props) => {
         <InputBox
           id={id}
           label={value.label}
-          defaultValue={defaultValue}
+          defaultValue={defaultValue || value.defaultValue}
           onChange={(e) => setSector({ [id]: e.target.value })}
         />
       );
@@ -55,7 +55,7 @@ const FormElement = ({ id, value }: Props) => {
         <RangeBox
           id={id}
           label={value.label}
-          defaultValue={defaultValue}
+          defaultValue={defaultValue || value.defaultValue}
           onChange={(e) => setSector({ [id]: e.target.value })}
         />
       );

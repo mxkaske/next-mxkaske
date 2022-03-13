@@ -20,6 +20,7 @@ const ArrowNav = ({ activeSector }: Props) => {
   return (
     <div className="flex justify-between items-center">
       {/* TODO: create an icon-button */}
+      {/* TODO: instead of button, use anchor */}
       {activeSectorIndex !== 0 ? (
         <button
           className="p-2 rounded-full border border-gray-300 dark:text-white hover:border-gray-400 dark:hover:border-gray-600 dark:border-gray-700"

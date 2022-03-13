@@ -8,6 +8,7 @@ import { Sector } from "../types/schema";
 import ActionBar from "../components/common/ActionBar";
 import Layout from "../components/common/Layout";
 import ArrowNav from "../components/navigation/ArrowNav";
+import SideNav from "../components/navigation/SideNav";
 
 const Sector = ({
   sector,
@@ -24,7 +25,7 @@ const Sector = ({
   }
 
   return (
-    <Layout>
+    <Layout aside={<SideNav activeSector={sector} />}>
       <SectorNav activeSector={sector} />
       <div className="flex-1 flex items-center justify-center min-h-max">
         <div className="flex-1 space-y-3">

@@ -8,6 +8,7 @@ export const transport: SectorProps = {
     "primary-transportation": {
       label: "Primary transportation",
       type: "select",
+      defaultValue: "motorbike",
       options: {
         car: {
           label: "Car",
@@ -27,6 +28,7 @@ export const transport: SectorProps = {
     "car-usage": {
       label: "Car usage",
       type: "range",
+      defaultValue: 50,
       min: 0,
       max: 100,
       steps: 5,
@@ -34,6 +36,7 @@ export const transport: SectorProps = {
     test: {
       label: "Test",
       type: "input",
+      defaultValue: 3,
     },
   },
   values: {

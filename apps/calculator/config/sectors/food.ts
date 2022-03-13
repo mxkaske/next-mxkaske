@@ -12,10 +12,12 @@ export const food: SectorProps = {
       min: 0,
       max: 100,
       steps: 5,
+      defaultValue: 40,
     },
     "plastic-dishes": {
       label: "How often do you use single use plastic dishes?",
       type: "radio",
+      defaultValue: "weekly",
       ...frequency({ daily: 10, weekly: 20, monthly: 30 }),
     },
   },

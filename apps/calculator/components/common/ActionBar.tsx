@@ -10,6 +10,7 @@ const ActionBar = () => {
   const handleClick = () => {
     reset();
     // TODO: reset form instead of reload - better UX
+    // back to start => "/"
     router.reload();
   };
 

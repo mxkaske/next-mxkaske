@@ -1,8 +1,9 @@
 import { Select, Label, SelectProps } from "ui";
 import { QuestionSelectOptions } from "../../types/schema";
 
-interface Props extends SelectProps, QuestionSelectOptions {
+interface Props extends SelectProps {
   label: string;
+  options: QuestionSelectOptions;
 }
 
 const SelectBox = ({ id, label, options, ...props }: Props) => {

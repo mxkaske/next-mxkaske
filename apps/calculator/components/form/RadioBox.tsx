@@ -1,8 +1,9 @@
 import { Label, RadioProps, Radio } from "ui";
 import { QuestionSelectOptions } from "../../types/schema";
 
-interface Props extends RadioProps, QuestionSelectOptions {
+interface Props extends RadioProps {
   label: string;
+  options: QuestionSelectOptions;
 }
 
 const RadioBox = ({ id, label, options, defaultValue, ...props }: Props) => {
@@ -16,8 +17,8 @@ const RadioBox = ({ id, label, options, defaultValue, ...props }: Props) => {
             <Radio
               name={id}
               id={k}
-              value={o.value}
-              defaultChecked={defaultValue == o.value}
+              value={k}
+              defaultChecked={defaultValue === k}
               {...props}
             />
           </div>
