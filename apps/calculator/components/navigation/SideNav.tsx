@@ -22,8 +22,8 @@ const SideNav = ({ activeSector }: Props) => {
           return (
             <li key={key}>
               <NextLink href={`/${key}`}>
-                <a className="block px-3 py-2 border border-gray-300 rounded-md text-gray-900 dark:text-white hover:border-gray-400 dark:hover:border-gray-600 dark:border-gray-700">
-                  <div className="flex items-center">
+                <a className="block px-3 py-2 border border-gray-300 rounded-md hover:border-gray-400 dark:hover:border-gray-600 dark:border-gray-700">
+                  <Text className="flex items-center">
                     <Icon
                       className={cn(
                         "h-5 w-5 mr-2",
@@ -31,7 +31,7 @@ const SideNav = ({ activeSector }: Props) => {
                       )}
                     />
                     {value.title}
-                  </div>
+                  </Text>
                   <Text>
                     Consumption: <span className="font-medium">{sum}</span>
                   </Text>
