@@ -11,6 +11,7 @@ import {
   ElementRects,
   size,
   useId,
+  useClick,
   useDismiss,
   useFloating,
   useInteractions,
@@ -52,6 +53,8 @@ export function AutoComplete() {
   const [inputValue, setInputValue] = useState("");
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [sizeData, setSizeData] = useState<Dimensions & ElementRects>();
+  const textAreaRef = useRef<HTMLTextAreaElement>(null);
+  const currentWord = useRef("");
 
   const blockMouseEventsRef = useRef(false);
   const listRef = useRef<Array<HTMLLIElement | null>>([]);
@@ -69,13 +72,12 @@ export function AutoComplete() {
         block: "nearest",
       });
     }
-
     setActiveIndex(activeIndex);
   }, []);
 
   const { getReferenceProps, getFloatingProps } = useInteractions([
     useRole(context, { role: "listbox" }),
-    useDismiss(context),
+    // useDismiss(context),
     useListNavigation(context, {
       listRef,
       activeIndex,
@@ -88,17 +90,20 @@ export function AutoComplete() {
   function onChange(event: React.ChangeEvent<HTMLInputElement>) {
     const value = event.target.value;
     setInputValue(value);
-    console.log(value.charAt(value.length - 1));
-    if (value) {
+    const lastWord = value.split(" ").pop()?.replace(" ", "") ?? "";
+    currentWord.current = lastWord;
+    console.log(lastWord);
+    if (lastWord) {
       setOpen(true);
       setActiveIndex(0);
     } else {
       setOpen(false);
     }
+    // console.log(event.target.setRangeText("wow", 0, 0));
   }
 
   const items = data.filter((item) =>
-    item.toLowerCase().startsWith(inputValue.toLowerCase())
+    item.toLowerCase().startsWith(currentWord.current.toLowerCase())
   );
 
   useEffect(() => {
@@ -130,6 +135,7 @@ export function AutoComplete() {
             }
           },
         })}
+        ref={textAreaRef}
       />
       {open && (
         <div
