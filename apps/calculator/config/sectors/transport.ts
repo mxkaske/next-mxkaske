@@ -1,9 +1,8 @@
 import { SectorProps } from "../../types/model";
-import { FiTruck } from "react-icons/fi";
 
 export const transport: SectorProps = {
   title: "Transport",
-  icon: FiTruck,
+  emoji: "🚌",
   questions: {
     "primary-transportation": {
       label: "Primary transportation",

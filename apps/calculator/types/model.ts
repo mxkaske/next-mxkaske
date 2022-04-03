@@ -3,8 +3,8 @@ import { Question, Sector, Values } from "./schema";
 
 export type SectorProps = {
   title: string;
-  // TODO: check if this is for unopinionated SVG icons
-  icon: (props: React.SVGAttributes<SVGElement>) => JSX.Element;
+  // icon: (props: React.SVGAttributes<SVGElement>) => JSX.Element;
+  emoji: string;
   questions: Record<string, Question>;
   values: Values;
 };

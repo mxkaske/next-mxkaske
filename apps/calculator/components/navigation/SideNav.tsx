@@ -4,7 +4,7 @@ import { Sector } from "../../types/schema";
 import { default as NextLink } from "next/link";
 import cn from "classnames";
 import useFootprint from "../../hooks/useFootprint";
-import { Text } from "ui";
+import { Emoji, Text } from "ui";
 
 interface Props {
   activeSector: Sector;
@@ -18,18 +18,21 @@ const SideNav = ({ activeSector }: Props) => {
         {Object.entries(data.sectors).map(([key, value]) => {
           const sum = calculate(key as Sector);
           const isActive = key === activeSector;
-          const Icon = value.icon;
+          // const Icon = value.icon;
           return (
             <li key={key}>
               <NextLink href={`/${key}`}>
                 <a className="block px-3 py-2 border border-gray-300 rounded-md hover:border-gray-400 dark:hover:border-gray-600 dark:border-gray-700">
                   <Text className="flex items-center">
-                    <Icon
+                    <Emoji
+                      label={value.title}
                       className={cn(
-                        "h-5 w-5 mr-2",
-                        isActive ? "text-gray-900" : "text-gray-500"
+                        "mr-2",
+                        isActive ? "opacity-100" : "opacity-70"
                       )}
-                    />
+                    >
+                      {value.emoji}
+                    </Emoji>
                     {value.title}
                   </Text>
                   <Text>

@@ -1,9 +1,8 @@
 import { SectorProps } from "../../types/model";
-import { FiMonitor } from "react-icons/fi";
 
 export const technology: SectorProps = {
   title: "Technology",
-  icon: FiMonitor,
+  emoji: "🧑‍💻",
   questions: {
     "number-of-computer": {
       label: "Number of Computer",

@@ -1,10 +1,9 @@
 import { SectorProps } from "../../types/model";
 import { frequency } from "../utils/frequency";
-import { FiCoffee } from "react-icons/fi";
 
 export const food: SectorProps = {
   title: "Food & Baverage",
-  icon: FiCoffee,
+  emoji: "🌮",
   questions: {
     "out-of-house": {
       label: "How often do you purchase a meal out of the house?",
