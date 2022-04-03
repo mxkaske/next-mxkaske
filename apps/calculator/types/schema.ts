@@ -1,11 +1,11 @@
-import { DataModel, UserFootprint } from "./model";
+import { DataModel, DataModelWithValues } from "./model";
 
 type QuestionBase = {
   label: string;
   description?: string;
   // sometimes, you'd like to calculate the plastic amount based on user's input
   // e.g. number of bottles * amount of plastic per bottle = total plastic
-  calculate?: (data: DataModel, value: number) => number;
+  calculate?: (data: DataModelWithValues, value: number) => number;
 };
 
 export type QuestionSelectOptions = Record<
@@ -16,16 +16,6 @@ export type QuestionSelectOptions = Record<
     value: number;
   }
 >;
-
-// TODO: how to type the `defaultValue` to be a valid option key
-// export type QuestionSelect<
-//   T extends QuestionSelectOptions,
-//   K extends keyof T
-// > = QuestionBase & {
-//   type: "select";
-//   options: T;
-//   defaultValue: K;
-// };
 
 export type QuestionSelect = QuestionBase & {
   type: "select";
@@ -64,6 +54,18 @@ export type Question =
   | QuestionInput
   | QuestionRange
   | QuestionCheckbox;
+
+export type WithValue<T extends Question> = T & {
+  // [Property in keyof T as Exclude<Property, "label">]: T[Property];
+  value: T["defaultValue"];
+};
+
+export type QuestionWithValue =
+  | WithValue<QuestionSelect>
+  | WithValue<QuestionRadio>
+  | WithValue<QuestionRange>
+  | WithValue<QuestionInput>
+  | WithValue<QuestionCheckbox>;
 
 export type Values = {
   min: number;

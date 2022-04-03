@@ -1,14 +1,14 @@
-import React from "react";
-import { Question, Sector, Values } from "./schema";
+import { Question, QuestionWithValue, Sector, Values } from "./schema";
 
 export type SectorProps = {
   title: string;
-  // icon: (props: React.SVGAttributes<SVGElement>) => JSX.Element;
   emoji: string;
   questions: Record<string, Question>;
   values: Values;
 };
 
+// TODO: if we want to fully dynamically upload the json data, "Sector" cannot be defined
+// instead, use: Record<string, SectorProps> or use Generics
 export type DataModel = {
   sectors: {
     [Property in Sector]?: SectorProps;
@@ -18,6 +18,17 @@ export type DataModel = {
   //     questions: Question[];
   //   };
   // };
+};
+
+export type SectionPropsWithValues = Omit<SectorProps, "questions"> & {
+  questions: Record<string, QuestionWithValue>;
+  value: number; // the current total value of a section
+};
+
+export type DataModelWithValues = {
+  sectors: {
+    [Property in Sector]?: SectionPropsWithValues;
+  };
 };
 
 export type UserFootprint = {

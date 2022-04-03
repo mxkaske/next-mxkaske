@@ -1,15 +1,48 @@
 import { useLocalStorage } from "usehooks-ts";
-import { UserFootprint } from "../types/model";
-import { Sector } from "../types/schema";
+import { DataModel, DataModelWithValues, UserFootprint } from "../types/model";
+import { Question, QuestionWithValue, Sector } from "../types/schema";
 import { data } from "../config/data";
 import { useCallback } from "react";
-import { isCheckbox, isRadio, isSelect } from "../utils";
+import { isCheckbox, isRadio, isSelect, questionToNumber } from "../utils";
+
+const setCurrentValues = (
+  data: DataModel,
+  footprint: UserFootprint
+): DataModelWithValues => {
+  const newData: DataModelWithValues = { sectors: {} };
+  Object.keys(data.sectors).map((sector: Sector) => {
+    const newSectorData = data.sectors[sector] as any;
+    const questions = data.sectors[sector].questions;
+    let sum = 0;
+    Object.keys(questions).map((question: keyof typeof questions) => {
+      const currentValue = footprint.sectors?.[sector]?.[question];
+      const defaultValue =
+        data.sectors[sector].questions[question].defaultValue;
+      const value = currentValue ?? (defaultValue || 0);
+      newSectorData.questions[question].value = value;
+      // TODO: missing is the calculate property that changes the value
+      // it is **not just** a simple sum...
+      sum += questionToNumber({
+        ...questions[question],
+        value,
+      } as QuestionWithValue);
+    });
+    newSectorData.value = sum;
+    newData.sectors[sector] = newSectorData;
+  });
+  return newData;
+};
 
 const useFootprint = () => {
   const [footprint, setFootprint] = useLocalStorage<UserFootprint>(
     "footprint",
+    // TODO: directly from the start, we should build
+    // the entire "defaultValue" footprint tree
     { sectors: {} }
   );
+
+  const dataWithValues = setCurrentValues(data, footprint);
+  // console.log(dataWithValues);
 
   const reset = useCallback(() => {
     setFootprint({
@@ -32,7 +65,11 @@ const useFootprint = () => {
         ) {
           if (_question.calculate) {
             return (
-              prev + _question.calculate(data, _question.options[value].value)
+              prev +
+              _question.calculate(
+                dataWithValues,
+                _question.options[value].value
+              )
             );
           }
           return prev + _question.options[value].value;
@@ -50,7 +87,7 @@ const useFootprint = () => {
           );
         }
         if (_question.calculate) {
-          return prev + _question.calculate(data, Number(value));
+          return prev + _question.calculate(dataWithValues, Number(value));
         }
         return prev + Number(value);
       },

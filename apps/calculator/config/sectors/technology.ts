@@ -1,15 +1,28 @@
 import { SectorProps } from "../../types/model";
+import { questionToNumber } from "../../utils";
 
 export const technology: SectorProps = {
   title: "Technology",
   emoji: "🧑‍💻",
   questions: {
+    "tech-usage": {
+      label: "tech usage",
+      type: "range",
+      defaultValue: 50,
+      min: 0,
+      max: 100,
+      steps: 5,
+      calculate: () => 0,
+    },
     "number-of-computer": {
       label: "Number of Computer",
       type: "input",
       defaultValue: 1,
       calculate: (data, value) => {
-        return 5 * value;
+        const depValue = questionToNumber(
+          data.sectors.technology.questions["tech-usage"]
+        );
+        return depValue * value;
       },
     },
     "test-checkbox": {
