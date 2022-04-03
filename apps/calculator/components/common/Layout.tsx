@@ -3,15 +3,16 @@ import cn from "classnames";
 
 interface Props {
   className?: string;
-  aside?: ReactNode;
+  leftSide?: ReactNode;
+  rightSide?: ReactNode;
 }
 
-const Layout: FC<Props> = ({ children, aside, className }) => {
+const Layout: FC<Props> = ({ children, leftSide, rightSide, className }) => {
   return (
     <main className="relative">
-      {aside ? (
+      {leftSide ? (
         <aside className="absolute inset-y-0 left-0 hidden lg:block">
-          {aside}
+          {leftSide}
         </aside>
       ) : null}
       <div
@@ -22,6 +23,11 @@ const Layout: FC<Props> = ({ children, aside, className }) => {
       >
         {children}
       </div>
+      {rightSide ? (
+        <aside className="absolute inset-y-0 right-0 hidden lg:block">
+          {rightSide}
+        </aside>
+      ) : null}
     </main>
   );
 };

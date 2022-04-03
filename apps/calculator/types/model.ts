@@ -3,6 +3,7 @@ import { Question, QuestionWithValue, Sector, Values } from "./schema";
 export type SectorProps = {
   title: string;
   emoji: string;
+  color: string; // hex
   questions: Record<string, Question>;
   values: Values;
 };

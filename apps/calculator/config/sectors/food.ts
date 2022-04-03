@@ -4,6 +4,7 @@ import { frequency } from "../utils/frequency";
 export const food: SectorProps = {
   title: "Food & Baverage",
   emoji: "🌮",
+  color: "#ea580c",
   questions: {
     "out-of-house": {
       label: "How often do you purchase a meal out of the house?",

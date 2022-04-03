@@ -4,6 +4,7 @@ import { questionToNumber } from "../../utils";
 export const technology: SectorProps = {
   title: "Technology",
   emoji: "🧑‍💻",
+  color: "#16a34a",
   questions: {
     "tech-usage": {
       label: "tech usage",

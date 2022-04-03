@@ -97,6 +97,7 @@ const useFootprint = () => {
 
   // TODO: calculate either all or only for a sector
   // make it memoizable
+  // OR: similar to dataWithValues, always return the calculated values!
   const calculate = (key?: Sector) => {
     if (key) {
       return sum(key);
