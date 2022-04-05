@@ -1,6 +1,6 @@
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import React, { useEffect, useState } from "react";
-import { Loading } from "ui";
+import { Emoji, Heading, Loading } from "ui";
 import SectorNav from "../components/navigation/SectorNav";
 import FormElement from "../components/common/FormElement";
 import { data } from "../config/data";
@@ -14,7 +14,7 @@ import ResultBar from "../components/visualization/ResultBar";
 const Sector = ({
   sector,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  const { questions } = data.sectors[sector];
+  const { questions, title, emoji } = data.sectors[sector];
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -31,8 +31,16 @@ const Sector = ({
       rightSide={<ResultBar activeSector={sector} />}
     >
       <SectorNav activeSector={sector} />
-      <div className="flex-1 flex items-center justify-center min-h-max">
-        <div className="flex-1 space-y-3">
+      <div className="flex-1 flex flex-col items-center justify-center min-h-max">
+        <div className="flex-1 w-full flex items-end">
+          <Heading>
+            <Emoji className="mr-2" label={sector}>
+              {emoji}
+            </Emoji>
+            {title}
+          </Heading>
+        </div>
+        <div className="w-full space-y-3 flex-[2]">
           {Object.entries(questions).map(([key, value]) => {
             return <FormElement key={key} id={key} value={value} />;
           })}

@@ -1,5 +1,7 @@
 import { Question, QuestionWithValue, Sector, Values } from "./schema";
 
+// TODO: rename sector with section
+
 export type SectorProps = {
   title: string;
   emoji: string;

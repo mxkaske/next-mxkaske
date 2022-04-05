@@ -8,14 +8,11 @@ const styles = {
 
 export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   label?: string;
-  children?: React.ReactNode;
-  variant: "default" | "primary" | "secondary";
   rounded?: boolean;
 }
 const Button = ({
   children,
   label,
-  variant,
   className,
   rounded,
   ...props

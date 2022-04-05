@@ -3,6 +3,7 @@ import { DataModel, DataModelWithValues } from "./model";
 type QuestionBase = {
   label: string;
   description?: string;
+  // emoji?: string;
   // sometimes, you'd like to calculate the plastic amount based on user's input
   // e.g. number of bottles * amount of plastic per bottle = total plastic
   calculate?: (data: DataModelWithValues, value: number) => number;
@@ -59,6 +60,9 @@ export type WithValue<T extends Question> = T & {
   // [Property in keyof T as Exclude<Property, "label">]: T[Property];
   value: T["defaultValue"];
 };
+
+// not sure if needed
+export type WithEmoji<T> = T & { emoji: string };
 
 export type QuestionWithValue =
   | WithValue<QuestionSelect>
