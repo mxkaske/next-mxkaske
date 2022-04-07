@@ -15,7 +15,7 @@ const CheckboxBox = ({ id, label, options, defaultValue, ...props }: Props) => {
           <div key={k} className="space-x-2">
             <Label htmlFor={k}>{o.label}</Label>
             <Checkbox
-              name={id}
+              name={k}
               id={k}
               value={k}
               defaultChecked={
