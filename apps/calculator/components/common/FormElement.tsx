@@ -2,6 +2,7 @@ import React from "react";
 import useActiveSector from "../../hooks/useActiveSector";
 import { Question } from "../../types/schema";
 import CheckboxBox from "../form/CheckboxBox";
+import CheckboxCardBox from "../form/CheckboxCardBox";
 import InputBox from "../form/InputBox";
 import RadioBox from "../form/RadioBox";
 import RangeBox from "../form/RangeBox";
@@ -16,6 +17,30 @@ interface Props {
 const FormElement = ({ id, value }: Props) => {
   const { sector, setSector } = useActiveSector();
   const defaultValue = sector?.[id];
+
+  const onNewValue = (
+    e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>
+  ) => {
+    setSector({ [id]: e.target.value });
+  };
+
+  const onToggleValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const items = sector?.[id];
+    if (!e.target.checked && Array.isArray(items)) {
+      setSector({
+        [id]: items.filter((i) => {
+          return i !== e.target.value;
+        }),
+      });
+    } else if (Array.isArray(items)) {
+      setSector({
+        [id]: [...items, e.target.value],
+      });
+    } else {
+      setSector({ [id]: [e.target.value] });
+    }
+  };
+
   switch (value.type) {
     case "select": {
       // README: value is from type QuestionInput thanks to "Discriminated Unions"
@@ -25,7 +50,7 @@ const FormElement = ({ id, value }: Props) => {
           id={id}
           label={value.label}
           defaultValue={defaultValue || value.defaultValue}
-          onChange={(e) => setSector({ [id]: e.target.value })}
+          onChange={onNewValue}
           options={value.options}
         />
       );
@@ -36,7 +61,7 @@ const FormElement = ({ id, value }: Props) => {
           id={id}
           label={value.label}
           defaultValue={defaultValue || value.defaultValue}
-          onChange={(e) => setSector({ [id]: e.target.value })}
+          onChange={onNewValue}
           options={value.options}
         />
       );
@@ -47,7 +72,7 @@ const FormElement = ({ id, value }: Props) => {
           id={id}
           label={value.label}
           defaultValue={defaultValue || value.defaultValue}
-          onChange={(e) => setSector({ [id]: e.target.value })}
+          onChange={onNewValue}
         />
       );
     }
@@ -57,7 +82,7 @@ const FormElement = ({ id, value }: Props) => {
           id={id}
           label={value.label}
           defaultValue={defaultValue || value.defaultValue}
-          onChange={(e) => setSector({ [id]: e.target.value })}
+          onChange={onNewValue}
         />
       );
     }
@@ -68,22 +93,18 @@ const FormElement = ({ id, value }: Props) => {
           label={value.label}
           options={value.options}
           defaultValue={defaultValue || value.defaultValue}
-          onChange={(e) => {
-            const items = sector?.[id];
-            if (!e.target.checked && Array.isArray(items)) {
-              setSector({
-                [id]: items.filter((i) => {
-                  return i !== e.target.value;
-                }),
-              });
-            } else if (Array.isArray(items)) {
-              setSector({
-                [id]: [...items, e.target.value],
-              });
-            } else {
-              setSector({ [id]: [e.target.value] });
-            }
-          }}
+          onChange={onToggleValue}
+        />
+      );
+    }
+    case "checkbox-card": {
+      return (
+        <CheckboxCardBox
+          id={id}
+          label={value.label}
+          options={value.options}
+          defaultValue={defaultValue || value.defaultValue}
+          onChange={onToggleValue}
         />
       );
     }

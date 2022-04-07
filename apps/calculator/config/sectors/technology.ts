@@ -34,14 +34,17 @@ export const technology: SectorProps = {
         one: {
           label: "One",
           value: 1,
+          emoji: "1️⃣",
         },
         two: {
           label: "Two",
           value: 2,
+          emoji: "2️⃣",
         },
         three: {
           label: "Three",
           value: 3,
+          emoji: "3️⃣",
         },
       },
     },

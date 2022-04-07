@@ -15,6 +15,7 @@ export type QuestionSelectOptions = Record<
   {
     label: string;
     value: number;
+    emoji: string; // DISCUSS: maybe use WithEmoji<> later
   }
 >;
 
@@ -39,7 +40,7 @@ export type QuestionRange = QuestionBase & {
 };
 
 export type QuestionCheckbox = QuestionBase & {
-  type: "checkbox";
+  type: "checkbox" | "checkbox-card";
   defaultValue?: readonly string[];
   options: QuestionSelectOptions;
 };
@@ -85,7 +86,8 @@ export type Sector =
   | "packaging"
   | "construction"
   | "technology"
-  | "clothing";
+  | "clothing"
+  | "playground"; // TODO: remove once it's done!
 
 export type Product =
   | "consumer-bottles"

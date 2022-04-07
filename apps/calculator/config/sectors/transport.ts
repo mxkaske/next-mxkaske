@@ -11,17 +11,19 @@ export const transport: SectorProps = {
       defaultValue: "motorbike",
       options: {
         car: {
-          label: "Car",
-          // description
+          label: "car",
           value: 10,
+          emoji: "🚗",
         },
         motorbike: {
-          label: "Motorbike",
+          label: "motorbike",
           value: 5,
+          emoji: "🏍",
         },
         bicycle: {
-          label: "Bicycle",
+          label: "bicycle",
           value: 1,
+          emoji: "🚴",
         },
       },
     },

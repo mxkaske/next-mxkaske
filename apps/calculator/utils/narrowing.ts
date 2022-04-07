@@ -29,5 +29,5 @@ export const isRange = (question: Question): question is QuestionRange => {
 export const isCheckbox = (
   question: Question
 ): question is QuestionCheckbox => {
-  return question.type === "checkbox";
+  return question.type === "checkbox" || question.type === "checkbox-card";
 };

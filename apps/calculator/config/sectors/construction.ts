@@ -13,17 +13,20 @@ export const construction: SectorProps = {
         car: {
           // TODO: instead of adding the emoji, create a property for it!
           // Easier to use it elsewhere
-          label: "🚗 car",
+          label: "car",
           // description
           value: 10,
+          emoji: "🚗",
         },
         motorbike: {
-          label: "🏍 motorbike",
+          label: "motorbike",
           value: 5,
+          emoji: "🏍",
         },
         bicycle: {
-          label: "🚴‍♀️ bicycle",
+          label: "bicycle",
           value: 1,
+          emoji: "🚴",
         },
       },
     },

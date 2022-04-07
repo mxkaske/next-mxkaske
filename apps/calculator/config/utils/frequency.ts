@@ -17,18 +17,22 @@ export const frequency = ({
     never: {
       label: "Never",
       value: never || 0,
+      emoji: "😀",
     },
     daily: {
       label: "Daily",
       value: daily,
+      emoji: "😅",
     },
     weekly: {
       label: "Weekly",
       value: weekly,
+      emoji: "😬",
     },
     monthly: {
       label: "Montly",
       value: monthly,
+      emoji: "🙂",
     },
   },
 });
