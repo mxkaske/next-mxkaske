@@ -11,12 +11,12 @@ interface Props {
 
 const SectorNav = ({ activeSector }: Props) => {
   return (
-    <nav>
-      <ul className="flex overflow-x-auto space-x-2 py-3">
+    <nav className="w-full">
+      <ul className="flex overflow-x-auto space-x-2 py-3 snap-x snap-mandatory">
         {Object.entries(data.sectors).map(([key, value]) => {
           const isActive = key === activeSector;
           return (
-            <li key={key} className="flex-shrink-0">
+            <li key={key} className="snap-start scroll-mx-3 shrink-0">
               <NextLink href={`/${key}`} passHref>
                 <a
                   className={cn(
