@@ -9,7 +9,7 @@ const useActiveSector = () => {
 
   const { sector: key } = router.query as { sector: Sector };
 
-  const sector = footprint.sectors[key];
+  const sector = footprint.sectors[key] || {};
 
   const setSector = useCallback(
     (value: Record<string, number | string | string[]>) => {

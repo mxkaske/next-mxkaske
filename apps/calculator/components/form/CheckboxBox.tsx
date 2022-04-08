@@ -4,12 +4,20 @@ import { QuestionSelectOptions } from "../../types/schema";
 interface Props extends CheckboxProps {
   label: string;
   options: QuestionSelectOptions;
+  hideLabel?: boolean;
 }
 
-const CheckboxBox = ({ id, label, options, defaultValue, ...props }: Props) => {
+const CheckboxBox = ({
+  id,
+  label,
+  hideLabel = false,
+  options,
+  defaultValue,
+  ...props
+}: Props) => {
   return (
     <div className="flex flex-col">
-      <Label id={id}>{label}</Label>
+      {!hideLabel ? <Label htmlFor={id}>{label}</Label> : null}
       <div className="flex flex-wrap space-x-3">
         {Object.entries(options).map(([k, o]) => (
           <div key={k} className="space-x-2">

@@ -2,12 +2,13 @@ import { Input, InputProps, Label } from "ui";
 
 interface Props extends InputProps {
   label: string;
+  hideLabel?: boolean;
 }
 
-const InputBox = ({ id, label, ...props }: Props) => {
+const InputBox = ({ id, hideLabel = false, label, ...props }: Props) => {
   return (
     <div className="flex flex-col">
-      <Label htmlFor={id}>{label}</Label>
+      {!hideLabel ? <Label htmlFor={id}>{label}</Label> : null}
       <Input
         name={id}
         id={id}

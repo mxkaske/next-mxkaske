@@ -2,7 +2,7 @@ import * as React from "react";
 import cn from "classnames";
 
 const styles = {
-  h1: "mb-4 text-3xl font-bold",
+  h1: "mb-3 text-4xl font-extrabold",
   h2: "mb-3 text-2xl font-semibold",
   h3: "mb-2 text-xl font-semibold",
   h4: "mb-1 text-lg font-medium",

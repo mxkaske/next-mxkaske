@@ -1,15 +1,17 @@
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import React, { useEffect, useState } from "react";
 import { Emoji, Heading, Loading } from "ui";
-import SectorNav from "../components/navigation/SectorNav";
-import FormElement from "../components/common/FormElement";
-import { data } from "../config/data";
-import { Sector } from "../types/schema";
-import ActionBar from "../components/common/ActionBar";
-import Layout from "../components/common/Layout";
-import ArrowNav from "../components/navigation/ArrowNav";
-import SideNav from "../components/navigation/SideNav";
-import ResultBar from "../components/visualization/ResultBar";
+import SectorNav from "../../components/navigation/SectorNav";
+import FormElement from "../../components/common/FormElement";
+import { data } from "../../config/data";
+import { Sector } from "../../types/schema";
+import ActionBar from "../../components/common/ActionBar";
+import Layout from "../../components/common/Layout";
+import ArrowNav from "../../components/navigation/ArrowNav";
+import SideNav from "../../components/navigation/SideNav";
+import ResultBar from "../../components/visualization/ResultBar";
+
+// [[...question]] allows the `/index` page!
 
 const Sector = ({
   sector,

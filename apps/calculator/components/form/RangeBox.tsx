@@ -2,12 +2,13 @@ import { Label, Range, RangeProps } from "ui";
 
 interface Props extends RangeProps {
   label: string;
+  hideLabel?: boolean;
 }
 
-const RangeBox = ({ id, label, ...props }: Props) => {
+const RangeBox = ({ id, hideLabel = false, label, ...props }: Props) => {
   return (
     <div>
-      <Label htmlFor={id}>{label}</Label>
+      {!hideLabel ? <Label htmlFor={id}>{label}</Label> : null}
       <Range name={id} id={id} {...props} />
     </div>
   );

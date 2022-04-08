@@ -7,9 +7,9 @@ import { playground } from "./sectors/playground";
 
 export const data: DataModel = {
   sectors: {
-    playground,
     transport,
     food,
+    playground,
     technology,
     construction,
   },

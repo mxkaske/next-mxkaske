@@ -2,6 +2,7 @@ import { DataModel, DataModelWithValues } from "./model";
 
 type QuestionBase = {
   label: string;
+  question?: string;
   description?: string;
   // emoji?: string;
   // sometimes, you'd like to calculate the plastic amount based on user's input

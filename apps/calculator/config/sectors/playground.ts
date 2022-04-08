@@ -18,6 +18,11 @@ const options = (id: string): QuestionSelectOptions => ({
     value: 1,
     emoji: "🚴",
   },
+  [`${id}-walking`]: {
+    label: "walking",
+    value: 0,
+    emoji: "🚶‍♂️",
+  },
 });
 
 export const playground: SectorProps = {
@@ -25,8 +30,19 @@ export const playground: SectorProps = {
   emoji: "🃏",
   color: "#dddddd",
   questions: {
+    "checkbox-card-example": {
+      label: "Checkbox Card Label",
+      question: "What is usual transportation method?",
+      description: "Your day to day thing.",
+      type: "checkbox-card",
+      defaultValue: ["checkbox-card-car"],
+      options: options("checkbox-card"),
+    },
     "select-example": {
       label: "Select Label",
+      question:
+        "Describe which transportation method you would use in your daily life?",
+      description: "Do not cheat - you don't have to!",
       type: "select",
       defaultValue: "select-motorbike",
       options: options("select"),
@@ -55,12 +71,6 @@ export const playground: SectorProps = {
       type: "checkbox",
       defaultValue: ["checkbox-car"],
       options: options("checkbox"),
-    },
-    "checkbox-card-example": {
-      label: "Checkbox Card Label",
-      type: "checkbox-card",
-      defaultValue: ["checkbox-card-car"],
-      options: options("checkbox-card"),
     },
   },
   values: {

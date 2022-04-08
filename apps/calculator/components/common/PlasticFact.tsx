@@ -1,10 +1,13 @@
 import React, { FC, HTMLAttributes } from "react";
 import { Emoji, Text } from "ui";
 import cn from "classnames";
+import { facts } from "../../config/plastic-facts";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   emoji: string;
   label?: string;
+  // TODO: use ids to get the facts instead of passing all the props
+  fact?: keyof typeof facts;
 }
 
 const PlasticFact: FC<Props> = ({ emoji, label, children, className }) => {

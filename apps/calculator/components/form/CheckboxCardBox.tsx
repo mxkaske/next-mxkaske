@@ -4,10 +4,12 @@ import { QuestionSelectOptions } from "../../types/schema";
 interface Props extends CheckboxCardProps {
   label: string;
   options: QuestionSelectOptions;
+  hideLabel?: boolean;
 }
 
 const CheckboxCardBox = ({
   id,
+  hideLabel,
   label,
   options,
   defaultValue,
@@ -15,7 +17,7 @@ const CheckboxCardBox = ({
 }: Props) => {
   return (
     <div className="flex flex-col">
-      <Label>{label}</Label>
+      {!hideLabel ? <Label htmlFor={id}>{label}</Label> : null}
       <div className="flex flex-wrap space-x-3">
         {Object.entries(options).map(([k, o]) => (
           <CheckboxCard

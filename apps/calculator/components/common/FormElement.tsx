@@ -10,11 +10,12 @@ import SelectBox from "../form/SelectBox";
 
 interface Props {
   id: string; // key is protected
+  hideLabel?: boolean;
   value: Question;
 }
 
 // TODO: rename and refactor.. something like GeneratedForm
-const FormElement = ({ id, value }: Props) => {
+const FormElement = ({ id, value, hideLabel }: Props) => {
   const { sector, setSector } = useActiveSector();
   const defaultValue = sector?.[id];
 
@@ -49,6 +50,7 @@ const FormElement = ({ id, value }: Props) => {
         <SelectBox
           id={id}
           label={value.label}
+          hideLabel={hideLabel}
           defaultValue={defaultValue || value.defaultValue}
           onChange={onNewValue}
           options={value.options}
@@ -60,6 +62,7 @@ const FormElement = ({ id, value }: Props) => {
         <RadioBox
           id={id}
           label={value.label}
+          hideLabel={hideLabel}
           defaultValue={defaultValue || value.defaultValue}
           onChange={onNewValue}
           options={value.options}
@@ -81,6 +84,7 @@ const FormElement = ({ id, value }: Props) => {
         <RangeBox
           id={id}
           label={value.label}
+          hideLabel={hideLabel}
           defaultValue={defaultValue || value.defaultValue}
           onChange={onNewValue}
         />
@@ -91,6 +95,7 @@ const FormElement = ({ id, value }: Props) => {
         <CheckboxBox
           id={id}
           label={value.label}
+          hideLabel={hideLabel}
           options={value.options}
           defaultValue={defaultValue || value.defaultValue}
           onChange={onToggleValue}
@@ -102,6 +107,7 @@ const FormElement = ({ id, value }: Props) => {
         <CheckboxCardBox
           id={id}
           label={value.label}
+          hideLabel={hideLabel}
           options={value.options}
           defaultValue={defaultValue || value.defaultValue}
           onChange={onToggleValue}
