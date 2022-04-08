@@ -31,6 +31,19 @@ export const household: SectorProps = {
       },
       calculate: calculateByCountry,
     },
+    "home-size": {
+      label: "Size of home",
+      question: "What is the size of your home?",
+      description: "Compared to an average 100qm home (in Germany).",
+      type: "radio-card",
+      defaultValue: "average",
+      options: {
+        smaller: { label: "smaller", value: -0.05, emoji: "⛺️" },
+        average: { label: "average", value: 0, emoji: "🛖" },
+        larger: { label: "larger", value: +0.05, emoji: "🏠" },
+      },
+      calculate: calculateByCountry,
+    },
     "recycling-box": {
       label: "Recycling pickup",
       question: "Does your home have municipal recycling pickup (bluebox)?",

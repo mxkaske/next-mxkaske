@@ -25,8 +25,8 @@ export const lifestyle: SectorProps = {
       defaultValue: "3-5",
       options: {
         "0-2": { label: "0 to 2", value: -0.05, emoji: "👟" },
-        "3-5": { label: "3-6", value: 0, emoji: "🛍️" },
-        "+6": { label: "+7", value: 0.1, emoji: "🛒" },
+        "3-5": { label: "3-5", value: 0, emoji: "🛍️" },
+        "+6": { label: "+6", value: 0.1, emoji: "🛒" },
       },
       calculate: calculateByCountry,
     },

@@ -7,6 +7,8 @@ import {
   CheckIcon,
 } from "@heroicons/react/outline";
 
+// TODO: not convinced from that Component...
+
 const styles = {
   base: "block p-2 rounded-full border",
   variant: {
