@@ -10,12 +10,11 @@ interface Props {
 
 const ResultBar = ({ activeSector }: Props) => {
   const { calculate } = useFootprint();
-
   const total = calculate();
 
   return (
-    <div className="h-full w-full flex flex-col justify-center">
-      <ul className="space-y-px">
+    <div className="h-full w-full flex items-end space-x-6">
+      <ul className="space-x-px flex items-end">
         {Object.keys(data?.sectors).map((key: Sector) => {
           const value = calculate(key);
           const relValue = value / total;
@@ -25,7 +24,7 @@ const ResultBar = ({ activeSector }: Props) => {
               className="rounded w-2"
               style={{
                 backgroundColor: data?.sectors[key].color,
-                height: `${relValue * 12}em`,
+                height: relValue > 0 ? `${relValue * 12}em` : `0.25em`,
               }}
             />
           );
