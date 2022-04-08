@@ -2,9 +2,10 @@ import React, { FC, HTMLAttributes } from "react";
 import { Emoji, Text } from "ui";
 import cn from "classnames";
 import { plasticFacts } from "../../config/plastic-facts";
+import { marked } from "marked";
+// missing ts support, check `npm i --save-dev @types/marked`
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
-  // TODO: use ids to get the facts instead of passing all the props
   fact?: keyof typeof plasticFacts;
 }
 
@@ -15,7 +16,7 @@ const PlasticFact = ({ fact, className }: Props) => {
       <Emoji label={label} className="p-2 rounded-full bg-gray-100">
         {emoji}
       </Emoji>
-      <Text>{text}</Text>
+      <div dangerouslySetInnerHTML={{ __html: marked.parse(text) }} />
     </div>
   );
 };
