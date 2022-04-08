@@ -88,6 +88,8 @@ export type Sector =
   | "construction"
   | "technology"
   | "clothing"
+  | "household"
+  | "lifestyle"
   | "playground"; // TODO: remove once it's done!
 
 export type Product =

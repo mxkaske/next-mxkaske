@@ -7,12 +7,13 @@ export type SectorProps = {
   emoji: string;
   color: string; // hex
   questions: Record<string, Question>;
-  values: Values;
+  values?: Values; // TODO: is it needed?
 };
 
 // TODO: if we want to fully dynamically upload the json data, "Sector" cannot be defined
 // instead, use: Record<string, SectorProps> or use Generics
 export type DataModel = {
+  name: string;
   sectors: {
     [Property in Sector]?: SectorProps;
   };
