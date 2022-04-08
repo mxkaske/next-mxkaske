@@ -18,14 +18,15 @@ const RadioCardBox = ({
   return (
     <div className="flex flex-col">
       {!hideLabel ? <Label htmlFor={id}>{label}</Label> : null}
-      <div className="flex flex-wrap space-x-3">
+      <div className="flex flex-wrap">
         {Object.entries(options).map(([k, o]) => (
           <RadioCard
-            key={k}
+            key={`${id}-${k}`}
             name={id}
             id={k}
             value={k}
             defaultChecked={defaultValue === k}
+            containerClassName="mr-3 mb-3"
             {...props}
           >
             {o.label}{" "}

@@ -35,7 +35,7 @@ const setCurrentValues = (
 
 const useFootprint = () => {
   const [footprint, setFootprint] = useLocalStorage<UserFootprint>(
-    "footprint",
+    `footprint-${data.name}`,
     // TODO: directly from the start, we should build
     // the entire "defaultValue" footprint tree
     { sectors: {} }

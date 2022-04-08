@@ -18,13 +18,14 @@ const CheckboxCardBox = ({
   return (
     <div className="flex flex-col">
       {!hideLabel ? <Label htmlFor={id}>{label}</Label> : null}
-      <div className="flex flex-wrap space-x-3">
+      <div className="flex flex-wrap">
         {Object.entries(options).map(([k, o]) => (
           <CheckboxCard
-            key={k}
+            key={`${id}-${k}`}
             name={k}
             id={k}
             value={k}
+            containerClassName="mb-3 mr-3"
             defaultChecked={
               Array.isArray(defaultValue) && defaultValue.includes(k)
             }

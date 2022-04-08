@@ -18,9 +18,9 @@ const CheckboxBox = ({
   return (
     <div className="flex flex-col">
       {!hideLabel ? <Label htmlFor={id}>{label}</Label> : null}
-      <div className="flex flex-wrap space-x-3">
+      <div className="flex flex-wrap">
         {Object.entries(options).map(([k, o]) => (
-          <div key={k} className="space-x-2">
+          <div key={`${id}-${k}`} className="space-x-2 mb-3 mr-3">
             <Label htmlFor={k}>{o.label}</Label>
             <Checkbox
               name={k}
