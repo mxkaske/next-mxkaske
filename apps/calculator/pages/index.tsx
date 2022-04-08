@@ -15,7 +15,6 @@ const Home: NextPage = () => {
   // const randomKey = keys[Math.floor(Math.random() * keys.length)];
   return (
     <Layout>
-      <SectorNav />
       <div className="flex-1 flex flex-col justify-center">
         <NextLink href={`${firstSector}/${firstQuestion}`} passHref>
           <Link>Start calculation</Link>
