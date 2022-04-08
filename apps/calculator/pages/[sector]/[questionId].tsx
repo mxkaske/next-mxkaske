@@ -28,7 +28,7 @@ const Sector = ({
 
   return (
     <Layout>
-      <SectorNav activeSector={sector} />
+      {/* <SectorNav activeSector={sector} /> */}
       <div className="flex-1 flex flex-col items-center justify-center space-y-4">
         <div className="flex-1 w-full flex flex-col justify-end">
           <AnswerNav activeSector={sector} questionKey={id} />

@@ -4,17 +4,22 @@ import { data } from "../../config/data";
 import { Sector } from "../../types/schema";
 import { Emoji, Link } from "ui";
 import cn from "classnames";
+import { useRouter } from "next/router";
 
 interface Props {
   activeSector?: Sector;
+  className?: string;
 }
 
-const SectorNav = ({ activeSector }: Props) => {
+// TODO: clarify whether or not to pass activeSector...
+
+const SectorNav = ({ activeSector, className }: Props) => {
+  const router = useRouter();
   return (
-    <nav className="w-full">
-      <ul className="flex overflow-x-auto space-x-2 py-3 snap-x snap-mandatory">
+    <nav className={cn("w-full", className)}>
+      <ul className="flex overflow-x-auto space-x-2 py-4 px-2 snap-x snap-mandatory">
         {Object.entries(data.sectors).map(([key, value]) => {
-          const isActive = key === activeSector;
+          const isActive = key === activeSector || key === router.query?.sector;
           const firstQuestionKey = Object.keys(value.questions).at(0);
           return (
             <li key={key} className="snap-start scroll-mx-3 shrink-0">
