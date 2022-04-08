@@ -1,12 +1,7 @@
-import Link from "next/link";
 import React from "react";
-import {
-  ArrowLeftIcon,
-  ArrowRightIcon,
-  CheckIcon,
-} from "@heroicons/react/outline";
 import { data } from "../../config/data";
 import { Sector } from "../../types/schema";
+import ArrowAnchor from "../ui/ArrowAnchor";
 
 interface Props {
   activeSector: Sector;
@@ -35,13 +30,10 @@ const ArrowNav = ({ activeSector, questionKey }: Props) => {
         {(() => {
           if (!first) {
             return (
-              <Link
+              <ArrowAnchor
                 href={`/${activeSector}/${questionKeys[questionKeyIndex - 1]}`}
-              >
-                <a className="block p-2 rounded-full border border-gray-300 dark:text-white hover:border-gray-400 dark:hover:border-gray-600 dark:border-gray-700">
-                  <ArrowLeftIcon className="h-5 w-5" />
-                </a>
-              </Link>
+                dir="left"
+              />
             );
           } else if (first && !firstSector) {
             const previousSector = sectors[activeSectorIndex - 1];
@@ -49,11 +41,11 @@ const ArrowNav = ({ activeSector, questionKey }: Props) => {
               data.sectors[previousSector].questions
             ).at(0);
             return (
-              <Link href={`/${previousSector}/${firstQuestionKey}`}>
-                <a className="block p-2 rounded-full border border-transparent bg-gray-900 text-white">
-                  <ArrowLeftIcon className="h-5 w-5" />
-                </a>
-              </Link>
+              <ArrowAnchor
+                href={`/${previousSector}/${firstQuestionKey}`}
+                variant="invert"
+                dir="left"
+              />
             );
           }
         })()}
@@ -62,13 +54,9 @@ const ArrowNav = ({ activeSector, questionKey }: Props) => {
         {(() => {
           if (!last) {
             return (
-              <Link
+              <ArrowAnchor
                 href={`/${activeSector}/${questionKeys[questionKeyIndex + 1]}`}
-              >
-                <a className="block p-2 rounded-full border border-gray-300 dark:text-white hover:border-gray-400 dark:hover:border-gray-600 dark:border-gray-700">
-                  <ArrowRightIcon className="h-5 w-5" />
-                </a>
-              </Link>
+              />
             );
           } else if (last && !lastSector) {
             const nextSector = sectors[activeSectorIndex + 1];
@@ -76,19 +64,14 @@ const ArrowNav = ({ activeSector, questionKey }: Props) => {
               data.sectors[nextSector].questions
             ).at(0);
             return (
-              <Link href={`/${nextSector}/${firstQuestionKey}`}>
-                <a className="block p-2 rounded-full border border-transparent bg-gray-900 text-white">
-                  <ArrowRightIcon className="h-5 w-5" />
-                </a>
-              </Link>
+              <ArrowAnchor
+                href={`/${nextSector}/${firstQuestionKey}`}
+                variant="invert"
+              />
             );
           } else if (last && lastSector) {
             return (
-              <Link href={`/results`}>
-                <a className="block p-2 rounded-full border border-transparent bg-gray-900 text-white">
-                  <CheckIcon className="h-5 w-5" />
-                </a>
-              </Link>
+              <ArrowAnchor href={`/results`} variant="invert" dir="done" />
             );
           }
         })()}
