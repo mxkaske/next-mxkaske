@@ -1,4 +1,5 @@
 import { SectorProps } from "../../types/model";
+import { calculateByCountry } from "./utils";
 
 export const transport: SectorProps = {
   title: "Transport",
@@ -17,6 +18,7 @@ export const transport: SectorProps = {
         bicycle: { label: "bicycle", value: -0.01, emoji: "🚴" },
         walking: { label: "walking", value: -0.1, emoji: "🚶‍♂️" },
       },
+      calculate: calculateByCountry,
     },
     "car-usage": {
       label: "Car usage",
@@ -29,6 +31,7 @@ export const transport: SectorProps = {
         family: { label: "family", value: -0.01, emoji: "👨‍👩‍👦" },
         personal: { label: "personal", value: 0.15, emoji: "🧑" },
       },
+      calculate: calculateByCountry,
     },
   },
 } as const;

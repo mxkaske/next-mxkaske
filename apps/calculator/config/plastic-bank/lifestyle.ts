@@ -1,4 +1,5 @@
 import { SectorProps } from "../../types/model";
+import { calculateByCountry } from "./utils";
 
 export const lifestyle: SectorProps = {
   title: "Lifestyle",
@@ -14,6 +15,7 @@ export const lifestyle: SectorProps = {
         no: { label: "no", value: 0, emoji: "🥳" },
         yes: { label: "yes", value: 0.05, emoji: "🚬" },
       },
+      calculate: calculateByCountry,
     },
     "shop-clothing": {
       label: "Clothing / Shoe shopping",
@@ -26,6 +28,7 @@ export const lifestyle: SectorProps = {
         "3-5": { label: "3-6", value: 0, emoji: "🛍️" },
         "+6": { label: "+7", value: 0.1, emoji: "🛒" },
       },
+      calculate: calculateByCountry,
     },
     "reusable-bags": {
       label: "Reusable bags",
@@ -37,6 +40,7 @@ export const lifestyle: SectorProps = {
         sometimes: { label: "sometimes", value: 0, emoji: "🤝" },
         always: { label: "always", value: -0.05, emoji: "🎒" },
       },
+      calculate: calculateByCountry,
     },
     pets: {
       label: "Pets",
@@ -49,6 +53,7 @@ export const lifestyle: SectorProps = {
         medium: { label: "medium (cat, dog)", value: +0.05, emoji: "🐕" },
         large: { label: "large or multiple", value: +0.08, emoji: "🐠" },
       },
+      calculate: calculateByCountry,
     },
   },
 } as const;

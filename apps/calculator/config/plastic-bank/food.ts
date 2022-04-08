@@ -1,4 +1,6 @@
 import { SectorProps } from "../../types/model";
+import { questionToNumber } from "../../utils";
+import { calculateByCountry } from "./utils";
 
 export const food: SectorProps = {
   title: "Food and Beverages",
@@ -15,6 +17,7 @@ export const food: SectorProps = {
         "3-6": { label: "3-6", value: 0, emoji: "🍝" },
         "+7": { label: "+7", value: 0.1, emoji: "🍱" },
       },
+      calculate: calculateByCountry,
     },
     "convenience-food": {
       label: "Convenience food",
@@ -27,6 +30,7 @@ export const food: SectorProps = {
         sometimes: { label: "sometimes", value: 0, emoji: "🤝" },
         always: { label: "always", value: 0.1, emoji: "🌯" },
       },
+      calculate: calculateByCountry,
     },
   },
 } as const;

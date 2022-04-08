@@ -1,4 +1,5 @@
 import { SectorProps } from "../../types/model";
+import { calculateByCountry } from "./utils";
 
 export const technology: SectorProps = {
   title: "Technology",
@@ -17,6 +18,7 @@ export const technology: SectorProps = {
         "few-months": { label: "every few months", value: -0.01, emoji: "🗓️" },
         never: { label: "never", value: -0.03, emoji: "❌" },
       },
+      calculate: calculateByCountry,
     },
     "number-of-devices": {
       label: "Number of devices",
@@ -30,6 +32,7 @@ export const technology: SectorProps = {
         "3-5": { label: "3-5", value: 0, emoji: "🖥️" },
         "+6": { label: "+6", value: 0.05, emoji: "🤖" },
       },
+      calculate: calculateByCountry,
     },
   },
 } as const;
