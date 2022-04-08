@@ -15,9 +15,10 @@ const SectorNav = ({ activeSector }: Props) => {
       <ul className="flex overflow-x-auto space-x-2 py-3 snap-x snap-mandatory">
         {Object.entries(data.sectors).map(([key, value]) => {
           const isActive = key === activeSector;
+          const firstQuestionKey = Object.keys(value.questions).at(0);
           return (
             <li key={key} className="snap-start scroll-mx-3 shrink-0">
-              <NextLink href={`/${key}`} passHref>
+              <NextLink href={`/${key}/${firstQuestionKey}`} passHref>
                 <a
                   className={cn(
                     "px-3 py-2 rounded-full",

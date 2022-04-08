@@ -1,4 +1,4 @@
-const facts = {
+const plasticFacts = {
   "plastic-clothing": {
     emoji: "♻️",
     label: "recycle",
@@ -6,4 +6,4 @@ const facts = {
   },
 } as const;
 
-export { facts };
+export { plasticFacts };

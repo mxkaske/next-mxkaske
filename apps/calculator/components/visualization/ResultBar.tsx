@@ -5,7 +5,7 @@ import useFootprint from "../../hooks/useFootprint";
 import { Sector } from "../../types/schema";
 
 interface Props {
-  activeSector: Sector;
+  activeSector?: Sector;
 }
 
 const ResultBar = ({ activeSector }: Props) => {

@@ -7,7 +7,7 @@ import useFootprint from "../../hooks/useFootprint";
 import { Emoji, Text } from "ui";
 
 interface Props {
-  activeSector: Sector;
+  activeSector?: Sector;
 }
 
 const SideNav = ({ activeSector }: Props) => {
