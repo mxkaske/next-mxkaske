@@ -8,8 +8,6 @@ import { Sector } from "../../types/schema";
 import ActionBar from "../../components/common/ActionBar";
 import Layout from "../../components/common/Layout";
 import ArrowNav from "../../components/navigation/ArrowNav";
-import SideNav from "../../components/navigation/SideNav";
-import ResultBar from "../../components/visualization/ResultBar";
 import AnswerNav from "../../components/navigation/AnswerNav";
 
 // [[...question]] allows the `/index` page!
@@ -29,10 +27,7 @@ const Sector = ({
   }
 
   return (
-    <Layout
-      leftSide={<SideNav activeSector={sector} />}
-      rightSide={<ResultBar activeSector={sector} />}
-    >
+    <Layout>
       <SectorNav activeSector={sector} />
       <div className="flex-1 flex flex-col items-center justify-center space-y-4">
         <div className="flex-1 w-full flex flex-col justify-end">

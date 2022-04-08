@@ -13,9 +13,12 @@ const PlasticFact = ({ fact, className }: Props) => {
   const { label, emoji, text } = plasticFacts[fact];
   return (
     <div className={cn("flex space-x-3 items-center", className)}>
-      <Emoji label={label} className="p-2 rounded-full bg-gray-100">
-        {emoji}
-      </Emoji>
+      <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center">
+        <Emoji label={label} className="p-2">
+          {emoji}
+        </Emoji>
+      </div>
+      {/* <Text>{text}</Text> */}
       <div dangerouslySetInnerHTML={{ __html: marked.parse(text) }} />
     </div>
   );

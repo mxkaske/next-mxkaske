@@ -1,5 +1,6 @@
 import React from "react";
 import { Heading } from "ui";
+import ActionBar from "../components/common/ActionBar";
 import Layout from "../components/common/Layout";
 import SectorNav from "../components/navigation/SectorNav";
 import SideNav from "../components/navigation/SideNav";
@@ -16,6 +17,7 @@ const Results = () => {
           <SideNav />
         </div>
       </div>
+      <ActionBar />
     </Layout>
   );
 };
