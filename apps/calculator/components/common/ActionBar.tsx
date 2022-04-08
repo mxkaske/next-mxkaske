@@ -6,7 +6,6 @@ import useFootprint from "../../hooks/useFootprint";
 import { UserFootprint } from "../../types/model";
 
 // TODO: move to `utils` file or `useFootprint` hook
-
 const checkAllAnswered = (footprint: UserFootprint) => {
   const { sectors } = data;
   let flag = true;
@@ -28,8 +27,6 @@ const ActionBar = () => {
     reset();
     router.push("/");
   };
-
-  console.log(checkAllAnswered(footprint));
 
   return (
     <div className="flex justify-between border-t dark:border-t-gray-700 pt-3">

@@ -17,7 +17,7 @@ export const food: SectorProps = {
       },
     },
     "convenience-food": {
-      label: "convenience-food",
+      label: "Convenience food",
       question: "How often do you purchase convenience foods?",
       description: "Prepared meals to cook at home",
       type: "radio-card",
