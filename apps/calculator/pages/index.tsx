@@ -9,8 +9,8 @@ import { Sector } from "../types/schema";
 import { plasticFacts } from "../config/plastic-facts";
 
 const Home: NextPage = () => {
-  const firstSector = Object.keys(data.sectors).at(0) as Sector;
-  const firstQuestion = Object.keys(data.sectors[firstSector].questions).at(0);
+  const firstSector = Object.keys(data.sectors)[0] as Sector;
+  const firstQuestion = Object.keys(data.sectors[firstSector].questions)[0];
   const keys = Object.keys(plasticFacts) as (keyof typeof plasticFacts)[];
   // const randomKey = keys[Math.floor(Math.random() * keys.length)];
   return (

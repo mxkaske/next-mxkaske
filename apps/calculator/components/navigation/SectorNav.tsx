@@ -20,7 +20,7 @@ const SectorNav = ({ activeSector, className }: Props) => {
       <ul className="flex overflow-x-auto space-x-2 py-4 px-2 snap-x snap-mandatory">
         {Object.entries(data.sectors).map(([key, value]) => {
           const isActive = key === activeSector || key === router.query?.sector;
-          const firstQuestionKey = Object.keys(value.questions).at(0);
+          const firstQuestionKey = Object.keys(value.questions)[0];
           return (
             <li key={key} className="snap-start scroll-mx-3 shrink-0">
               <NextLink href={`/${key}/${firstQuestionKey}`} passHref>

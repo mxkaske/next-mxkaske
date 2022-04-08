@@ -39,7 +39,7 @@ const ArrowNav = ({ activeSector, questionKey }: Props) => {
             const previousSector = sectors[activeSectorIndex - 1];
             const firstQuestionKey = Object.keys(
               data.sectors[previousSector].questions
-            ).at(0);
+            )[0];
             return (
               <ArrowAnchor
                 href={`/${previousSector}/${firstQuestionKey}`}
@@ -62,7 +62,7 @@ const ArrowNav = ({ activeSector, questionKey }: Props) => {
             const nextSector = sectors[activeSectorIndex + 1];
             const firstQuestionKey = Object.keys(
               data.sectors[nextSector].questions
-            ).at(0);
+            )[0];
             return (
               <ArrowAnchor
                 href={`/${nextSector}/${firstQuestionKey}`}
