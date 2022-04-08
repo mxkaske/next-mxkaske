@@ -27,7 +27,8 @@ const ArrowNav = ({ activeSector, questionKey }: Props) => {
   return (
     <div className="flex justify-between items-center">
       <div>
-        {(() => {
+        {/* FIXME: Discuss if needed - you can always go back via the SectorNav and AnswerNav */}
+        {/* {(() => {
           if (!first) {
             return (
               <ArrowAnchor
@@ -48,7 +49,7 @@ const ArrowNav = ({ activeSector, questionKey }: Props) => {
               />
             );
           }
-        })()}
+        })()} */}
       </div>
       <div>
         {(() => {
