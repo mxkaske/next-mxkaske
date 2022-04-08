@@ -24,6 +24,11 @@ const plasticFacts = {
     label: "salad",
     text: "Bakeries and supermarkets offer end-of-day takeaways of items that are **sorted out but still perfectly edible** and viable.",
   },
+  "smart-plugs": {
+    emoji: "💡",
+    label: "light",
+    text: "**Smart plugs** are an initial investment but they help reduce vampire energy consumption **upt to 87%**.",
+  },
 } as const;
 
 export { plasticFacts };
