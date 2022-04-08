@@ -5,6 +5,7 @@ import CheckboxBox from "../form/CheckboxBox";
 import CheckboxCardBox from "../form/CheckboxCardBox";
 import InputBox from "../form/InputBox";
 import RadioBox from "../form/RadioBox";
+import RadioCardBox from "../form/RadioCardBox";
 import RangeBox from "../form/RangeBox";
 import SelectBox from "../form/SelectBox";
 
@@ -60,6 +61,18 @@ const FormElement = ({ id, value, hideLabel }: Props) => {
     case "radio": {
       return (
         <RadioBox
+          id={id}
+          label={value.label}
+          hideLabel={hideLabel}
+          defaultValue={defaultValue || value.defaultValue}
+          onChange={onNewValue}
+          options={value.options}
+        />
+      );
+    }
+    case "radio-card": {
+      return (
+        <RadioCardBox
           id={id}
           label={value.label}
           hideLabel={hideLabel}

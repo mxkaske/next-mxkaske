@@ -13,6 +13,7 @@ export { default as Badge } from "./badge";
 export { default as Checkbox } from "./checkbox";
 export { default as Emoji } from "./emoji";
 export { default as CheckboxCard } from "./checkbox-card";
+export { default as RadioCard } from "./radio-card";
 
 export type { ButtonProps } from "./button";
 export type { HeadingProps } from "./heading";
@@ -26,3 +27,4 @@ export type { BadgeProps } from "./badge";
 export type { CheckboxProps } from "./checkbox";
 export type { EmojiProps } from "./emoji";
 export type { CheckboxCardProps } from "./checkbox-card";
+export type { RadioCardProps } from "./radio-card";

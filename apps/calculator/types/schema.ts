@@ -27,7 +27,7 @@ export type QuestionSelect = QuestionBase & {
 };
 
 export type QuestionRadio = QuestionBase & {
-  type: "radio";
+  type: "radio" | "radio-card";
   options: QuestionSelectOptions;
   defaultValue?: string;
 };

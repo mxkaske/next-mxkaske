@@ -19,7 +19,7 @@ export const isSelect = (question: Question): question is QuestionSelect => {
 };
 
 export const isRadio = (question: Question): question is QuestionRadio => {
-  return question.type === "radio";
+  return question.type === "radio" || question.type === "radio-card";
 };
 
 export const isRange = (question: Question): question is QuestionRange => {

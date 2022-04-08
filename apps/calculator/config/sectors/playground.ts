@@ -66,6 +66,12 @@ export const playground: SectorProps = {
       defaultValue: "radio-car",
       options: options("radio"),
     },
+    "radio-card-example": {
+      label: "Radio Card Label",
+      type: "radio-card",
+      defaultValue: "radio-card-car",
+      options: options("radio-card"),
+    },
     "checkbox-example": {
       label: "Checkbox Label",
       type: "checkbox",
