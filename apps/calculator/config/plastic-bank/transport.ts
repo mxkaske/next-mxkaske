@@ -3,7 +3,7 @@ import { SectorProps } from "../../types/model";
 export const transport: SectorProps = {
   title: "Transport",
   emoji: "🚌",
-  color: "#2563eb",
+  color: "#ef4444",
   questions: {
     "primary-transportation": {
       label: "Primary transportation",

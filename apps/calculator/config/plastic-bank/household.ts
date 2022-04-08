@@ -3,7 +3,7 @@ import { SectorProps } from "../../types/model";
 export const household: SectorProps = {
   title: "Household",
   emoji: "🏠",
-  color: "#2563eb",
+  color: "#22c55e",
   questions: {
     "type-of-home": {
       label: "Type of home",

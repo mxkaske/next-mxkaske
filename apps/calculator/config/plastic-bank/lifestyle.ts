@@ -3,7 +3,7 @@ import { SectorProps } from "../../types/model";
 export const lifestyle: SectorProps = {
   title: "Lifestyle",
   emoji: "😎",
-  color: "#2563eb",
+  color: "#06b6d4",
   questions: {
     smoking: {
       label: "Smoking",

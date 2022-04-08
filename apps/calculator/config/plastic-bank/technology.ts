@@ -3,7 +3,7 @@ import { SectorProps } from "../../types/model";
 export const technology: SectorProps = {
   title: "Technology",
   emoji: "💻",
-  color: "#2563eb",
+  color: "#a855f7",
   questions: {
     "online-shopping": {
       label: "Out of house meals",
