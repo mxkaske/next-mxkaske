@@ -99,12 +99,15 @@ const useFootprint = () => {
   // make it memoizable
   // OR: similar to dataWithValues, always return the calculated values!
   const calculate = (key?: Sector) => {
+    let result = 0;
     if (key) {
-      return sum(key);
+      result = sum(key);
+    } else {
+      result = Object.keys(footprint.sectors).reduce((prev, curr) => {
+        return prev + sum(curr as Sector);
+      }, 0);
     }
-    return Object.keys(footprint.sectors).reduce((prev, curr) => {
-      return prev + sum(curr as Sector);
-    }, 0);
+    return Math.round(result * 100) / 100;
   };
 
   return { footprint, setFootprint, reset, calculate };
