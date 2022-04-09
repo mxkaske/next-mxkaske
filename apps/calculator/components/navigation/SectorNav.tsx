@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useLayoutEffect, useRef } from "react";
 import NextLink from "next/link";
 import { data } from "../../config/data";
 import { Sector } from "../../types/schema";
@@ -15,14 +15,28 @@ interface Props {
 
 const SectorNav = ({ activeSector, className }: Props) => {
   const router = useRouter();
+  const ref = useRef<HTMLUListElement>();
+
+  useLayoutEffect(() => {
+    if (ref.current && activeSector) {
+      const e = document.getElementById(activeSector);
+      const p = e?.getBoundingClientRect();
+      console.log(p);
+      ref.current.scrollLeft += 100;
+    }
+  }, [router, activeSector]);
+
   return (
     <nav className={cn("w-full", className)}>
-      <ul className="flex overflow-x-auto space-x-2 py-4 px-2 snap-x snap-mandatory">
+      <ul
+        ref={ref}
+        className="flex overflow-x-auto space-x-2 py-4 px-2 snap-x snap-mandatory"
+      >
         {Object.entries(data.sectors).map(([key, value]) => {
           const isActive = key === activeSector || key === router.query?.sector;
           const firstQuestionKey = Object.keys(value.questions)[0];
           return (
-            <li key={key} className="snap-start scroll-mx-3 shrink-0">
+            <li key={key} id={key} className="snap-start scroll-mx-3 shrink-0">
               <NextLink href={`/${key}/${firstQuestionKey}`} passHref>
                 <a
                   className={cn(
