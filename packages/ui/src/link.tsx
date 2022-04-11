@@ -22,7 +22,9 @@ const Link = ({
       {...props}
     >
       {children}
-      {externalLink ? <FiArrowUpRight className="w-4 h-4 ml-1" /> : null}
+      {externalLink ? (
+        <FiArrowUpRight className="w-4 h-4 ml-1 flex-shrink-0" />
+      ) : null}
     </a>
   );
 };

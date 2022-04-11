@@ -19,7 +19,7 @@ const Footer = () => {
         <div className="flex flex-col md:items-center md:justify-between md:flex-row">
           <div className="space-x-3">
             {paths.map(({ label, href }) => (
-              <NextLink key={href} href={href}>
+              <NextLink key={href} href={href} passHref>
                 <Link className="font-light">{label}</Link>
               </NextLink>
             ))}
@@ -29,7 +29,9 @@ const Footer = () => {
             <ThemeSwitch />
           </div>
         </div>
-        <Text className="text-xs italic text-center">Berlin, 2021</Text>
+        <Text className="text-xs italic text-center">
+          Berlin, {new Date().getFullYear()}
+        </Text>
       </Container>
     </footer>
   );
