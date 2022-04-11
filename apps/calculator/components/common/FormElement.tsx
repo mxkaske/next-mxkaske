@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useActiveSector from "../../hooks/useActiveSector";
 import { Question } from "../../types/schema";
 import CheckboxBox from "../form/CheckboxBox";
@@ -19,6 +19,14 @@ interface Props {
 const FormElement = ({ id, value, hideLabel }: Props) => {
   const { sector, setSector } = useActiveSector();
   const defaultValue = sector?.[id];
+
+  useEffect(() => {
+    if (sector && !defaultValue) {
+      // @ts-ignore
+      setSector({ [id]: value.defaultValue });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sector, value, id]);
 
   const onNewValue = (
     e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>
