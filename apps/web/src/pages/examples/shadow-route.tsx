@@ -42,9 +42,12 @@ const ShadowRoute = ({}: InferGetServerSidePropsType<
           <option value="Legal">Legal</option>
         </Select>
       </div>
-      <NextLink href="https://github.com/mxkaske/next-mxkaske/tree/main/src/pages/examples/shadow-route.tsx">
-        <Link target="_blank">GitHub file</Link>
-      </NextLink>
+      <Link
+        href="https://github.com/mxkaske/next-mxkaske/tree/main/src/pages/examples/shadow-route.tsx"
+        target="_blank"
+      >
+        GitHub file
+      </Link>
     </Layout>
   );
 };
