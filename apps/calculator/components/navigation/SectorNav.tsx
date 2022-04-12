@@ -31,7 +31,7 @@ const SectorNav = ({ activeSector, className }: Props) => {
                   className={cn("px-3 py-2 rounded-full", {
                     "bg-gray-900 text-white dark:bg-gray-100 dark:text-black":
                       isActive && isAnswered,
-                    "bg-white dark:bg-gray-900 hover:bg-gray-100 hover:dark:bg-gray-900":
+                    "hover:bg-gray-100 hover:dark:bg-gray-900":
                       !isActive && isAnswered,
                     "pointer-events-none": !isAnswered,
                   })}

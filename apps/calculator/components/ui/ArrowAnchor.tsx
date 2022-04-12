@@ -14,7 +14,8 @@ const styles = {
   variant: {
     default:
       "border-gray-300 dark:text-white hover:border-gray-400 dark:hover:border-gray-600 dark:border-gray-700",
-    invert: "border-transparent bg-gray-900 text-white",
+    invert:
+      "border-transparent bg-gray-900 dark:bg-white text-white dark:text-gray-900",
   },
 };
 

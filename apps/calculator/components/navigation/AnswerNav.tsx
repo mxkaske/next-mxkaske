@@ -30,7 +30,7 @@ const AnswerNav = ({ activeSector, questionKey }: Props) => {
           }
           return (
             <Link key={key} href={`/${activeSector}/${key}`}>
-              <a className="bg-gray-900 text-white py-1 px-2 rounded-full mr-1 mb-1 text-xs">
+              <a className="bg-gray-900 dark:bg-white text-white dark:text-gray-900 py-1 px-2 rounded-full mr-1 mb-1 text-xs">
                 {questions[key].label}
                 {selected ? (
                   <Emoji className="ml-1" label={selected.label}>

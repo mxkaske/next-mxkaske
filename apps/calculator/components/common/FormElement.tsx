@@ -22,6 +22,7 @@ const FormElement = ({ id, value, hideLabel }: Props) => {
 
   useEffect(() => {
     if (sector && !defaultValue) {
+      // TODO: remove ignore
       // @ts-ignore
       setSector({ [id]: value.defaultValue });
     }

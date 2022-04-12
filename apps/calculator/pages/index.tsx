@@ -1,12 +1,13 @@
 import type { NextPage } from "next";
-import { Heading, Link } from "ui";
+import { Heading, Link, Text } from "ui";
 import NextLink from "next/link";
 import Layout from "../components/common/Layout";
 import PlasticFact from "../components/common/PlasticFact";
-import SectorNav from "../components/navigation/SectorNav";
 import { data } from "../config/data";
 import { Sector } from "../types/schema";
 import { plasticFacts } from "../config/plastic-facts";
+import ThemeSelect from "../components/ui/ThemeSelect";
+import { ArrowRightIcon } from "@heroicons/react/outline";
 
 const Home: NextPage = () => {
   const firstSector = Object.keys(data.sectors)[0] as Sector;
@@ -16,9 +17,13 @@ const Home: NextPage = () => {
   return (
     <Layout>
       <div className="flex-1 flex flex-col justify-center">
-        <NextLink href={`${firstSector}/${firstQuestion}`} passHref>
-          <Link>Start calculation</Link>
-        </NextLink>
+        <Text>
+          <NextLink href={`${firstSector}/${firstQuestion}`} passHref>
+            <Link className="inline-flex items-center">
+              Start calculation <ArrowRightIcon className="w-4 h-4 ml-1" />
+            </Link>
+          </NextLink>
+        </Text>
         <div className="h-px w-full bg-gray-300 my-6" />
         <div>
           <Heading>Worth considering</Heading>
@@ -28,6 +33,9 @@ const Home: NextPage = () => {
             ))}
           </div>
         </div>
+      </div>
+      <div className="flex justify-end border-t pt-3">
+        <ThemeSelect />
       </div>
     </Layout>
   );

@@ -33,7 +33,9 @@ const Sector = ({
         <div className="flex-1 w-full flex flex-col justify-end">
           <AnswerNav activeSector={sector} questionKey={id} />
           <Heading as="h1">{question.question}</Heading>
-          <Text className="text-gray-500 text-lg">{question.description}</Text>
+          <Text className="text-gray-600 dark:text-gray-400 text-lg">
+            {question.description}
+          </Text>
         </div>
         <div className="w-full flex-[2]">
           <FormElement id={id} value={question} hideLabel />
