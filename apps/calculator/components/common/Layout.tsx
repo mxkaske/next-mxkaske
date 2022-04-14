@@ -9,12 +9,12 @@ interface Props {
 const Layout: FC<Props> = ({ children, className }) => {
   return (
     <div className="relative min-h-screen flex flex-col">
-      <div className="max-w-lg mx-auto relative">
+      <div className="sm:max-w-lg sm:mx-auto relative">
         <SectorNav />
       </div>
       <main
         className={cn(
-          "flex-1 max-w-lg w-full py-3 px-2 mx-auto flex flex-col space-y-3",
+          "flex-1 sm:max-w-lg w-full py-3 px-2 sm:mx-auto flex flex-col space-y-3",
           className
         )}
       >
