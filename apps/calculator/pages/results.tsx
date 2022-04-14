@@ -1,5 +1,5 @@
 import React from "react";
-import { Heading, Text } from "ui";
+import { Heading, Input, Text } from "ui";
 import ActionBar from "../components/common/ActionBar";
 import Layout from "../components/common/Layout";
 import QRCodeGenerator from "../components/common/QRCodeGenerator";
@@ -13,8 +13,11 @@ const Results = () => {
           <Heading as="h1">Results</Heading>
           <ResultByType />
           <div className="space-y-3">
+            <Heading>Whats next?</Heading>
+            <Text>1. Access your results on your smartphone</Text>
             <QRCodeGenerator />
-            <Text>Access your results on your smartphone</Text>
+            <Text>2. Send the link to your email address</Text>
+            <Input placeholder="your@domain.com" />
           </div>
         </div>
       </div>
