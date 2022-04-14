@@ -5,7 +5,7 @@ const styles = {
   base: "px-3 py-2 border border-gray-300 rounded-md hover:border-gray-400 dark:hover:border-gray-600 dark:border-gray-700",
   variant: {
     default: "text-black dark:text-white bg-transparent",
-    invert: "bg-gray-900 text-white",
+    invert: "bg-gray-900 text-white dark:bg-white dark:text-gray-900",
   },
   rounded: "rounded-full",
 };
