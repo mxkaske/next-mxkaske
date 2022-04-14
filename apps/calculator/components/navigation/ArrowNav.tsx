@@ -1,4 +1,5 @@
 import React from "react";
+import { Text } from "ui";
 import { data } from "../../config/data";
 import { Sector } from "../../types/schema";
 import ArrowAnchor from "../ui/ArrowAnchor";
@@ -27,29 +28,13 @@ const ArrowNav = ({ activeSector, questionKey }: Props) => {
   return (
     <div className="flex justify-between items-center">
       <div>
-        {/* FIXME: Discuss if needed - you can always go back via the SectorNav and AnswerNav */}
-        {/* {(() => {
-          if (!first) {
-            return (
-              <ArrowAnchor
-                href={`/${activeSector}/${questionKeys[questionKeyIndex - 1]}`}
-                dir="left"
-              />
-            );
-          } else if (first && !firstSector) {
-            const previousSector = sectors[activeSectorIndex - 1];
-            const firstQuestionKey = Object.keys(
-              data.sectors[previousSector].questions
-            )[0];
-            return (
-              <ArrowAnchor
-                href={`/${previousSector}/${firstQuestionKey}`}
-                variant="invert"
-                dir="left"
-              />
-            );
-          }
-        })()} */}
+        <Text
+          // css property preventing layout shift with numbers
+          style={{ fontVariantNumeric: "tabular-nums" }}
+          className="text-gray-600 dark:text-gray-400"
+        >
+          {questionKeyIndex + 1}/{questionKeys.length}
+        </Text>
       </div>
       <div>
         {(() => {
