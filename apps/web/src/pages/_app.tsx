@@ -1,3 +1,4 @@
+import "@fdbk/widget-react/dist/build.css";
 import "@/styles/globals.css";
 import { ThemeProvider } from "next-themes";
 import { SWRConfig } from "swr";

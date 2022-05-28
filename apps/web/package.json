@@ -10,11 +10,13 @@
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf .next"
   },
   "dependencies": {
+    "@fdbk/widget-react": "^0.0.0",
     "@octokit/rest": "^18.12.0",
     "autoprefixer": "^10.1.0",
     "classnames": "^2.2.6",
     "date-fns": "^2.27.0",
     "faker": "^5.1.0",
+    "focus-trap-react": "^8.11.2",
     "framer-motion": "^5.5.5",
     "next": "12.0.7",
     "next-themes": "^0.0.15",

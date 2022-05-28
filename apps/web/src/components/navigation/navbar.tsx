@@ -4,6 +4,7 @@ import { Link } from "ui";
 import Container from "../common/container";
 import { useTheme } from "next-themes";
 import Breadcrumbs from "./breadcrumbs";
+import { ConnectButton } from "@fdbk/widget-react";
 
 const NavBar = () => {
   const { resolvedTheme, setTheme, theme, systemTheme } = useTheme();
@@ -27,7 +28,16 @@ const NavBar = () => {
             </div>
             <Breadcrumbs />
           </div>
-          <div className="flex items-center flex-shrink-0">{/* content */}</div>
+          <div className="flex items-center flex-shrink-0">
+            <ConnectButton
+              lang="de"
+              domain="https://staging.fast-forward.app"
+              projectId="cl2f2k8hi0349x0ik2fhzt1kf"
+              metadata={{ theme }}
+            >
+              feedback
+            </ConnectButton>
+          </div>
         </Container>
       </div>
     </header>
