@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@octokit/rest": "^18.12.0",
+    "@upstash/chatbox": "^1.3.1",
     "autoprefixer": "^10.1.0",
     "classnames": "^2.2.6",
     "date-fns": "^2.27.0",
