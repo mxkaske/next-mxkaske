@@ -1,8 +1,10 @@
 import Layout from "@/components/common/layout";
+import { useRouter } from "next/router";
 import { FormEvent } from "react";
 import { Button, Heading, Input } from "ui";
 
 const LoginPage = () => {
+  const router = useRouter();
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const body = {
@@ -11,14 +13,17 @@ const LoginPage = () => {
     try {
       const res = await fetch("/api/chatbox/login", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: new Headers({ "Content-Type": "application/json" }),
         credentials: "include",
         body: JSON.stringify(body),
       });
       if (res.status === 200) {
-        alert("Login successful");
+        const { redirect } = router.query;
+        if (redirect) {
+          router.replace(`/chat/${redirect}`);
+        } else {
+          alert("Login successful, missing redirect chat id");
+        }
       } else {
         alert("Login failed");
       }
