@@ -5,7 +5,11 @@ import Container from "../common/container";
 import { useTheme } from "next-themes";
 import Breadcrumbs from "./breadcrumbs";
 
-const NavBar = () => {
+export interface NavBarProps {
+  withBreadcrumbs?: boolean;
+}
+
+const NavBar = ({ withBreadcrumbs = true }: NavBarProps) => {
   const { resolvedTheme, setTheme, theme, systemTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -25,7 +29,7 @@ const NavBar = () => {
                 </Link>
               </NextLink>
             </div>
-            <Breadcrumbs />
+            {withBreadcrumbs ? <Breadcrumbs /> : null}
           </div>
           <div className="flex items-center flex-shrink-0">{/* content */}</div>
         </Container>

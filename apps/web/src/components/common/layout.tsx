@@ -1,16 +1,16 @@
 import React, { FC } from "react";
 import Footer from "../navigation/footer";
-import NavBar from "../navigation/navbar";
+import NavBar, { NavBarProps } from "../navigation/navbar";
 import Container from "./container";
 
-interface Props {
+interface Props extends NavBarProps {
   className?: string;
 }
 
-const Layout: FC<Props> = ({ children, className }) => {
+const Layout: FC<Props> = ({ children, className, ...props }) => {
   return (
     <div className="flex flex-col min-h-screen">
-      <NavBar />
+      <NavBar {...props} />
       <main className="flex-1">
         <Container className={className}>{children}</Container>
       </main>
