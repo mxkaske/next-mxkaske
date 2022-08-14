@@ -1,9 +1,9 @@
 import * as React from "react";
 import cn from "classnames";
 
-interface Props extends React.HTMLAttributes<HTMLParagraphElement> {}
+export interface TextProps extends React.HTMLAttributes<HTMLParagraphElement> {}
 
-const Text: React.FC<Props> = ({ children, className, ...props }) => {
+const Text: React.FC<TextProps> = ({ children, className, ...props }) => {
   return (
     <p className={cn("mb-1", className)} {...props}>
       {children}
