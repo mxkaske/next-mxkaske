@@ -1,7 +1,7 @@
 import Stack from "@/components/home/stack";
 import { Heading } from "ui";
 import stackConfig from "@/config/home";
-import { allPosts } from ".contentlayer/data";
+import { allPosts } from ".contentlayer/generated";
 import { InferGetStaticPropsType } from "next";
 import Layout from "@/components/common/layout";
 
@@ -18,6 +18,7 @@ export default function Home({
         <Heading>Building. Thinking about the next feature.</Heading>
       </div>
       <div className="grid gap-8 py-16 sm:grid-cols-2 md:grid-cols-3">
+        {/* TODO: this could be extracted into stackConfig */}
         <Stack
           title="Writing"
           items={posts.map((post) => ({

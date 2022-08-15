@@ -5,6 +5,7 @@ import Container from "./container";
 
 interface Props {
   className?: string;
+  children?: React.ReactNode;
 }
 
 const Layout: FC<Props> = ({ children, className }) => {

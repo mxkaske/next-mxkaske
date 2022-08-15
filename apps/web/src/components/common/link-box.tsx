@@ -6,6 +6,7 @@ import { Text } from "ui";
 interface Props extends LinkProps {
   title: string;
   href: string;
+  children?: React.ReactNode;
 }
 
 const LinkBox: FC<Props> = ({ href, title, children }) => {
