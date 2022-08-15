@@ -1,4 +1,4 @@
-import { Post } from ".contentlayer/types";
+import { Post } from ".contentlayer/generated";
 import format from "date-fns/format";
 import React from "react";
 import { Text } from "ui";

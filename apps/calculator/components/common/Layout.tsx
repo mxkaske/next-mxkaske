@@ -4,6 +4,7 @@ import SectorNav from "../navigation/SectorNav";
 
 interface Props {
   className?: string;
+  children?: React.ReactNode;
 }
 
 const Layout: FC<Props> = ({ children, className }) => {

@@ -1,4 +1,4 @@
-import { allPosts } from ".contentlayer/data";
+import { allPosts } from ".contentlayer/generated";
 import { InferGetStaticPropsType } from "next";
 import React from "react";
 import { Text } from "ui";
