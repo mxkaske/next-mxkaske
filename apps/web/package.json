@@ -32,7 +32,6 @@
     "@tailwindcss/line-clamp": "^0.4.0",
     "@tailwindcss/typography": "^0.5.4",
     "@types/classnames": "^2.3.1",
-    "@types/faker": "^6.6.8",
     "@types/node": "^18.7.5",
     "@types/react": "^18.0.17",
     "config": "*",
