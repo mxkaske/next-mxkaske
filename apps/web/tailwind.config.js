@@ -9,6 +9,9 @@ module.exports = {
   darkMode: "class", // 'media' or 'class'
   theme: {
     extend: {
+      colors: {
+        brand: "rgb(var(--example-brand) / <alpha-value>)",
+      },
       animation: {
         blob: "blob 7s infinite",
       },
