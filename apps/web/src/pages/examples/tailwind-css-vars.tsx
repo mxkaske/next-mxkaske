@@ -1,8 +1,8 @@
 import Layout from "@/components/common/layout";
 import { Heading, Link, Text, Select } from "ui";
-import React from "react";
+import React, { useMemo } from "react";
 
-// TODO: add prism?
+// TODO: use *.mdx files and integrate it in blog post!
 
 const cssVars = {
   default: "155 0 0",
@@ -12,13 +12,21 @@ const cssVars = {
 
 const TailwindCssVars = () => {
   const [style, setStyle] = React.useState<keyof typeof cssVars>("default");
+  const [autoInvert, setAutoInvert] = React.useState(true);
+  // TODO: invert colors by Math.abs(255 - x)
+
+  const color = useMemo(() => cssVars[style], [style]);
+  // TODO: check autoInvert
 
   React.useEffect(() => {
-    document.documentElement.style.setProperty(
-      "--example-brand",
-      cssVars[style]
-    );
-  }, [style]);
+    const defaultValue =
+      document.documentElement.style.getPropertyValue("--example-brand");
+    // TODO: add default to cssVars object
+  }, []);
+
+  React.useEffect(() => {
+    document.documentElement.style.setProperty("--example-brand", color);
+  }, [color]);
 
   return (
     <Layout className="space-y-4">
