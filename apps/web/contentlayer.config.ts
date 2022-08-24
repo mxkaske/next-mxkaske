@@ -7,7 +7,7 @@ import readingTime from "reading-time";
 
 export const Post = defineDocumentType(() => ({
   name: "Post",
-  filePathPattern: "writing/*.md",
+  filePathPattern: "writing/*.mdx",
   fields: {
     title: {
       type: "string",
