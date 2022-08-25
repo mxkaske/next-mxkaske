@@ -6,17 +6,23 @@ excerpt: "Using the new tailwind `alpha-value`."
 
 ## How to easily configure your CSS variable colors
 
-Since [Tailwind CSS v3.1](https://tailwindcss.com/blog/tailwindcss-v3-1#easier-css-variable-color-configuration) we can include the opacity value with variable css without any effort (e.g. `text-pink-500/50` with sets a `0.5` opacity value to the color).
+Since [Tailwind CSS v3.1](https://tailwindcss.com/blog/tailwindcss-v3-1#easier-css-variable-color-configuration) we can include the opacity value with variable css without any effort.
 
 We'd like to allow the user to choose his/her prefered color:
 
 <VariableColorPicker />
 
+Following steps are required:
+
 1. Include css vars in your stylesheet
 2. Extend your `tailwind.config.js` file with the color
 3. Read and write the css var
 
-If you'd like to jump directly into the code, here is the shortcut:
+If you'd like to jump directly into the code, here is the shortcut to:
+
+- [play.tailwindcss.com](https://play.tailwindcss.com/sHd5frS8bh)
+
+or to my GitHub files:
 
 - [tailwindcss.config.ts](https://github.com/mxkaske/next-mxkaske/blob/main/apps/web/tailwind.config.js)
 - [globals.css](https://github.com/mxkaske/next-mxkaske/blob/main/apps/web/src/styles/globals.css)
@@ -87,5 +93,7 @@ React.useEffect(() => {
   const defaultValue = style.getPropertyValue("--example-brand");
 }, []);
 ```
+
+If you are interested in adding a color picker with the input `type="color"`, you need to take aware that the target value is a `hex` value. You need to convert it to `rgb`.
 
 To make the color consistent, you will need to store it either locally via `localStorage`/`sessionStorage` or on an external database.
