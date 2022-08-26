@@ -1,0 +1,99 @@
+---
+title: "Customizing Tailwind CSS with CSS variables"
+date: "2022-08-20"
+excerpt: "Using the new tailwind `alpha-value`."
+---
+
+## How to easily configure your CSS variable colors
+
+Since [Tailwind CSS v3.1](https://tailwindcss.com/blog/tailwindcss-v3-1#easier-css-variable-color-configuration) we can include the opacity value with variable css without any effort.
+
+We'd like to allow the user to choose his/her prefered color:
+
+<VariableColorPicker />
+
+Following steps are required:
+
+1. Include css vars in your stylesheet
+2. Extend your `tailwind.config.js` file with the color
+3. Read and write the css var
+
+If you'd like to jump directly into the code, here is the shortcut to:
+
+- [play.tailwindcss.com](https://play.tailwindcss.com/vuFo3gkTO2)
+
+or to my GitHub files:
+
+- [tailwindcss.config.ts](https://github.com/mxkaske/next-mxkaske/blob/main/apps/web/tailwind.config.js)
+- [globals.css](https://github.com/mxkaske/next-mxkaske/blob/main/apps/web/src/styles/globals.css)
+- [VariableColorPicker](https://github.com/mxkaske/next-mxkaske/blob/main/apps/web/src/components/examples/VariableColorPicker.tsx)
+
+### 1. Include css vars in your stylesheet
+
+```css
+/* styles/global.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --example-brand: 255 0 0;
+    /* ... */
+  }
+}
+```
+
+### 2. Extend your `tailwind.config.js` file with the color
+
+```js
+// tailwind.config.js
+module.exports = {
+  theme: {
+    colors: {
+      brand: "rgb(var(--example-brand) / <alpha-value>)",
+    },
+  },
+};
+```
+
+We can break it down in 3 important parts:
+
+- `var(--example-brand)` will access the css variable
+- `<alpha-value>` provides us a simple way to access the correct utility variable.
+- `rgb(var / alpha)` is a [valid css color syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/rgb#syntax) where alpha is the `opacityValue`.
+
+The way we extend the colors allows us to access the brand color on any utility class that tailwind provides: `text-brand`, `border-brand`,... and even change the opacity value e.g. `bg-brand/10` (10%).
+
+If you want to know how to include `hsl` values check out tailwinds documentation about ["Using CSS variables"](https://tailwindcss.com/docs/customizing-colors#using-css-variables).
+
+### 3. Read and write the css var
+
+Changing the color can happen with JavaScript via:
+
+```js
+// write
+const newValue = "0 255 0";
+document.documentElement.style.setProperty("--example-brand", newValue);
+```
+
+```jsx
+// Example.tsx
+<button className="... border-brand/10 bg-brand/5 text-brand/90">
+  Look at me!
+</button>
+```
+
+We can access the css variable on the client only one the page has been rendered with:
+
+```tsx
+React.useEffect(() => {
+  // read
+  const style = getComputedStyle(document.body);
+  const defaultValue = style.getPropertyValue("--example-brand");
+}, []);
+```
+
+If you are interested in adding a color picker with the input `type="color"`, you need to take aware that the target value is a `hex` value. You need to convert it to `rgb`.
+
+To make the color consistent, you will need to store it either locally via `localStorage`/`sessionStorage` or on an external database.

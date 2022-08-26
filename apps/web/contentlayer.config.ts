@@ -7,7 +7,8 @@ import readingTime from "reading-time";
 
 export const Post = defineDocumentType(() => ({
   name: "Post",
-  filePathPattern: "writing/*.md",
+  filePathPattern: "writing/*.mdx",
+  contentType: "mdx",
   fields: {
     title: {
       type: "string",
@@ -45,5 +46,5 @@ export const Post = defineDocumentType(() => ({
 export default makeSource({
   contentDirPath: "content",
   documentTypes: [Post],
-  markdown: { rehypePlugins: [prism] },
+  mdx: { rehypePlugins: [prism] },
 });
