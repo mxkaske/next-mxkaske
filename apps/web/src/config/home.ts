@@ -1,4 +1,9 @@
 import type { Item } from "@/components/home/stack";
+import { allPosts } from ".contentlayer/generated";
+
+const lastThreePosts = allPosts
+  .sort((a, b) => (new Date(a.date) < new Date(b.date) ? 1 : -1))
+  .slice(0, 3);
 
 type Stack = {
   title: string;
@@ -9,6 +14,14 @@ type Stack = {
 // adding ideas to the game
 
 const stackConfig: Record<string, Stack> = {
+  writing: {
+    title: "Writing",
+    items: lastThreePosts.map((post) => ({
+      title: post.title,
+      description: post.excerpt,
+      href: `/writing/${post.slug}`,
+    })),
+  },
   building: {
     title: "Building",
     items: [
