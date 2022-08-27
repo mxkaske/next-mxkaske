@@ -2,8 +2,13 @@ import Stack from "@/components/home/stack";
 import { Heading } from "ui";
 import stackConfig from "@/config/home";
 import Layout from "@/components/common/layout";
+import { getSocialLinks } from "@/lib/contentful";
+import { InferGetStaticPropsType } from "next";
 
-export default function Home() {
+export default function Home({
+  socialLinks,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
+  console.log(socialLinks);
   return (
     <Layout>
       <div className="max-w-3xl py-6">
@@ -21,3 +26,8 @@ export default function Home() {
     </Layout>
   );
 }
+
+export const getStaticProps = async () => {
+  const socialLinks = await getSocialLinks();
+  return { props: { socialLinks } };
+};
