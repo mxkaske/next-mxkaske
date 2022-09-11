@@ -37,7 +37,7 @@ const stackConfig: Record<string, Stack> = {
           "Knowledge for everyday clinical practice - a Guideline App.",
       },
       {
-        href: "https://coronavis.de",
+        href: "https://coronavis.vercel.app",
         title: "Corona Visualization (Hackathon)",
         description: "Simulate the spread of infectious deseases.",
       },
