@@ -43,8 +43,56 @@ export const Post = defineDocumentType(() => ({
   },
 }));
 
+export const CV = defineDocumentType(() => ({
+  name: "CV",
+  filePathPattern: "cv/**/*.md",
+  contentType: "markdown",
+  fields: {
+    title: {
+      type: "string",
+      description: "The title",
+      required: true,
+    },
+    from: {
+      type: "date",
+      description: "The starting date",
+      required: true,
+    },
+    to: {
+      type: "date",
+      description: "The ending date",
+      required: true,
+    },
+    where: {
+      type: "string",
+      description: "The company, school or institution",
+      required: true,
+    },
+    what: {
+      type: "string",
+      description: "The position or title",
+      required: true,
+    },
+    url: {
+      type: "string",
+      description: "The link to the company if needed",
+    },
+  },
+  computedFields: {
+    slug: {
+      type: "string",
+      resolve: (_) => _._raw.sourceFileName.replace(/\.[^.$]+$/, ""),
+    },
+    event: {
+      type: "enum",
+      options: ["education", "work-experiences", "projects"],
+      resolve: (_) => _._raw.sourceFileDir.replace("cv/", ""),
+    },
+  },
+}));
+
 export default makeSource({
   contentDirPath: "content",
-  documentTypes: [Post],
+  documentTypes: [Post, CV],
   mdx: { rehypePlugins: [prism] },
 });

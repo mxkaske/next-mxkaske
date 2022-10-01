@@ -10,11 +10,12 @@ import SlashIcon from "../icon/slash";
 const paths = [
   { label: "Home", href: "/" },
   { label: "Writing", href: "/writing" },
+  { label: "CV", href: "/cv" },
 ];
 
 const Footer = () => {
   return (
-    <footer className="border-t border-gray-300 dark:border-gray-700">
+    <footer className="border-t border-gray-300 dark:border-gray-700 print:hidden">
       <Container className="space-y-2 text-gray-600 dark:text-gray-400">
         <div className="flex flex-col md:items-center md:justify-between md:flex-row">
           <div className="space-x-3">

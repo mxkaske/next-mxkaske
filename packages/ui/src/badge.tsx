@@ -10,7 +10,7 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {}
 const Badge: React.FC<BadgeProps> = ({ children, className, ...props }) => {
   return (
     <span className={cn(styles.base, className)} {...props}>
-      Badge
+      {children}
     </span>
   );
 };
