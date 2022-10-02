@@ -68,6 +68,8 @@ const CVPage = ({ events }: InferGetStaticPropsType<typeof getStaticProps>) => {
               <strong>Languages</strong>: native in French & German, fluent in
               English
               <br />
+              <strong>Location</strong>: Berlin
+              <br />
               <strong>Hobbies</strong>: cycling, bouldering, traveling,
               learning, teaching
             </p>
