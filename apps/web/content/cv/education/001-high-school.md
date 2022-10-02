@@ -6,4 +6,4 @@ what: "A-Level"
 where: "Sophie Scholl Oberschule"
 ---
 
-I attempted the Sophi Scholl School in Berlin for middle and high school, finishing with an A-Level in German (**Abitur**) and French (**Baccalauréat**).
+I attempted the _Sophie Scholl School_ in Berlin for middle and high school, finishing with an A-Level in German (**Abitur**) and French (**Baccalauréat**), called Abi-Bac.

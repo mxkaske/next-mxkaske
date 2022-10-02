@@ -2,15 +2,14 @@ import { allCVs, CV } from ".contentlayer/generated";
 import Layout from "@/components/common/layout";
 import Details from "@/components/cv/details";
 import Grid from "@/components/cv/grid";
-import cvConfig from "@/config/cv";
 import stackConfig from "@/config/home";
 import { InferGetStaticPropsType } from "next";
 import Image from "next/image";
 import React from "react";
 import { FiPrinter } from "react-icons/fi";
-import { Badge, Button, Heading, Link, Text } from "ui";
+import { Button, Heading, Link, Text } from "ui";
 
-const selfDescription = `I’m Max, a self-taught Fullstack Developer working on Web- and App projects in the JS/TS. I’m passionate about the newest technologies, clean design, productivity tools, and code architecture. I'm experienced with React & Next.js for web development, React Native & Expo for App development, serverless databases like upstash (Redis), planetscale (MySQL) and deployments on vercel.`;
+const selfDescription = `I’m Max, a self-taught Fullstack Developer working on Web- and App projects in JS/TS. I’m passionate about the newest technologies, clean design, productivity tools, and code architecture. I'm experienced with React & Next.js for Web development, React Native & Expo for App development, serverless databases like upstash (Redis), planetscale (MySQL) and deployments on vercel.`;
 const styles = {
   prose:
     "prose dark:prose-invert prose-a:decoration-gray-500 hover:prose-a:decoration-black dark:hover:prose-a:decoration-white prose-img:rounded-md prose-blockquote:rounded prose-em:text-gray-900 dark:prose-em:text-white prose-em:font-light",
@@ -66,8 +65,11 @@ const CVPage = ({ events }: InferGetStaticPropsType<typeof getStaticProps>) => {
             <p className="mb-0">
               <strong>Birthday</strong>: 7th August 1995
               <br />
-              <strong>Languages:</strong> native in French & German, fluent in
+              <strong>Languages</strong>: native in French & German, fluent in
               English
+              <br />
+              <strong>Hobbies</strong>: cycling, bouldering, traveling,
+              learning, teaching
             </p>
           </div>
         </Grid.Right>
@@ -97,18 +99,6 @@ const CVPage = ({ events }: InferGetStaticPropsType<typeof getStaticProps>) => {
             </React.Fragment>
           );
         })}
-        <Grid.Left></Grid.Left>
-        <Grid.Right>
-          <Heading>Hobbies</Heading>
-          <div className="md:-mx-6 h-px bg-gray-300/50 dark:bg-gray-700/50" />
-          <div className="flex flex-wrap mt-6">
-            {cvConfig.hobbies.map((h) => (
-              <Badge key={h} className="mr-2">
-                {h}
-              </Badge>
-            ))}
-          </div>
-        </Grid.Right>
       </Grid>
     </Layout>
   );
