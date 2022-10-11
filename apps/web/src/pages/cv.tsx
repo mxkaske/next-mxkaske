@@ -16,7 +16,7 @@ const self = {
     birthday: "7th August 1995",
     languages: "native in French & German, fluent in English",
     location: "Berlin, Germany",
-    hobbies: "cycling, bouldering, traveling, learning, teaching",
+    hobbies: "cycling, bouldering, traveling",
   },
 };
 
