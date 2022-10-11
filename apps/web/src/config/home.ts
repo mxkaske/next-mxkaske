@@ -5,15 +5,10 @@ const lastThreePosts = allPosts
   .sort((a, b) => (new Date(a.date) < new Date(b.date) ? 1 : -1))
   .slice(0, 3);
 
-type Stack = {
-  title: string;
-  items: Item[];
-};
-
 // next possibe stack: thinking (or prototyping, ideas corner)
 // adding ideas to the game
 
-const stackConfig: Record<string, Stack> = {
+const stackConfig = {
   writing: {
     title: "Writing",
     items: lastThreePosts.map((post) => ({
@@ -63,8 +58,13 @@ const stackConfig: Record<string, Stack> = {
       },
       {
         href: "https://github.com/mxkaske/qwk.st",
-        title: "qwk.st",
+        title: "qwk.st", // TODO: use .vercel domain
         description: "The quickest linktr.ee alternative. Claim your username.",
+      },
+      {
+        href: "https://github.com/mxkaske/fast-forward",
+        title: "fast-forward.app",
+        description: "The easiest way to collect Feedback.",
       },
     ],
   },
@@ -80,11 +80,16 @@ const stackConfig: Record<string, Stack> = {
         title: "Github",
       },
       {
-        href: "https://www.linkedin.com/in/maximilian-kaske-262227202/",
+        href: "https://www.linkedin.com/in/mxkaske/",
         title: "LinkedIn",
       },
     ],
   },
-};
+} as const;
+
+// FIXME: recursively set readonly!
+const _check: Readonly<
+  Record<Readonly<string>, Readonly<{ title: string; items: Readonly<Item[]> }>>
+> = stackConfig;
 
 export default stackConfig;

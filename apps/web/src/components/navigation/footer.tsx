@@ -1,31 +1,38 @@
 import React from "react";
 import Container from "../common/container";
 import { default as NextLink } from "next/link";
-import { Text, Link } from "ui";
+import { Text, Link, Heading } from "ui";
 import ThemeSwitch from "../common/theme-switch";
 import SlashIcon from "../icon/slash";
 
 // THINK: of a good way to display the paths with the SlashIcon
 
 const paths = [
-  { label: "Home", href: "/" },
-  { label: "Writing", href: "/writing" },
+  // { label: "home", href: "/" },
+  { label: "writing", href: "/writing" },
+  { label: "cv", href: "/cv" },
 ];
 
 const Footer = () => {
   return (
-    <footer className="border-t border-gray-300 dark:border-gray-700">
+    <footer className="border-t border-gray-300 dark:border-gray-700 print:hidden">
       <Container className="space-y-2 text-gray-600 dark:text-gray-400">
-        <div className="flex flex-col md:items-center md:justify-between md:flex-row">
-          <div className="space-x-3">
-            {paths.map(({ label, href }) => (
-              <NextLink key={href} href={href} passHref>
-                <Link className="font-light">{label}</Link>
-              </NextLink>
-            ))}
+        <div className="flex flex-col md:flex-row gap-4 md:gap-8 justify-between">
+          <div>
+            <Heading as="h4" className="text-gray-600 dark:text-gray-400">
+              More
+            </Heading>
+            <ul className="space-y-1">
+              {paths.map(({ label, href }) => (
+                <li key={href}>
+                  <NextLink href={href} passHref>
+                    <Link className="font-light">{label}</Link>
+                  </NextLink>
+                </li>
+              ))}
+            </ul>
           </div>
-          <div className="flex items-center space-x-2">
-            <Text className="font-light">Switch Theme:</Text>
+          <div>
             <ThemeSwitch />
           </div>
         </div>

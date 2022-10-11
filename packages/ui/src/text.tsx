@@ -1,11 +1,37 @@
 import * as React from "react";
 import cn from "classnames";
 
-export interface TextProps extends React.HTMLAttributes<HTMLParagraphElement> {}
+const styles = {
+  base: "mt-1",
+  variant: {
+    default: "",
+    light: "text-gray-700 dark:text-gray-300 font-extralight",
+  },
+  italic: "italic",
+};
 
-const Text: React.FC<TextProps> = ({ children, className, ...props }) => {
+export interface TextProps extends React.HTMLAttributes<HTMLParagraphElement> {
+  variant?: keyof typeof styles.variant;
+  italic?: boolean;
+}
+
+const Text: React.FC<TextProps> = ({
+  children,
+  variant = "default",
+  className,
+  italic,
+  ...props
+}) => {
   return (
-    <p className={cn("mb-1", className)} {...props}>
+    <p
+      className={cn(
+        styles.base,
+        styles.variant[variant],
+        italic && styles.italic,
+        className
+      )}
+      {...props}
+    >
       {children}
     </p>
   );

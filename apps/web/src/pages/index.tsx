@@ -6,14 +6,14 @@ import Layout from "@/components/common/layout";
 export default function Home() {
   return (
     <Layout>
-      <div className="max-w-3xl py-6">
+      <div className="max-w-3xl py-8">
         <Heading>
           {`I'm a design-minded Software Developer interested in code pattern,
           user experience and design systems.`}
         </Heading>
-        <Heading>Building. Thinking about the next feature.</Heading>
+        <Heading>Building.</Heading>
       </div>
-      <div className="grid gap-8 py-16 sm:grid-cols-2 md:grid-cols-3">
+      <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 mb-16">
         {Object.keys(stackConfig).map((key) => (
           <Stack key={key} {...stackConfig[key]} />
         ))}

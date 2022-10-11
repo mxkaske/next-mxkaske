@@ -34,11 +34,11 @@ const Breadcrumbs = () => {
               <span className="relative">
                 <NextLink href={href}>
                   <Link
-                    className={cn(
-                      isLast &&
-                        // 8.89px*16.45px is the canva of the slash icon - hypothenuse is ~19px
-                        "before:h-px before:w-[19px] before:bg-gray-700 dark:before:bg-gray-300 before:absolute before:-bottom-0 before:-translate-x-1/2 before:left-1/2"
-                    )}
+                  // className={cn(
+                  //   isLast &&
+                  //     // 8.89px*16.45px is the canva of the slash icon - hypothenuse is ~19px
+                  //     "before:h-px before:w-[19px] before:bg-gray-700 dark:before:bg-gray-300 before:absolute before:-bottom-0 before:-translate-x-1/2 before:left-1/2"
+                  // )}
                   >
                     {breadcrumb}
                   </Link>
