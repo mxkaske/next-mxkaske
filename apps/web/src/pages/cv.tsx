@@ -52,10 +52,17 @@ const CVPage = ({ events }: InferGetStaticPropsType<typeof getStaticProps>) => {
         <Grid.Right>
           <div className="flex justify-between">
             <Heading as="h1">Curriculum Vitae</Heading>
-            <div className="print:hidden">
-              <Button onClick={handlePrint} className="!p-2">
-                <FiPrinter className="h-4 w-4" />
-              </Button>
+            <div className="flex gap-4 print:hidden">
+              <div>
+                <Button onClick={handlePrint} className="!p-2">
+                  <FiPrinter className="h-4 w-4" />
+                </Button>
+              </div>
+              <div>
+                <Button onClick={handleCopy} className="!p-2">
+                  <FiCopy className="h-4 w-4" />
+                </Button>
+              </div>
             </div>
           </div>
         </Grid.Right>
@@ -100,11 +107,6 @@ const CVPage = ({ events }: InferGetStaticPropsType<typeof getStaticProps>) => {
                 );
               })}
             </p>
-          </div>
-          <div className="print:hidden">
-            <Button onClick={handleCopy} className="!p-2">
-              <FiCopy className="h-4 w-4" />
-            </Button>
           </div>
         </Grid.Right>
         {Object.entries(events).map(([key, value]) => {
