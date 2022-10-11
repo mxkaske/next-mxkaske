@@ -3,10 +3,11 @@ import Layout from "@/components/common/layout";
 import Details from "@/components/cv/details";
 import Grid from "@/components/cv/grid";
 import stackConfig from "@/config/home";
+import { format } from "date-fns";
 import { InferGetStaticPropsType } from "next";
 import Image from "next/image";
 import React from "react";
-import { FiPrinter } from "react-icons/fi";
+import { FiPrinter, FiCopy } from "react-icons/fi";
 import { Button, Heading, Link, Text } from "ui";
 
 const self = {
@@ -27,6 +28,22 @@ const styles = {
 const CVPage = ({ events }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const handlePrint = () => {
     if (typeof window !== "undefined") window?.print();
+  };
+  const handleCopy = () => {
+    let string = "";
+    Object.entries(events).map(([eKey, eValue]) => {
+      string += `# ${eKey}\n`;
+      console.log(eKey, eValue);
+      eValue.map((cv) => {
+        string += `Time range: ${format(
+          new Date(cv.from),
+          "MMM yyyy"
+        )}-${format(new Date(cv.to), "MMM yyyy")}\nPosition: ${
+          cv.what
+        }\nCompany: ${cv.where}\n${cv.body.raw}\n${" "}\n`;
+      });
+    });
+    navigator.clipboard.writeText(string);
   };
   return (
     <Layout>
@@ -73,7 +90,7 @@ const CVPage = ({ events }: InferGetStaticPropsType<typeof getStaticProps>) => {
             </div>
           </div>
           <div className={styles.prose}>
-            <p className="mb-0">
+            <p className="mb-3">
               {Object.entries(self.informations).map(([key, value]) => {
                 return (
                   <React.Fragment key={key}>
@@ -83,6 +100,11 @@ const CVPage = ({ events }: InferGetStaticPropsType<typeof getStaticProps>) => {
                 );
               })}
             </p>
+          </div>
+          <div className="print:hidden">
+            <Button onClick={handleCopy} className="!p-2">
+              <FiCopy className="h-4 w-4" />
+            </Button>
           </div>
         </Grid.Right>
         {Object.entries(events).map(([key, value]) => {
