@@ -58,8 +58,13 @@ const stackConfig = {
       },
       {
         href: "https://github.com/mxkaske/qwk.st",
-        title: "qwk.st",
+        title: "qwk.st", // TODO: use .vercel domain
         description: "The quickest linktr.ee alternative. Claim your username.",
+      },
+      {
+        href: "https://github.com/mxkaske/fast-forward",
+        title: "fast-forward.app",
+        description: "The easiest way to collect Feedback.",
       },
     ],
   },
