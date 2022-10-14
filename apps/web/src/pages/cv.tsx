@@ -9,6 +9,7 @@ import Image from "next/image";
 import React from "react";
 import { FiPrinter, FiCopy } from "react-icons/fi";
 import { Button, Heading, Link, Text } from "ui";
+import NextLink from "next/link";
 
 const self = {
   description: `I’m Max, a self-taught Fullstack Developer working on Web- and App projects in JS/TS. I’m passionate about the newest technologies, clean design, productivity tools, and code architecture. I'm experienced with React & Next.js for Web development, React Native & Expo for App development and serverless infrastructure like upstash, planetscale or vercel.`,
@@ -106,6 +107,15 @@ const CVPage = ({ events }: InferGetStaticPropsType<typeof getStaticProps>) => {
                   </React.Fragment>
                 );
               })}
+            </p>
+            <p>
+              Learn more about the current{" "}
+              <strong>
+                <NextLink href="/tech-stack">
+                  <Link href="/tech-stack">tech stack</Link>
+                </NextLink>
+              </strong>
+              .
             </p>
           </div>
         </Grid.Right>
