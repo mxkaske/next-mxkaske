@@ -111,8 +111,8 @@ const CVPage = ({ events }: InferGetStaticPropsType<typeof getStaticProps>) => {
             <p>
               Learn more about the current{" "}
               <strong>
-                <NextLink href="/tech-stack">
-                  <Link href="/tech-stack">tech stack</Link>
+                <NextLink href="/tools">
+                  <Link href="/tools">tools/tech stack</Link>
                 </NextLink>
               </strong>
               .

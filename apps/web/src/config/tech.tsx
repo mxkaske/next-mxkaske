@@ -64,6 +64,27 @@ const techConfig = {
       },
     ],
   },
+  mac: {
+    title: "macOS",
+    items: [
+      {
+        href: "http://vscode.dev",
+        title: "Visual Studio Code",
+      },
+      {
+        href: "https://cleanshot.com",
+        title: "CleanShot X",
+      },
+      {
+        href: "http://grammarly.com",
+        title: "Grammarly",
+      },
+      {
+        href: "https://www.gitkraken.com",
+        title: "GitKraken",
+      },
+    ],
+  },
 } as const;
 
 // FIXME: recursively set readonly!
