@@ -12,7 +12,7 @@ import { Button, Heading, Link, Text } from "ui";
 import NextLink from "next/link";
 
 const self = {
-  description: `I’m Max, a self-taught Fullstack Developer working on Web- and App projects in JS/TS. I’m passionate about the newest technologies, clean design, productivity tools, and code architecture. I'm experienced with React & Next.js for Web development, React Native & Expo for App development and serverless infrastructure like upstash, planetscale or vercel.`,
+  description: `Hi! I’m Max, a Fullstack Developer working on Web- and App projects in JS/TS. I’m passionate about the newest technologies, clean design, productivity tools, and code architecture. I'm experienced with React & Next.js for Web development, React Native & Expo for App development and serverless infrastructure like upstash, planetscale or vercel.`,
   informations: {
     birthday: "7th August 1995",
     languages: "native in French & German, fluent in English",
