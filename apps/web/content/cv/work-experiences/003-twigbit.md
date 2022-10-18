@@ -6,4 +6,4 @@ what: "Fullstack Developer"
 where: "Twigbit GmbH"
 ---
 
-I've supported [Twigbit](https://twigbit.com) on building [Brimo](https://brimo.io). The frontend is powered by **Next.js**, while the backend is covered by many **Firebase** services. It's been my first approach at working on **NoSQL** database structure and serverless architectures.
+I have supported [Twigbit](https://twigbit.com/) in building the foundation of [Brimo](https://brimo.io/), a Facility Management Tool. With the Engineering Team, we had to assess which framework, state management system, database,… to use. While helping extend the source code, I was responsible to build the design system components and the code patterns behind it.

@@ -6,8 +6,10 @@ what: "Co-founder & CTO"
 where: "Precycle"
 ---
 
-<!-- TODO: more about co-founder role -->
+I co-founded [precycle](https://precycle.today) with the idea of combining purpose and technology. With the [EXIST](https://www.exist.de/EXIST/Navigation/en) funding program, private funding and a remote working team of up to 8 people, our vision has been to recreate a compensation [funding funnel] system for e-commerce similar to CO2 but in the plastic waste sector as “money doesn’t go where the trash goes”.
 
-We've been building [precycle.today](https://precycle.today) to allow plastic compensation. Similar to compensating for CO2 but differently. Instead of planting trees, we would collect and process plastic waste in low income nations. My task has been to build our technical, serverless, infrastructure based on our roadmap. We had to get together a **member login dashboard**, **marketing website** and **Shopify App**. The Shopify App has been our first product, with which a merchant could include a banner in their checkout process so that their customer had the choice of compensating their purchase. Moreover, we started a **plastic footprint prototype** at [footprint.precycle.today](https://footprint.precycle.today), calculating an individuals yearly plastic consumption based on the answer of dedicated questions. All projects shared as much code as possible.
+I was responsible for developing our technical infrastructure and making things happen: from idea to production. Managing two engineers, at peak, and working closely with Design and Marketing required strong team player abilities, providing feedback and reviewing code. Over more than a year, we have been developing multiple applications to fit our defined roadmap: **Marketing Page**, **Member Dashboard**, **Shopify App**, **REST API** and **Plastic Footprint Calculator**.
 
-At peak, I managed two engineers while working on the company. Over more than a year, I learned how to priotize work, introduced multiple tools to simplify work, learned how to analyze website's data, created dozens of **Notion** database relations including formulas and grew our workspace so it would fit our use case.
+My role was much more than engineering. I was responsible for most of our internal operations, resulting in creating database structures for specific use cases, creating file structures and providing tools that allowed us to be more productive. I was also responsible for external communication with our partners and the collaboration that resulted from it.
+
+Overall, I learned how to build a start-up environment and improve it over time.

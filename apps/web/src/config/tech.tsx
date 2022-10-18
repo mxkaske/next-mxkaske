@@ -79,6 +79,7 @@ const techConfig = {
         href: "http://grammarly.com",
         title: "Grammarly",
       },
+      //  remove? not used too often
       {
         href: "https://www.gitkraken.com",
         title: "GitKraken",
