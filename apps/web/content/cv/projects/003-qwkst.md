@@ -6,6 +6,6 @@ what: "Linktree Open Source Alternative"
 where: "Side Project (archived)"
 ---
 
-It's been a test project for working with the following main packages: `next`, `next-auth`, `tailwindcss`, `prisma`, `planetscale`, `cloudinary`.
+The best way to learn is to build. It’s a simple **Next.js** project with the goal of recreating a small [linktr.ee](http://linktr.ee) alternative. I tested the possibilities of Next.js on frontend and backend side. Like creating custom subdomains with middleware, working with serverless databases and integrating user authentification.
 
-I've been also testing Next.js newly published middleware to add subdomains. The database is not running anymore but the project can still be viewed at [GitHub](https://github.com/mxkaske/qwk.st) or [qwk.st](https://qwk.st).
+The database is not running anymore but the project can still be viewed on [GitHub](https://github.com/mxkaske/qwk.st).

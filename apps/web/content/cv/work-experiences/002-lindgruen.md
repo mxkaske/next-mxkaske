@@ -6,10 +6,10 @@ what: "Mobile Software Engineer"
 where: "Lindgrün GmbH"
 ---
 
-At [Lindgruen](https://www.lindgruen-gmbh.com/en/), my main task has been self-directing the [Leila PRO](https://www.leila.de/de/) App development based on an existing [4D](https://us.4d.com/) database and predefined UI. Leila creates horizontal access to medical guidelines that are suitable for everyday use. It is backed up and linked with scores, pathways, glossaries, epidemiological data and other reliable knowledge.
+At [Lindgrün](https://www.lindgruen-gmbh.com/en/), my main task was solely responsible for the [Leila PRO](https://www.leila.de/de/) App development based on an existing [4D](https://us.4d.com/) database and predefined UI. Leila is an App that creates horizontal access to medical guidelines suitable for everyday use. It is backed up by and linked with scores, pathways, glossaries, epidemiological data and other reliable knowledge.
 
-I took over an unfinished project that still required work. I learned **React Native** within a short period of time and refactored the whole codebase from JS and Class Components into a TS and Functional Components driven source code for better maintenance. I supported my supervisor and co-worker by developing a 4D RESTful API to allow an easy communication with the App.
+When I joined Lindgrün I was put in charge of the still ongoing project. Despite my at that time, limited knowledge of **React Native**, I proved my ability to quickly adapt to new work environments by quickly improving my React Native proficiency and successfully refactoring the whole codebase from Javascript and Class Components into a Typescript and Functional Components driven source code for better maintenance. In addition, I supported my supervisor by developing a 4D RESTful API to allow an easy communication with the App.
 
-In short: I was responsible from development to production.
+In short: I was responsible for all relevant steps from development to production of the App.
 
-While continuously developing Leila, I had the chance to build two more Apps with React Native: the _[ASH Quiz](https://www.aktion-sauberehaende.de/krankenhauser/fortbildungsmaterialien/spielerische-wege)_, familiar instructions for action in relation to medical activities, and a _Contact Diary_ for the early corona days that unfortunately never got released due to App Store CoVid-19 restrictions.
+While continuously developing Leila, I had the chance to build two more Apps: the _[ASH Quiz](https://www.aktion-sauberehaende.de/krankenhauser/fortbildungsmaterialien/spielerische-wege)_ , which allows for the familiarisation with instructions and actions related to medical activities, and an interpersonal Contact Diary in the early stages of the CoVid-Pandemic, which unfortunately never got released due to App Store CoVid-19 restrictions.

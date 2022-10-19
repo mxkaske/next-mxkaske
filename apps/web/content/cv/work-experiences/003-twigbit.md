@@ -6,4 +6,4 @@ what: "Fullstack Developer"
 where: "Twigbit GmbH"
 ---
 
-I have supported [Twigbit](https://twigbit.com/) in building the foundation of [Brimo](https://brimo.io/), a Facility Management Tool. With the Engineering Team, we had to assess which framework, state management system, database,… to use. While helping extend the source code, I was responsible to build the design system components and the code patterns behind it.
+I supported [Twigbit](https://twigbit.com/) in building the foundation of [Brimo](https://brimo.io), a Facility Management Tool. Together with the Engineering Team, we went through the early development process of assessing which framework, state management system and database to use, in order to kickstart the project. While helping extend the source code, I was responsible for building the design system components.

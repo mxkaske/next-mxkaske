@@ -6,4 +6,8 @@ what: "Fast Forward"
 where: "Side Project"
 ---
 
-Initial idea taken from [feedback.fish](https://feedback.fish). Goal is to build a simple Feedback Widget that can be added to anyone's website via a `React` package or `script` tag. But it requires much more. It is an attempt go work on something aside. Being busy with the company, it didn't get much attention. See [GitHub](https://github.com/mxkaske/fast-forward) or [fast-forward.app](https://fast-forward.app).
+Coding is my passion, so is this project. Open source, blog posts and the entire community is a big motivation to thrive towards a common goal: building block by block an environment where everybody can build on top of it.
+
+Inspired by [feedback.fish](http://feedback.fish), the goal is to build a simple Feedback Widget that anyone can easily install on their website. The feedback collected will be shown on the dashboard with additional useful informations like browser, timestamp and more. It’s under construction and will maybe never see the light. But it help improving my skills.
+
+See [GitHub](https://github.com/mxkaske/fast-forward) or [fast-forward.app](https://fast-forward.app/).
