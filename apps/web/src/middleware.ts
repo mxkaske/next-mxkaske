@@ -8,7 +8,11 @@ const handler = (req: NextRequest) => {
   // To avoid that, we could find the allPosts post.flattendPath that matches the slug.
   if (req.nextUrl.pathname.startsWith("/writing/")) {
     const slug = req.nextUrl.searchParams.get("slug");
-    redis.incr(`views:${slug}`);
+    // FIXME:
+    console.log({ nextUrl: req.nextUrl, slug });
+    if (!!slug) {
+      redis.incr(`views:${slug}`);
+    }
   }
   return NextResponse.next();
 };
