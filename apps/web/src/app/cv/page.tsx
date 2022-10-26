@@ -1,13 +1,13 @@
+"use client";
+
 import { allCVs, CV } from ".contentlayer/generated";
 import Layout from "@/components/common/layout";
 import Details from "@/components/cv/details";
 import Grid from "@/components/cv/grid";
 import stackConfig from "@/config/home";
-import { format } from "date-fns";
-import { InferGetStaticPropsType } from "next";
-import Image from "next/legacy/image";
-import React from "react";
-import { FiPrinter, FiCopy } from "react-icons/fi";
+import Image from "next/image";
+import React, { use } from "react";
+import { FiPrinter } from "react-icons/fi";
 import { Button, Heading, Text } from "ui";
 import Link from "@/components/ui/link";
 
@@ -26,25 +26,24 @@ const styles = {
     "prose dark:prose-invert prose-a:decoration-gray-500 hover:prose-a:decoration-black dark:hover:prose-a:decoration-white prose-img:rounded-md prose-blockquote:rounded prose-em:text-gray-900 dark:prose-em:text-white prose-em:font-light",
 };
 
-const CVPage = ({ events }: InferGetStaticPropsType<typeof getStaticProps>) => {
+const getEvents = async () => {
+  const events = await allCVs
+    .sort((a, b) => (a.slug < b.slug ? 1 : -1))
+    .reduce<Record<string, CV[]>>((prev, curr) => {
+      if (prev?.[curr.event]) {
+        prev[curr.event] = [...prev[curr.event], curr];
+      } else {
+        prev[curr.event] = [curr];
+      }
+      return prev;
+    }, {});
+  return events;
+};
+
+const CVPage = () => {
+  const events = use(getEvents());
   const handlePrint = () => {
     if (typeof window !== "undefined") window?.print();
-  };
-  const handleCopy = () => {
-    let string = "";
-    Object.entries(events).map(([eKey, eValue]) => {
-      string += `# ${eKey}\n`;
-      console.log(eKey, eValue);
-      eValue.map((cv) => {
-        string += `Time range: ${format(
-          new Date(cv.from),
-          "MMM yyyy"
-        )}-${format(new Date(cv.to), "MMM yyyy")}\nPosition: ${
-          cv.what
-        }\nCompany: ${cv.where}\n${cv.body.raw}\n${" "}\n`;
-      });
-    });
-    navigator.clipboard.writeText(string);
   };
   return (
     <Layout>
@@ -57,11 +56,6 @@ const CVPage = ({ events }: InferGetStaticPropsType<typeof getStaticProps>) => {
               <div>
                 <Button onClick={handlePrint} className="!p-2">
                   <FiPrinter className="h-4 w-4" />
-                </Button>
-              </div>
-              <div>
-                <Button onClick={handleCopy} className="!p-2">
-                  <FiCopy className="h-4 w-4" />
                 </Button>
               </div>
             </div>
@@ -91,9 +85,12 @@ const CVPage = ({ events }: InferGetStaticPropsType<typeof getStaticProps>) => {
             <div className="-order-1 md:order-2 self-center flex-shrink-0 h-40 w-40 relative rounded-full overflow-hidden">
               <Image
                 src="/profile.jpg"
-                layout="fill"
-                objectFit="cover"
-                alt=""
+                alt="profile"
+                fill
+                sizes="100vw"
+                style={{
+                  objectFit: "cover",
+                }}
               />
             </div>
           </div>
@@ -149,17 +146,3 @@ const CVPage = ({ events }: InferGetStaticPropsType<typeof getStaticProps>) => {
 };
 
 export default CVPage;
-
-export const getStaticProps = async () => {
-  // sort first
-  allCVs.sort((a, b) => (a.slug < b.slug ? 1 : -1));
-  const events = allCVs.reduce<Record<string, CV[]>>((prev, curr) => {
-    if (prev?.[curr.event]) {
-      prev[curr.event] = [...prev[curr.event], curr];
-    } else {
-      prev[curr.event] = [curr];
-    }
-    return prev;
-  }, {});
-  return { props: { events } };
-};

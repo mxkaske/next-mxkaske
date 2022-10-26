@@ -1,16 +1,8 @@
-import React, { useEffect, useState } from "react";
 import Link from "@/components/ui/link";
 import Container from "../common/container";
-import { useTheme } from "next-themes";
 import Breadcrumbs from "./breadcrumbs";
 
 const NavBar = () => {
-  const { resolvedTheme, setTheme, theme, systemTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  // After mounting, we have access to the theme
-  useEffect(() => setMounted(true), []);
-
   return (
     <header className="w-full h-14 print:hidden z-10">
       <div className="fixed w-full backdrop-blur-xl dark:backdrop-blur-md">

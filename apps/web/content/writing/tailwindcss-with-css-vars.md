@@ -10,7 +10,7 @@ Since [Tailwind CSS v3.1](https://tailwindcss.com/blog/tailwindcss-v3-1#easier-c
 
 We'd like to allow the user to choose his/her prefered color:
 
-<VariableColorPicker />
+![tailwindcss vars](/assets/blog/tailwindcss-vars.gif)
 
 Following steps are required:
 

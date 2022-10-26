@@ -1,9 +1,6 @@
 import "@/styles/globals.css";
-import { ThemeProvider } from "next-themes";
-import { SWRConfig } from "swr";
-import swrConfig from "swr.config";
-import { DefaultSeo } from "next-seo";
-import SEO from "next-seo.config";
+import AppProvider from "src/provider/app/AppProvider";
+import Layout from "@/components/common/layout";
 
 export default function RootLayout({
   children,
@@ -11,9 +8,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <SWRConfig value={swrConfig}>
-      <DefaultSeo {...SEO} />
-      <ThemeProvider attribute="class">{children}</ThemeProvider>
-    </SWRConfig>
+    <AppProvider>
+      <Layout>{children}</Layout>
+    </AppProvider>
   );
 }

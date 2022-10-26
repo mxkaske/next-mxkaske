@@ -20,14 +20,14 @@ const Stack = ({ title, items }: Props) => {
         {title}
       </Heading>
       <ul role="list" className="space-y-3">
-        {items.map((item) => (
-          <li key={item.href}>
+        {items.map((item, i) => (
+          <li key={item.title}>
             <LinkBox href={item.href} title={item.title}>
               {item.description ? (
                 <Text className="mb-0 text-gray-600 dark:text-gray-400">
                   {item.description}
                 </Text>
-              ) : null}
+              ) : undefined}
             </LinkBox>
           </li>
         ))}

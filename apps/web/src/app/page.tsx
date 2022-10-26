@@ -1,11 +1,12 @@
+"use client";
+
 import Stack from "@/components/home/stack";
 import { Heading } from "ui";
 import stackConfig from "@/config/home";
-import Layout from "@/components/common/layout";
 
 export default function Home() {
   return (
-    <Layout>
+    <>
       <div className="max-w-3xl py-8">
         <Heading>
           {`I'm a design-minded Software Developer interested in code pattern,
@@ -18,6 +19,6 @@ export default function Home() {
           <Stack key={key} {...stackConfig[key]} />
         ))}
       </div>
-    </Layout>
+    </>
   );
 }
