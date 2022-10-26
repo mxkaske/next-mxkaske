@@ -2,6 +2,7 @@ const colors = require("tailwindcss/colors");
 
 module.exports = {
   content: [
+    "./src/app/**/*.{js,ts,jsx,tsx}",
     "./src/pages/**/*.{ts,tsx}",
     "./src/components/**/*.{ts,tsx}",
     "../../packages/ui/src**/*.{ts,tsx}", // detect ui changes
