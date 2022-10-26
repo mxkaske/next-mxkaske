@@ -5,7 +5,7 @@ import Grid from "@/components/cv/grid";
 import stackConfig from "@/config/home";
 import { format } from "date-fns";
 import { InferGetStaticPropsType } from "next";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import React from "react";
 import { FiPrinter, FiCopy } from "react-icons/fi";
 import { Button, Heading, Text } from "ui";
