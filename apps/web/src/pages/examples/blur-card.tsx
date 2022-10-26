@@ -1,6 +1,7 @@
 import Layout from "@/components/common/layout";
 import React, { FC, useEffect, useLayoutEffect, useRef, useState } from "react";
-import { Heading, Text, Link } from "ui";
+import { Heading, Text } from "ui";
+import Link from "@/components/ui/link";
 import cn from "classnames";
 
 const styles = {

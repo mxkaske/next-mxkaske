@@ -3,8 +3,8 @@ import { formatDistance } from "date-fns";
 import React from "react";
 import useSWR from "swr";
 import { COMMIT_SHA } from "swr.config";
-import { Link, Text } from "ui";
-import { default as NextLink } from "next/link";
+import { Text } from "ui";
+import Link from "@/components/ui/link";
 
 const Metrics = () => {
   const { data: commit } = useSWR<GetCommitShaResponse>(
@@ -19,11 +19,14 @@ const Metrics = () => {
             {formatDistance(new Date(commit.data.author.date), new Date())}{" "}
             ago):
           </Text>
-          <NextLink href={commit.data.html_url}>
-            <Link target="_blank" rel="noopener" className="mb-1">
-              <code>`{commit.data.message}`</code>
-            </Link>
-          </NextLink>
+          <Link
+            href={commit.data.html_url}
+            target="_blank"
+            rel="noopener"
+            className="mb-1"
+          >
+            <code>`{commit.data.message}`</code>
+          </Link>
         </>
       ) : null}
     </div>

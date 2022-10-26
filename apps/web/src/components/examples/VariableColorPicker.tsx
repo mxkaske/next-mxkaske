@@ -15,7 +15,7 @@ function hexToRgb(hex: string) {
 const VariableColorPicker = () => {
   const [color, setColor] = React.useState<string>(undefined);
 
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     const style = getComputedStyle(document.body);
     const defaultValue = style.getPropertyValue("--example-brand");
     setColor(defaultValue);

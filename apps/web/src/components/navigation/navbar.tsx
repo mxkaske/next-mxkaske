@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { default as NextLink } from "next/link";
-import { Link } from "ui";
+import Link from "@/components/ui/link";
 import Container from "../common/container";
 import { useTheme } from "next-themes";
 import Breadcrumbs from "./breadcrumbs";
@@ -18,12 +17,10 @@ const NavBar = () => {
         <Container className="flex items-center justify-between space-x-3">
           <div className="flex flex-1">
             <div>
-              <NextLink href="/">
-                <Link className="font-medium">
-                  <span className="text-gray-500 dark:text-gray-400">mx</span>
-                  kaske
-                </Link>
-              </NextLink>
+              <Link href="/" className="font-medium">
+                <span className="text-gray-500 dark:text-gray-400">mx</span>
+                kaske
+              </Link>
             </div>
             <Breadcrumbs />
           </div>

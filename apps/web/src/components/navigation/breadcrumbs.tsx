@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import React from "react";
-import { default as NextLink } from "next/link";
-import { Link } from "ui";
+import Link from "@/components/ui/link";
 import SlashIcon from "../icon/slash";
 import cn from "classnames";
 
@@ -32,17 +31,16 @@ const Breadcrumbs = () => {
             <SlashIcon className="flex-shrink-0 w-5 h-5 text-gray-300" />
             <div className="font-light line-clamp-1">
               <span className="relative">
-                <NextLink href={href}>
-                  <Link
+                <Link
+                  href={href}
                   // className={cn(
                   //   isLast &&
                   //     // 8.89px*16.45px is the canva of the slash icon - hypothenuse is ~19px
                   //     "before:h-px before:w-[19px] before:bg-gray-700 dark:before:bg-gray-300 before:absolute before:-bottom-0 before:-translate-x-1/2 before:left-1/2"
                   // )}
-                  >
-                    {breadcrumb}
-                  </Link>
-                </NextLink>
+                >
+                  {breadcrumb}
+                </Link>
               </span>
               {isLast && queryEntries.length > 0 ? (
                 <span className="px-1 italic">

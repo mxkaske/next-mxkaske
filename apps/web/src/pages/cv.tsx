@@ -8,8 +8,8 @@ import { InferGetStaticPropsType } from "next";
 import Image from "next/image";
 import React from "react";
 import { FiPrinter, FiCopy } from "react-icons/fi";
-import { Button, Heading, Link, Text } from "ui";
-import NextLink from "next/link";
+import { Button, Heading, Text } from "ui";
+import Link from "@/components/ui/link";
 
 const self = {
   description: `Hi! I’m Max, a Fullstack Developer working on Web- and App projects in JS/TS. I’m passionate about the newest frameworks, clean design, productivity tools, and code architecture. I'm experienced with React & Next.js for Web Development, React Native & Expo for App Development and serverless infrastructure.`,
@@ -111,9 +111,7 @@ const CVPage = ({ events }: InferGetStaticPropsType<typeof getStaticProps>) => {
             <p>
               Learn more about the current{" "}
               <strong>
-                <NextLink href="/tools">
-                  <Link href="/tools">tools/tech stack</Link>
-                </NextLink>
+                <Link href="/tools">tools/tech stack</Link>
               </strong>
               .
             </p>

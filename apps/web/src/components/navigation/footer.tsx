@@ -1,7 +1,7 @@
 import React from "react";
 import Container from "../common/container";
-import { default as NextLink } from "next/link";
-import { Text, Link, Heading } from "ui";
+import { Text, Heading } from "ui";
+import Link from "@/components/ui/link";
 import ThemeSwitch from "../common/theme-switch";
 import SlashIcon from "../icon/slash";
 
@@ -25,9 +25,9 @@ const Footer = () => {
             <ul className="space-y-1">
               {paths.map(({ label, href }) => (
                 <li key={href}>
-                  <NextLink href={href} passHref>
-                    <Link className="font-light">{label}</Link>
-                  </NextLink>
+                  <Link href={href} className="font-light">
+                    {label}
+                  </Link>
                 </li>
               ))}
             </ul>

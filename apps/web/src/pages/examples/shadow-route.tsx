@@ -1,9 +1,9 @@
 import Layout from "@/components/common/layout";
-import { default as NextLink } from "next/link";
-import { Heading, Link, Text, Select } from "ui";
+import { Heading, Text, Select } from "ui";
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import { useRouter } from "next/router";
 import React from "react";
+import Link from "@/components/ui/link";
 
 const ShadowRoute = ({}: InferGetServerSidePropsType<
   typeof getServerSideProps
