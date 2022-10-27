@@ -3,6 +3,7 @@ import Container from "../common/container";
 import { Text, Heading } from "ui";
 import Link from "@/components/ui/link";
 import ThemeSwitch from "../common/theme-switch";
+import NavBar from "./navbar";
 
 // THINK: of a good way to display the paths with the SlashIcon
 

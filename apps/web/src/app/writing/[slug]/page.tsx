@@ -7,7 +7,8 @@ import Details from "@/components/blog/details";
 import { NextSeo } from "next-seo";
 
 export async function generateStaticParams() {
-  const posts = allPosts;
+  const posts = await allPosts;
+  console.log(posts);
 
   return posts.map((post) => ({
     slug: post.slug,

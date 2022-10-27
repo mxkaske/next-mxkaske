@@ -5,7 +5,6 @@ import React from "react";
 import Link from "@/components/ui/link";
 import SlashIcon from "../icon/slash";
 import cn from "classnames";
-import { useRouter } from "next/router";
 
 const Breadcrumbs = () => {
   // REMEMBER: router is used for /pages components while migrating...
