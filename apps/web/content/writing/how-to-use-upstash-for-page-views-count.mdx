@@ -19,7 +19,7 @@ I really enjoy [@leeerob](https://twitter.com/leeerob)'s blog posts. He implemen
 ![leerob blog post](/assets/blog/page-views/leerob-refresh-page-views.gif)
 
 Now, is it possible to disable the shift with the tools provided by Next.js? Yes, by moving the fetch operation at the same time as we generate the static post pages. We leverage `getStaticProps` (see docs "[When does getStaticProps run?](https://nextjs.org/docs/basic-features/data-fetching/get-static-props#when-does-getstaticprops-run)") to add Incremental Static Regeneration and serve a new page with the updated views.
-Why can't we use a `getServerSideProps`? Simply because we can't use both. For blog posts, we should stick to static sites as they are perfect for SEO. Instead, Next.js allows us to do Incremental Static Regeneration which allows us to regenerate the page.
+Why can't we use a `getServerSideProps`? Simply because we can't use both. For blog posts, we should stick to static sites as they are perfect for SEO. Instead, Next.js allows us to do Incremental Static Regeneration (ISR) which allows us to regenerate the page.
 
 We will use a simple redis database powered by [upstash](https://upstash.com) to store the number of views.
 
@@ -39,7 +39,7 @@ The reason why we are not using this flow is because by default, routes are pref
 
 ![correct page view flow](/assets/blog/page-views/excalidraw-flow-2.png)
 
-Each time a new **/writing/blog-post-slug** page is opened, we will make a small API request that will increase our counter by one and automatically revalidate the same page so that, once regenerated (might take a few seconds), we will have the new page view numbers on the static page.
+Instead, each time a new **/writing/blog-post-slug** page is opened, we will make a small API request that will increase our counter by one and automatically revalidate the same page so that, once regenerated (might take a few seconds), we will have the new page view numbers on the static page.
 
 ### Implementation phase
 
