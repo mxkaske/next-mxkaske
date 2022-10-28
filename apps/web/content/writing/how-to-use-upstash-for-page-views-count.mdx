@@ -43,11 +43,13 @@ Each time a new **/writing/blog-post-slug** page is opened, we will make a small
 
 ### Implementation phase
 
-We only require 3 steps to implement the new feature! Let's get cracking.
+You only require 3 steps to implement the new feature! Let's get cracking.
 
 1. Getting started with Upstash
 2. Create the `middleware`
 3. Update the `Post` page
+
+We will use the [**GET**](https://redis.io/commands/get/) and [**SET**](https://redis.io/commands/set/) redis commands.
 
 #### 1. Getting started with Upstash
 
@@ -73,7 +75,7 @@ Install the [`@upstash/redis`](https://www.npmjs.com/package/@upstash/redis) pac
 
 #### 2. Create the `API`
 
-We need a little API that we can call from the client and increase the counter number for a blog post `slug`. In there, we will also call the [`res.revalidate`](https://nextjs.org/docs/api-routes/response-helpers) to regenerate a static page with the new counter. Let's see how it looks like:
+You need a little API that we can call from the client and increase the counter number for a blog post `slug`. In there, is called the [`res.revalidate`](https://nextjs.org/docs/api-routes/response-helpers) function to regenerate a static page with the new counter.
 
 ```tsx
 // src/pages/api/views/[slug].ts
@@ -146,9 +148,9 @@ Once implemented, you should see similar data:
 
 ### Final words
 
-That's it! We have now a view counter implemented with Next.js and Upstash and it will incrementally regenerate our static pages.
+That's it! You have now a view counter implemented in Next.js with Upstash using ISR.
 
-If you want to get all the views from your `slugs`, you can easily access them with the redis's [MGET command](https://redis.io/commands/mget/) like:
+If you want to get all the views from your `slugs`, you can easily access them with the redis's [**MGET**](https://redis.io/commands/mget/) command like:
 
 ```ts
 // src/pages/writing/index.tsx
@@ -160,6 +162,6 @@ export const getStaticProps = () => {
 };
 ```
 
-That's something I've done for the [/writing](/writing) page that lists all the blog posts.
+That's something I've done for the [/writing](/writing) page to display the views for all the slugs.
 
 Thanks for reading and happy hacking!
