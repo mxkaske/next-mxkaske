@@ -10,6 +10,9 @@ import React from "react";
 
 const redis = Redis.fromEnv();
 
+// https://github.com/upstash/upstash-redis/issues/216#issuecomment-1280636588
+// atob has been introduced only in node 16.x
+// make sure vercel is running on node 16.x!
 if (typeof atob === "undefined") {
   global.atob = function (b64: string) {
     return Buffer.from(b64, "base64").toString("utf-8");
