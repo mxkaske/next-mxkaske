@@ -57,8 +57,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context: GetStaticPropsContext) => {
   const slug = context.params.slug as string;
-  const views = ((await redis.get(`views:${slug}`)) || 0) as number;
-  console.log({ slug, views });
+  const views = (await redis.get<number | null>(`views:${slug}`)) || 0;
   const post = allPosts.find((post) => post.slug === slug);
   return { props: { post, views } }; // -> revalidate will be done in API route
 };

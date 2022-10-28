@@ -37,7 +37,7 @@ const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
 
 export const getStaticProps = async () => {
   const keys = allPosts.map(({ slug }) => `views:${slug}`);
-  const allViews = (await redis.mget(...keys)) as (number | null)[];
+  const allViews = await redis.mget<(number | null)[]>(...keys);
   const posts = allPosts
     .map((post, i) => ({ post, views: allViews[i] || 0 }))
     .sort((a, b) => (new Date(a.post.date) < new Date(b.post.date) ? 1 : -1));

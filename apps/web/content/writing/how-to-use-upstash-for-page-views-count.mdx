@@ -6,6 +6,12 @@ excerpt: "Elaborating Next.js middleware to..."
 
 ## How to implement a page view counter with Upstash
 
+I want to show you how to increase a view counter without additional UI shift. With the instructions below, you will be able to add a counter into any of your Next pages within less than 5 minutes.
+
+> ⚠️ This is a Next 12 tutorial. It will get updated once Next 13 is a bit more stable. It already is fast to implement, but it will be even faster with the new React Server Components.
+
+> ⚠️ It requires Node.js 16.x and the introduced `atob` function to run. Check the [GitHub Issue](https://github.com/upstash/upstash-redis/issues/216#issuecomment-1280636588) for help.
+
 ### Introduction
 
 I really enjoy [@leeerob](https://twitter.com/leeerob)'s blog posts. He implemented a [`ViewCounter`](https://github.com/leerob/leerob.io/blob/main/components/ViewCounter.tsx) that counts the number of views of each of his posts. When opening a post, you will notice a UI shift on the first render as the Component fetches the data on CSR using [`swr`](https://swr.vercel.app).
@@ -13,15 +19,27 @@ I really enjoy [@leeerob](https://twitter.com/leeerob)'s blog posts. He implemen
 ![leerob blog post](/assets/blog/page-views/leerob-refresh-page-views.gif)
 
 Now, is it possible to disable the shift with the tools provided by Next.js? Yes, by moving the fetch operation at the same time as we generate the static post pages. We leverage `getStaticProps` (see docs "[When does getStaticProps run?](https://nextjs.org/docs/basic-features/data-fetching/get-static-props#when-does-getstaticprops-run)") to add Incremental Static Regeneration and serve a new page with the updated views after X seconds.
-Why can't we use a `getServerSideProps`? Simply because we can't use both. For blog posts, we should stick to static sites as they are perfect for SEO. Instead, Next.js allows us to do Incremental Staic Regeneration inside `getStaticProps` which allows us to regenerate the page if it got staled.
+Why can't we use a `getServerSideProps`? Simply because we can't use both. For blog posts, we should stick to static sites as they are perfect for SEO. Instead, Next.js allows us to do Incremental Staic Regeneration which allows us to regenerate the page if it got staled.
 
 We will use a simple redis database powered by [upstash](https://upstash.com) to store the number of views.
 
 ### Show the flow
 
-![page view flow](/assets/blog/page-views/excalidraw-flow.png)
+At first, I thought it would be good to include the middleware in our flow. That way, we could match the incoming request and only increase the views for specific pathnames.
 
-Each time a **/writing/blog-post-slug** page is requested, we increment the number of views inside the middleware. Every time the cached revalidate seconds is exceeded, a new static blog post will be generated with the correct number of views. In our example, it will revalidate the page after 60 seconds (and a visitor opens the post).
+❌ **The first idea**
+
+![wrong page view flow](/assets/blog/page-views/excalidraw-flow.png)
+
+The reason why we are not using this flow is because by default, routes are prefetched as they become visible in the viewport when using the `<Link>` component and the view counter will already be increased without accessing the pages. Overwriting this behavior with `prefetch: false` would make the sites slower. Also, whenever the page is automatically refreshed by Next (e.g. when jumping back and forth in the tabs), the middleware will run as the page will be revalidated.
+
+A fully server-side approach will be possible with Next 13 and RSC (React Server Components). Let's stick with what is common for now and use a bit of client-side code, requesting the API to increase the counter.
+
+✅ **The second thought**
+
+![correct page view flow](/assets/blog/page-views/excalidraw-flow-2.png)
+
+Each time a new **/writing/blog-post-slug** page is opened, we will make a small API request that will increase our counter by one and automatically revalidate the same page so that, once regenerated (might take a few seconds), we will have the new page view numbers on the static page.
 
 ### Implementation phase
 
@@ -53,23 +71,31 @@ Install the [`@upstash/redis`](https://www.npmjs.com/package/@upstash/redis) pac
 > npm install @upstash/redis
 ```
 
-#### 2. Create the `middleware`
+#### 2. Create the `API`
 
-Your middleware file lies nowadays in the root folder where the `/pages` directory is. For us, it will be `/src/middleware.ts`. The middleware will run the code before the request is completed and the page is returned. We only want to increment the views of the `slug` blog post if the requested pathname starts with **"/writing/"**.
+We need a little API that we can call from the client and increase the counter number for a blog post `slug`. In there, we will also call the [`res.revalidate`](https://nextjs.org/docs/api-routes/response-helpers) to regenerate a static page with the new counter. Let's see how it looks like:
 
 ```tsx
-// src/middleware.ts
+// src/pages/api/views/[slug].ts
+import { NextApiRequest, NextApiResponse } from "next";
 import { Redis } from "@upstash/redis";
-import { NextRequest, NextResponse } from "next/server";
 
 const redis = Redis.fromEnv();
 
-const handler = (req: NextRequest) => {
-  if (req.nextUrl.pathname.startsWith("/writing/")) {
-    const slug = req.nextUrl.searchParams.get("slug"); // param from /pages/writing/[slug].tsx
-    redis.incr(`views:${slug}`);
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+  try {
+    const slug = req.query.slug as string;
+    switch (req.method) {
+      case "PATCH":
+        redis.incr(`views:${slug}`);
+        res.revalidate(`/writing/${slug}`); // On-Demand Revalidation (ISR)
+        return res.status(200).end();
+      default:
+        return res.status(405).end(`Method ${req.method} Not Allowed`);
+    }
+  } catch (error) {
+    return res.status(500).json({ error });
   }
-  return NextResponse.next();
 };
 
 export default handler;
@@ -77,19 +103,25 @@ export default handler;
 
 #### 3. Update the `Post` page
 
-The posts are generated in the `src/pages/writing/[slug].tsx` file. We are using [contentlayer](http://contentlayer.dev/) to validate, transform our md/mdx content and include type-safety. I highly recommend it if you are building websites with heavy static content. We get the correct views for the correct slug inside `getStaticProps` and pass it to our `NextPage` Component.
+The posts are generated in the `src/pages/writing/[slug].tsx` file. We are using [contentlayer](http://contentlayer.dev/) to validate, transform our md/mdx content and include type-safety. I highly recommend it if you are building websites with heavy static content. We get the views for the correct slug inside `getStaticProps` and pass it to our `NextPage` Component.
 
 ```tsx
 // src/pages/writing/[slug].tsx
+import React from "react";
 import { allPosts } from ".contentlayer/generated";
 import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 import { Redis } from "@upstash/redis";
+
+const redis = Redis.fromEnv();
 
 export default function Post({
   post,
   views,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  // access the `views` here
+  React.useEffect(() => {
+    // that will increase the counter by one on each `slug` change
+    fetch(`/api/views/${post.slug}`);
+  }, [post.slug]);
   return <div dangerouslySetInnerHTML={{ __html: post.body.html }} />;
 }
 
@@ -102,19 +134,19 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context: GetStaticPropsContext) => {
   const slug = context.params.slug as string;
-  const redis = Redis.fromEnv();
-  const views = ((await redis.get(`views:${slug}`)) || 0) as number;
+  const views = (await redis.get<number | null>(`views:${slug}`)) || 0;
   const post = allPosts.find((post) => post.slug === slug);
-  return {
-    props: { post, views },
-    revalidate: 60, // 60 seconds - Incremental Static Regeneration
-  };
+  return { props: { post, views } };
 };
 ```
 
+Once implemented, you should see similar data:
+
+![upstash data](/assets/blog/page-views/upstash-data.png)
+
 ### Final words
 
-That's it! We have now a view counter implemented with Next.js and Upstash and it will incrementally regenerate our static pages after 60 seconds if someone clicked on it.
+That's it! We have now a view counter implemented with Next.js and Upstash and it will incrementally regenerate our static pages.
 
 If you want to get all the views from your `slugs`, you can easily access them with the redis's [MGET command](https://redis.io/commands/mget/) like:
 
@@ -123,31 +155,11 @@ If you want to get all the views from your `slugs`, you can easily access them w
 export const getStaticProps = () => {
   // ...
   const keys = allPosts.map(({ slug }) => `views:${slug}`);
-  const allViews = (await redis.mget(...keys)) as (number | null)[];
+  const allViews = await redis.mget<(number | null)[]>(...keys);
   // ...
 };
 ```
 
 That's something I've done for the [/writing](/writing) page that lists all the blog posts.
-
-Also, be aware that the middleware will increment slugs that might not exist. For now, calling **"/writing/xyz"** will create a new "views:xyz" key in our database.
-We can avoid that behavior by adding an additional `if` statement:
-
-```ts
-// src/middelware.ts
-import { allPosts } from ".contentlayer/generated";
-
-const handler = () => {
-  // ...
-  if (req.nextUrl.pathname.startsWith("/writing/")) {
-    const slug = req.nextUrl.searchParams.get("slug");
-    // check whether or not the slug exists
-    if (allPosts.find((p) => p.slug === slug)) {
-      redis.incr(`views:${slug}`);
-    }
-  }
-  // ...
-};
-```
 
 Thanks for reading and happy hacking!
