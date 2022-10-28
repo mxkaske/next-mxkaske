@@ -8,7 +8,7 @@ import { useMDXComponent } from "next-contentlayer/hooks";
 import { Redis } from "@upstash/redis";
 import React from "react";
 
-const redis = Redis.fromEnv();
+const redis = Redis.fromEnv({ automaticDeserialization: false });
 
 // Components
 import VariableColorPicker from "@/components/examples/VariableColorPicker";

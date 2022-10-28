@@ -5,9 +5,9 @@ const redis = Redis.fromEnv();
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
+    const slug = req.query.slug as string;
     switch (req.method) {
       case "PATCH":
-        const slug = req.query.slug as string;
         redis.incr(`views:${slug}`);
         res.revalidate(`/writing/${slug}`);
         return res.status(200).end();
