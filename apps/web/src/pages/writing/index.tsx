@@ -9,6 +9,12 @@ import { Redis } from "@upstash/redis";
 
 const redis = Redis.fromEnv();
 
+if (typeof atob === "undefined") {
+  global.atob = function (b64: string) {
+    return Buffer.from(b64, "base64").toString("utf-8");
+  };
+}
+
 const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <Layout>

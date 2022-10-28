@@ -8,7 +8,13 @@ import { useMDXComponent } from "next-contentlayer/hooks";
 import { Redis } from "@upstash/redis";
 import React from "react";
 
-const redis = Redis.fromEnv({ automaticDeserialization: false });
+const redis = Redis.fromEnv();
+
+if (typeof atob === "undefined") {
+  global.atob = function (b64: string) {
+    return Buffer.from(b64, "base64").toString("utf-8");
+  };
+}
 
 // Components
 import VariableColorPicker from "@/components/examples/VariableColorPicker";
