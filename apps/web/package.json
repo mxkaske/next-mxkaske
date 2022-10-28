@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@octokit/rest": "^19.0.4",
+    "@upstash/redis": "^1.15.0",
     "autoprefixer": "^10.4.8",
     "classnames": "^2.3.1",
     "date-fns": "^2.29.1",
