@@ -8,6 +8,8 @@ import { useMDXComponent } from "next-contentlayer/hooks";
 import { Redis } from "@upstash/redis";
 import React from "react";
 
+const redis = Redis.fromEnv();
+
 // Components
 import VariableColorPicker from "@/components/examples/VariableColorPicker";
 
@@ -46,8 +48,8 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context: GetStaticPropsContext) => {
   const slug = context.params.slug as string;
-  const redis = Redis.fromEnv();
   const views = ((await redis.get(`views:${slug}`)) || 0) as number;
+  console.log({ slug, views });
   const post = allPosts.find((post) => post.slug === slug);
   return { props: { post, views } }; // -> revalidate will be done in API route
 };

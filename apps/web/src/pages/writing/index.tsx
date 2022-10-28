@@ -7,6 +7,8 @@ import Details from "@/components/blog/details";
 import LinkBox from "@/components/common/link-box";
 import { Redis } from "@upstash/redis";
 
+const redis = Redis.fromEnv();
+
 const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <Layout>
@@ -27,7 +29,6 @@ const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
 };
 
 export const getStaticProps = async () => {
-  const redis = Redis.fromEnv();
   const keys = allPosts.map(({ slug }) => `views:${slug}`);
   const allViews = (await redis.mget(...keys)) as (number | null)[];
   const posts = allPosts
