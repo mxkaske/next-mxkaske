@@ -14,12 +14,12 @@ I want to show you how to increase a view counter without additional UI shift. W
 
 ### Introduction
 
-I really enjoy [@leeerob](https://twitter.com/leeerob)'s blog posts. He implemented a [`ViewCounter`](https://github.com/leerob/leerob.io/blob/main/components/ViewCounter.tsx) that counts the number of views of each of his posts. When opening a post, you will notice a UI shift on the first render as the Component fetches the data on CSR using [`swr`](https://swr.vercel.app).
+I really enjoy [@leeerob](https://twitter.com/leeerob)'s blog posts. He implemented a [`ViewCounter`](https://github.com/leerob/leerob.io/blob/main/components/ViewCounter.tsx) that counts the number of views of each of his posts. When opening a post, you will notice a UI shift on the first render as the Component fetches the data on the client (CSR) using [`swr`](https://swr.vercel.app).
 
 ![leerob blog post](/assets/blog/page-views/leerob-refresh-page-views.gif)
 
-Now, is it possible to disable the shift with the tools provided by Next.js? Yes, by moving the fetch operation at the same time as we generate the static post pages. We leverage `getStaticProps` (see docs "[When does getStaticProps run?](https://nextjs.org/docs/basic-features/data-fetching/get-static-props#when-does-getstaticprops-run)") to add Incremental Static Regeneration and serve a new page with the updated views after X seconds.
-Why can't we use a `getServerSideProps`? Simply because we can't use both. For blog posts, we should stick to static sites as they are perfect for SEO. Instead, Next.js allows us to do Incremental Staic Regeneration which allows us to regenerate the page if it got staled.
+Now, is it possible to disable the shift with the tools provided by Next.js? Yes, by moving the fetch operation at the same time as we generate the static post pages. We leverage `getStaticProps` (see docs "[When does getStaticProps run?](https://nextjs.org/docs/basic-features/data-fetching/get-static-props#when-does-getstaticprops-run)") to add Incremental Static Regeneration and serve a new page with the updated views.
+Why can't we use a `getServerSideProps`? Simply because we can't use both. For blog posts, we should stick to static sites as they are perfect for SEO. Instead, Next.js allows us to do Incremental Static Regeneration which allows us to regenerate the page.
 
 We will use a simple redis database powered by [upstash](https://upstash.com) to store the number of views.
 
@@ -103,7 +103,7 @@ export default handler;
 
 #### 3. Update the `Post` page
 
-The posts are generated in the `src/pages/writing/[slug].tsx` file. We are using [contentlayer](http://contentlayer.dev/) to validate, transform our md/mdx content and include type-safety. I highly recommend it if you are building websites with heavy static content. We get the views for the correct slug inside `getStaticProps` and pass it to our `NextPage` Component.
+The posts are created in the `src/pages/writing/[slug].tsx` file. I am using [contentlayer](http://contentlayer.dev/) to validate, transform our md/mdx content and include type-safety. I highly recommend it if you are building websites with heavy static content. You get the views for the correct slug inside `getStaticProps` and pass it to our `NextPage` Component.
 
 ```tsx
 // src/pages/writing/[slug].tsx
