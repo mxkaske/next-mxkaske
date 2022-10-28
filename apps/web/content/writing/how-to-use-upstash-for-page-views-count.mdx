@@ -46,7 +46,7 @@ Instead, each time a new **/writing/blog-post-slug** page is opened, we will mak
 You only require 3 steps to implement the new feature! Let's get cracking.
 
 1. Getting started with Upstash
-2. Create the `middleware`
+2. Create the `API`
 3. Update the `Post` page
 
 We will use the [**GET**](https://redis.io/commands/get/) and [**SET**](https://redis.io/commands/set/) redis commands.
@@ -142,7 +142,7 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
 };
 ```
 
-Once implemented, you should see similar data:
+Once implemented, you should see similar data in the Upstash console:
 
 ![upstash data](/assets/blog/page-views/upstash-data.png)
 
