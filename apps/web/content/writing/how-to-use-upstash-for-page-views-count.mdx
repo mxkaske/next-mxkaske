@@ -33,7 +33,7 @@ At first, I thought it would be good to include the middleware in our flow. That
 
 The reason why we are not using this flow is because by default, routes are prefetched as they become visible in the viewport when using the `<Link>` component and the view counter will already be increased without accessing the pages. Overwriting this behavior with `prefetch: false` would make the sites slower. Also, whenever the page is automatically refreshed by Next (e.g. when jumping back and forth in the tabs), the middleware will run as the page will be revalidated.
 
-A fully server-side approach will be possible with Next 13 and RSC (React Server Components). Let's stick with what is common for now and use a bit of client-side code, requesting the API to increase the counter.
+> A fully server-side approach will be possible with Next 13 and RSC (React Server Components). Let's stick with what is common for now and use a bit of client-side code, requesting the API to increase the counter.
 
 ✅ **The second thought**
 
