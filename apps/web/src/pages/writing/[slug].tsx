@@ -31,9 +31,6 @@ export default function Post({
   views,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const Component = useMDXComponent(post.body.code);
-  React.useEffect(() => {
-    fetch(`/api/views/${post.slug}`, { method: "PATCH" });
-  }, [post.slug]);
   return (
     <Layout>
       <NextSeo title={post.title} description={post.excerpt} />
@@ -59,5 +56,5 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
   const slug = context.params.slug as string;
   const views = (await redis.get<number | null>(`views:${slug}`)) || 0;
   const post = allPosts.find((post) => post.slug === slug);
-  return { props: { post, views } }; // -> revalidate will be done in API route
+  return { props: { post, views }, revalidate: 60 }; // -> revalidate will be done in API route
 };
