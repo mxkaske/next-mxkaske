@@ -8,15 +8,19 @@ const redis = Redis.fromEnv();
 const handler = (req: NextRequest, event: NextFetchEvent) => {
   try {
     const slug = req.nextUrl.searchParams.get("slug");
-    console.log({ slug, nextUrl: req.nextUrl.searchParams.getAll });
+    console.log({
+      slug,
+      purpose: req.headers.get("purpose"),
+      headers: req.headers,
+    });
     // FIXME:
     if (!!slug) {
-      event.waitUntil(
-        (async () => {
-          console.log(slug);
-          redis.incr(`views:${slug}`);
-        })()
-      );
+      // event.waitUntil(
+      //   (async () => {
+      //     console.log(slug);
+      //     redis.incr(`views:${slug}`);
+      //   })()
+      // );
     }
   } catch (e) {
     console.error(e);
