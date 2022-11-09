@@ -7,7 +7,7 @@ const handler = (req: NextRequest) => {
   try {
     const slug = req.nextUrl.searchParams.get("slug");
 
-    const purpose = req.headers.get("purpose");
+    const purpose = req.headers.get("Purpose");
 
     if (!!slug && purpose !== "prefetch") {
       redis.incr(`views:${slug}`);
