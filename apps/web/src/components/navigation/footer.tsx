@@ -25,7 +25,7 @@ const Footer = () => {
             <ul className="space-y-1">
               {paths.map(({ label, href }) => (
                 <li key={href}>
-                  <NextLink href={href} passHref>
+                  <NextLink href={href} passHref legacyBehavior>
                     <Link className="font-light">{label}</Link>
                   </NextLink>
                 </li>
