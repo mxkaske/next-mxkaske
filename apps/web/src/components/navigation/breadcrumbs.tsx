@@ -32,7 +32,7 @@ const Breadcrumbs = () => {
             <SlashIcon className="flex-shrink-0 w-5 h-5 text-gray-300" />
             <div className="font-light line-clamp-1">
               <span className="relative">
-                <NextLink href={href}>
+                <NextLink href={href} legacyBehavior>
                   <Link
                   // className={cn(
                   //   isLast &&

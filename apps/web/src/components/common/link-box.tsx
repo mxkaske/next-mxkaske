@@ -12,20 +12,19 @@ interface Props extends LinkProps {
 const LinkBox: FC<Props> = ({ href, title, children }) => {
   const externalLink = !href.startsWith("/");
   return (
-    <Link href={href}>
-      <a
-        href={href}
-        rel="noreferrer"
-        target={externalLink ? "_blank" : undefined}
-        className="block p-3 -m-3 rounded-md group hover:bg-gray-50 dark:hover:bg-neutral-800"
-      >
-        <Text className="flex items-center group-hover:underline">
-          {title}{" "}
-          {externalLink ? <FiArrowUpRight className="w-4 h-4 ml-1" /> : null}
-        </Text>
-        {children}
-      </a>
-    </Link>
+    (<Link
+      href={href}
+      rel="noreferrer"
+      target={externalLink ? "_blank" : undefined}
+      className="block p-3 -m-3 rounded-md group hover:bg-gray-50 dark:hover:bg-neutral-800">
+
+      <Text className="flex items-center group-hover:underline">
+        {title}{" "}
+        {externalLink ? <FiArrowUpRight className="w-4 h-4 ml-1" /> : null}
+      </Text>
+      {children}
+
+    </Link>)
   );
 };
 

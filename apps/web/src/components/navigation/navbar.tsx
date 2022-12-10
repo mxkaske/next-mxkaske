@@ -18,7 +18,7 @@ const NavBar = () => {
         <Container className="flex items-center justify-between space-x-3">
           <div className="flex flex-1">
             <div>
-              <NextLink href="/">
+              <NextLink href="/" legacyBehavior>
                 <Link className="font-medium">
                   <span className="text-gray-500 dark:text-gray-400">mx</span>
                   kaske

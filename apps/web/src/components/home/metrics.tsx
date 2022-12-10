@@ -19,7 +19,7 @@ const Metrics = () => {
             {formatDistance(new Date(commit.data.author.date), new Date())}{" "}
             ago):
           </Text>
-          <NextLink href={commit.data.html_url}>
+          <NextLink href={commit.data.html_url} legacyBehavior>
             <Link target="_blank" rel="noopener" className="mb-1">
               <code>`{commit.data.message}`</code>
             </Link>

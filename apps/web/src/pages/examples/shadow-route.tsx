@@ -1,5 +1,4 @@
 import Layout from "@/components/common/layout";
-import { default as NextLink } from "next/link";
 import { Heading, Link, Text, Select } from "ui";
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import { useRouter } from "next/router";
