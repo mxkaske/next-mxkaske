@@ -28,6 +28,7 @@ const handler = (req: NextRequest) => {
     // BEFORE: missing `slug` on fresh first page load (e.g. refresh)
     // const slug = req.nextUrl.searchParams.get("slug");
     // AFTER:
+    // https://nextjs.org/docs/messages/middleware-upgrade-guide#how-to-upgrade-4
     const { slug } = params(req.url) as { slug?: string };
     const purpose = req.headers.get("Purpose");
 
