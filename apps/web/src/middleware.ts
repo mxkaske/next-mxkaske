@@ -1,7 +1,5 @@
-import { Redis } from "@upstash/redis";
 import { NextRequest, NextFetchEvent, NextResponse } from "next/server";
-
-const redis = Redis.fromEnv();
+import { redis } from "./lib/upstash";
 
 const PATTERNS = [
   [
