@@ -5,6 +5,7 @@ import Layout from "@/components/common/layout";
 import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 import { NextSeo } from "next-seo";
 import { useMDXComponent } from "next-contentlayer/hooks";
+import { redis } from "@/lib/upstash";
 import React from "react";
 
 // https://github.com/upstash/upstash-redis/issues/216#issuecomment-1280636588
@@ -18,7 +19,6 @@ if (typeof atob === "undefined") {
 
 // Components
 import VariableColorPicker from "@/components/examples/VariableColorPicker";
-import { redis } from "@/lib/upstash";
 
 const components = {
   VariableColorPicker,
