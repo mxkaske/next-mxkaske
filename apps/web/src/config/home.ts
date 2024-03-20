@@ -21,6 +21,11 @@ const stackConfig = {
     title: "Building",
     items: [
       {
+        href: "https://www.openstatus.dev",
+        title: "OpenStatus",
+        description: "Co-Founder, opensource synthetic monitoring.", // TODO: change
+      },
+      {
         href: "https://precycle.today",
         title: "Precycle",
         description: "Co-Founder, building a plastic credit system.", // TODO: change
